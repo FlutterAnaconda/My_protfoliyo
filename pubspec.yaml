@@ -1,0 +1,108 @@
+name: dotcoder1
+description: A new Flutter project.
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.2 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+  cupertino_icons: ^1.0.2
+  google_fonts: ^5.1.0
+  smooth_page_indicator: ^1.1.0
+  flutter_rating_bar: ^4.0.1
+  provider: ^6.0.5
+  fluttertoast: ^8.2.2
+  flutter_stepper: ^0.0.1
+  dotted_border: ^2.0.0+3
+  carousel_slider: ^4.2.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+  flutter_lints: ^2.0.0
+
+
+flutter:
+
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - images/Welcome Screen.png
+    - images/image 3.png
+    - images/handsomafarican.png
+    - images/image 6.png
+    - images/registerimage.png
+    - images/menu-bar 1.png
+    - images/cart.png
+    - images/displayimage1.png
+    - images/displayimage2.png
+    - images/menu - home.png
+    - images/Vector.png
+    - images/user.png
+    - images/clipboard-text.png
+    - images/home-2.png
+    - images/Frame 36797.png
+    - images/Frame 36792.png
+    - images/Frame 36791.png
+    - images/Group 7066.png
+    - images/Group 1171276027.png
+    - images/m1.png
+    - images/m2.png
+    - images/m3.png
+    - images/card1.png
+    - images/card2.png
+    - images/store.png
+    - images/delivery.png
+    - images/mango.png
+
+    # - images/Group 1000003127.png
+    - images/catergoryimages/g12.png
+    - images/catergoryimages/g11.png
+    - images/catergoryimages/g10.png
+    - images/catergoryimages/g9.png
+    - images/catergoryimages/g8.png
+    - images/catergoryimages/g7.png
+    - images/catergoryimages/g6.png
+    - images/catergoryimages/g5.png
+    - images/catergoryimages/g4.png
+    - images/catergoryimages/g3.png
+    - images/catergoryimages/g2.png
+    - images/catergoryimages/g1.png
+
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/assets-and-images/#resolution-aware
+
+  # For details regarding adding assets from package dependencies, see
+  # https://flutter.dev/assets-and-images/#from-packages
+
+  # To add custom fonts to your application, add a fonts section here,
+  # in this "flutter" section. Each entry in this list should have a
+  # "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font. For
+  # example:
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
+  #
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/custom-fonts/#from-packages
