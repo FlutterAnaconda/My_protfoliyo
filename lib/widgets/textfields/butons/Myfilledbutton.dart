@@ -20,8 +20,8 @@ class GradientElevatedButton extends StatelessWidget {
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            Theme.of(context).primaryColor,
-            const Color(0xFF059F55)
+            const Color(0xFF07CD6E),
+            const Color(0xFF059F55).withOpacity(0.86)
           ], // Customize your gradient colors
           begin: Alignment.topCenter, // Adjust the gradient's start position
           end: Alignment.bottomCenter, // Adjust the gradient's end position

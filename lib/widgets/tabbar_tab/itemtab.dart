@@ -2,87 +2,123 @@ import 'package:dotcoder1/widgets/text/constants.dart';
 import 'package:flutter/Material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../Screens/GroceryShop/InhomeScreens/orderdetail.dart';
 import '../../Screens/GroceryShop/InhomeScreens/productdetailsscreen.dart';
 import '../../models/productmodel.dart';
 
 final List<ProductModel> list = [
   ProductModel(
-    title: 'zulam',
-    image: 'images/Group 7066.png',
-    rating: 3,
-    location: '91 park st,12',
-    price: 25,
-  ),
+      title: 'zulam',
+      image: 'images/Group 7066.png',
+      rating: 3,
+      location: '91 park st,12',
+      price: 25,
+      status: 'in_progress'),
   ProductModel(
-    title: 'italia',
-    image: 'images/Group 1171276027.png',
-    rating: 3,
-    location: '91 park st,12',
-    price: 25,
-  ),
+      title: 'italia',
+      image: 'images/Group 1171276027.png',
+      rating: 3,
+      location: '91 park st,12',
+      price: 25,
+      status: 'pending'),
   ProductModel(
-    title: 'norm',
-    image: 'images/Group 1171276027.png',
-    rating: 3,
-    location: '91 park st,12',
-    price: 25,
-  ),
+      title: 'norm',
+      image: 'images/Group 1171276027.png',
+      rating: 3,
+      location: '91 park st,12',
+      price: 25,
+      status: 'delivered'),
   ProductModel(
-    title: 'pharse',
-    image: 'images/Group 1171276027.png',
-    rating: 3,
-    location: '91 park st,12',
-    price: 25,
-  ),
+      title: 'pharse',
+      image: 'images/Group 1171276027.png',
+      rating: 3,
+      location: '91 park st,12',
+      price: 25,
+      status: 'in_progress'),
   ProductModel(
-    title: 'glue',
-    image: 'images/Group 1171276027.png',
-    rating: 3,
-    location: '91 park st,12',
-    price: 25,
-  ),
+      title: 'glue',
+      image: 'images/Group 1171276027.png',
+      rating: 3,
+      location: '91 park st,12',
+      price: 25,
+      status: 'pending'),
   ProductModel(
-    title: 'master',
-    image: 'images/Group 1171276027.png',
-    rating: 3,
-    location: '91 park st,12',
-    price: 25,
-  ),
+      title: 'master',
+      image: 'images/Group 1171276027.png',
+      rating: 3,
+      location: '91 park st,12',
+      price: 25,
+      status: 'delivered'),
   ProductModel(
-    title: 'shifoo',
-    image: 'images/Group 1171276027.png',
-    rating: 3,
-    location: '91 park st,12',
-    price: 25,
-  ),
+      title: 'shifoo',
+      image: 'images/Group 1171276027.png',
+      rating: 3,
+      location: '91 park st,12',
+      price: 25,
+      status: 'pending'),
   ProductModel(
-    title: 'doremon',
-    image: 'images/Group 1171276027.png',
-    rating: 3,
-    location: '91 park st,12',
-    price: 25,
-  ),
+      title: 'doremon',
+      image: 'images/Group 1171276027.png',
+      rating: 3,
+      location: '91 park st,12',
+      price: 25,
+      status: 'completed'),
   ProductModel(
-    title: 'pizzahot',
-    image: 'images/Group 1171276027.png',
-    rating: 3,
-    location: '91 park st,12',
-    price: 25,
-  ),
+      title: 'raw material',
+      image: 'images/Group 1171276027.png',
+      rating: 3,
+      location: '91 park st,12',
+      price: 25,
+      status: 'completed'),
   ProductModel(
-    title: 'speicy pizza',
-    image: 'images/Group 1171276027.png',
-    rating: 3,
-    location: '91 park st,12',
-    price: 25,
-  ),
+      title: 'pinki peerni',
+      image: 'images/Group 1171276027.png',
+      rating: 3,
+      location: '91 park st,12',
+      price: 25,
+      status: 'completed'),
   ProductModel(
-    title: 'cucumber juice',
-    image: 'images/Group 1171276027.png',
-    rating: 3,
-    location: '91 park st,12',
-    price: 25,
-  ),
+      title: 'ice soada',
+      image: 'images/Group 1171276027.png',
+      rating: 3,
+      location: '91 park st,12',
+      price: 25,
+      status: 'completed'),
+  ProductModel(
+      title: 'candyland',
+      image: 'images/Group 1171276027.png',
+      rating: 3,
+      location: '91 park st,12',
+      price: 25,
+      status: 'completed'),
+  ProductModel(
+      title: 'doremon',
+      image: 'images/Group 1171276027.png',
+      rating: 3,
+      location: '91 park st,12',
+      price: 25,
+      status: 'delivered'),
+  ProductModel(
+      title: 'pizzahot',
+      image: 'images/Group 1171276027.png',
+      rating: 3,
+      location: '91 park st,12',
+      price: 25,
+      status: 'pending'),
+  ProductModel(
+      title: 'speicy pizza',
+      image: 'images/Group 1171276027.png',
+      rating: 3,
+      location: '91 park st,12',
+      price: 25,
+      status: 'delivered'),
+  ProductModel(
+      title: 'cucumber juice',
+      image: 'images/Group 1171276027.png',
+      rating: 3,
+      location: '91 park st,12',
+      price: 25,
+      status: 'in_progress'),
 ];
 
 Widget items() {
@@ -206,95 +242,252 @@ Widget active() {
     scrollDirection: Axis.vertical,
     itemCount: list.length,
     itemBuilder: (context, index) {
+      Color? labelColor;
+      String? labelText;
+      // Determine label color and text based on your data
+      if (list[index].status == "in_progress") {
+        labelColor = const Color(0xFF1FB46D);
+        labelText = "In Progress";
+      } else if (list[index].status == "pending") {
+        labelColor = const Color(0xFFFB3C5E);
+        labelText = "Pending";
+      } else if (list[index].status == "delivered") {
+        labelColor = const Color(0xFFF3743D);
+        labelText = "Delivered";
+      } else {
+        return Container();
+      }
       return GestureDetector(
         onTap: () => Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (_) => ProductDetailsScreen(
-                      image: list[index].image!,
-                      location: list[index].location!,
-                      price: list[index].price!,
-                      title: list[index].title!,
-                    ))),
-        child: Container(
-          decoration: BoxDecoration(
-            color: Colors.white, // Set the container background color
-            borderRadius: BorderRadius.circular(9), // Optional: Rounded corners
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.1), // Shadow color
-                spreadRadius: 0, // Spread radius (controls the blur)
-                blurRadius: 3.5630252361297607, // Blur radius
-                offset: const Offset(
-                    0, 1.7815126180648804), // Offset in the x and y axes
-              ),
-            ],
+          context,
+          MaterialPageRoute(
+            builder: (_) => const Orderdetails(),
           ),
+        ),
+        child: Container(
+          decoration: containerdecoration,
           margin: const EdgeInsets.all(8),
           child: SizedBox(
-            height: 120, // Replace with your desired fixed width
-            child: Column(
-              // crossAxisAlignment: CrossAxisAlignment.start,
+            height: 125, // Replace with your desired fixed width
+            child: Stack(
+              alignment: Alignment.topRight,
               children: [
-                Row(
+                Column(
+                  // crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.only(
-                        top: 27,
-                        left: 23,
-                      ),
-                      child: ClipRRect(
-                        borderRadius: const BorderRadius.only(
-                            topLeft: Radius.circular(9),
-                            topRight: Radius.circular(9)),
-                        child: Image.asset(
-                          list[index].image!,
-                          height: 60,
-                          width: 60,
-                          fit: BoxFit.fill,
-                        ),
-                      ),
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                    Row(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                          child: Text(
-                            'Order Number',
-                            style: k14_79B400style,
+                          padding: const EdgeInsets.only(
+                            top: 27,
+                            left: 23,
+                          ),
+                          child: ClipRRect(
+                            borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(9),
+                                topRight: Radius.circular(9)),
+                            child: Image.asset(
+                              list[index].image!,
+                              height: 60,
+                              width: 60,
+                              fit: BoxFit.fill,
+                            ),
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                          child: Text(
-                            '#264100',
-                            style: k12_94G400style,
-                          ),
-                        )
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 8.0),
+                              child: Text(
+                                'Order Number',
+                                style: k14_79B400style,
+                              ),
+                            ),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 8.0),
+                              child: Text(
+                                '#264100',
+                                style: k12_94G400style,
+                              ),
+                            )
+                          ],
+                        ),
                       ],
                     ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 23.0),
+                      child: Row(
+                        children: [
+                          const Icon(
+                            Icons.calendar_month_outlined,
+                            color: Color(0xffD6CCC6),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              '09th Jan, 2023 -- 11:20AM',
+                              style: k12Grey400style,
+                            ),
+                          )
+                        ],
+                      ),
+                    )
                   ],
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 23.0),
-                  child: Row(
+                Container(
+                  width: 83, // Width of the label container
+                  height: 25, // Height of the label container
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    color: labelColor,
+                    borderRadius: const BorderRadius.only(
+                      topRight: Radius.circular(9),
+                      bottomLeft: Radius.circular(9),
+                    ),
+                  ),
+                  child: Text(labelText, style: k11_09w400style),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+    },
+  );
+}
+
+Widget completed() {
+  // Implement the content for each tab here
+  return ListView.builder(
+    scrollDirection: Axis.vertical,
+    itemCount: list.length,
+    itemBuilder: (context, index) {
+      if (list[index].status != 'completed') {
+        return Container();
+      }
+      return GestureDetector(
+        onTap: () => Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (_) => const Orderdetails(),
+          ),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 4.0),
+          child: Container(
+            decoration: containerdecoration,
+            margin: const EdgeInsets.all(8),
+            child: SizedBox(
+              height: 125, // Replace with your desired fixed width
+              child: Stack(
+                alignment: Alignment.centerRight,
+                children: [
+                  Column(
+                    // crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Icon(
-                        Icons.calendar_month_outlined,
-                        color: Color(0xffD6CCC6),
+                      Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(
+                              top: 27,
+                              left: 23,
+                            ),
+                            child: ClipRRect(
+                              borderRadius: const BorderRadius.only(
+                                  topLeft: Radius.circular(9),
+                                  topRight: Radius.circular(9)),
+                              child: Image.asset(
+                                list[index].image!,
+                                height: 60,
+                                width: 60,
+                                fit: BoxFit.fill,
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 20.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 8.0),
+                                  child: Text(
+                                    'Order Number',
+                                    style: k14_79B400style,
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 8.0),
+                                  child: Text(
+                                    '#264100',
+                                    style: k12_94G400style,
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 8.0),
+                                  child: Text(
+                                    'Completed',
+                                    style: k11_09red500style,
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
                       Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          '09th Jan, 2023 -- 11:20AM',
-                          style: k12Grey400style,
+                        padding: const EdgeInsets.only(left: 23.0),
+                        child: Row(
+                          children: [
+                            const Icon(
+                              Icons.calendar_month_outlined,
+                              color: Color(0xffD6CCC6),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                '09th Jan, 2023 -- 11:20AM',
+                                style: k12Grey400style,
+                              ),
+                            )
+                          ],
                         ),
                       )
                     ],
                   ),
-                )
-              ],
+                  Padding(
+                    padding: const EdgeInsets.only(right: 12.0),
+                    child: Container(
+                      height: 26,
+                      width: 26,
+                      decoration: BoxDecoration(
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(30)),
+                        gradient: LinearGradient(
+                          colors: [
+                            const Color(0xff07CD6E),
+                            const Color(0xff059F55).withOpacity(0.86),
+                          ],
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                        ),
+                      ),
+                      child: const Icon(
+                        Icons.check,
+                        size: 20,
+                        weight: 1,
+                        color: Colors.white,
+                      ),
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         ),

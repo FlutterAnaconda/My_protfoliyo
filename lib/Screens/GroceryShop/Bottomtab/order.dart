@@ -87,7 +87,7 @@ class _OrderTabState extends State<OrderTab>
                 controller: _pageController,
                 children: [
                   active(),
-                  active(),
+                  completed(),
                 ],
                 onPageChanged: (index) {
                   _tabController.index = index;

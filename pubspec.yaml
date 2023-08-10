@@ -66,6 +66,9 @@ flutter:
     - images/store.png
     - images/delivery.png
     - images/mango.png
+    - images/orderfill.png
+    - images/cartfill.png
+    - images/homefill.png
 
     # - images/Group 1000003127.png
     - images/catergoryimages/g12.png

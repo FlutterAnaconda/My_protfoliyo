@@ -6,6 +6,7 @@ class ProductModel {
   int? rating;
   String? location;
   bool isfav;
+  String? status;
 
   ProductModel(
       {this.title,
@@ -14,5 +15,6 @@ class ProductModel {
       this.rating,
       this.location,
       this.subtitle,
+      this.status,
       this.isfav = false});
 }

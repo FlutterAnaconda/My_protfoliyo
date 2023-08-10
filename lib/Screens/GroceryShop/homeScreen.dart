@@ -49,12 +49,21 @@ class _HomeScreenState extends State<HomeScreen> {
               true, // Set this to false to hide the inactive tab labels.
           items: [
             BottomNavigationBarItem(
-              icon: Image.asset('images/home-2.png', height: 24, width: 24),
+              icon: Image.asset(
+                  _currentIndex == 0
+                      ? 'images/homefill.png'
+                      : 'images/home-2.png',
+                  height: 24,
+                  width: 24),
               label: 'Home',
             ),
             BottomNavigationBarItem(
-              icon: Image.asset('images/clipboard-text.png',
-                  height: 24, width: 24),
+              icon: Image.asset(
+                  _currentIndex == 1
+                      ? 'images/orderfill.png'
+                      : 'images/clipboard-text.png',
+                  height: 24,
+                  width: 24),
               label: 'Order',
             ),
             BottomNavigationBarItem(
@@ -63,7 +72,12 @@ class _HomeScreenState extends State<HomeScreen> {
               label: '',
             ),
             BottomNavigationBarItem(
-              icon: Image.asset('images/Vector.png', height: 24, width: 24),
+              icon: Image.asset(
+                  _currentIndex == 3
+                      ? 'images/cartfill.png'
+                      : 'images/Vector.png',
+                  height: 24,
+                  width: 24),
               label: 'Cart',
             ),
             BottomNavigationBarItem(

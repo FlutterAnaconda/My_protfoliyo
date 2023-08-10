@@ -44,6 +44,10 @@ final k16G600style = GoogleFonts.poppins(
 
 final k16B500style =
     GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.w500);
+
+// final k16B600style =
+// GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.w600);
+
 final k14_79B400style =
     GoogleFonts.poppins(fontSize: 14.79, fontWeight: FontWeight.w400);
 
@@ -57,10 +61,54 @@ final k12Grey400style = GoogleFonts.poppins(
   fontWeight: FontWeight.w400,
   color: const Color(0xff9C9898),
 );
+final k11_09Grey400style = GoogleFonts.poppins(
+  fontSize: 11.09,
+  fontWeight: FontWeight.w400,
+  color: const Color(0xff9796A1),
+);
+final k12w400interstyle = GoogleFonts.inter(
+  fontSize: 12,
+  fontWeight: FontWeight.w400,
+  color: const Color(0xffffffff),
+);
+
+final k14B400interstyle = GoogleFonts.inter(
+  fontSize: 14,
+  fontWeight: FontWeight.w400,
+  color: const Color(0xff27272A),
+);
 
 final k12_8B500style = GoogleFonts.poppins(
   fontSize: 12.8,
   fontWeight: FontWeight.w500,
 );
-final k10B300style = GoogleFonts.poppins(
+
+final k10grey300style = GoogleFonts.poppins(
     fontSize: 10, fontWeight: FontWeight.w300, color: const Color(0xffD6D6D6));
+
+final k11_09w400style = GoogleFonts.poppins(
+    fontSize: 11.09,
+    fontWeight: FontWeight.w400,
+    color: const Color(0xffffffff));
+
+final k11_09red500style = GoogleFonts.poppins(
+    fontSize: 11.09,
+    fontWeight: FontWeight.w500,
+    color: const Color(0xffB62D2D));
+
+final containerdecoration = BoxDecoration(
+  color: Colors.white, // Set the container background color
+  borderRadius: BorderRadius.circular(9),
+  border: Border.all(
+    width: 0.5,
+    color: Colors.black.withOpacity(0.05),
+  ), // Optional: Rounded corners
+  boxShadow: [
+    BoxShadow(
+      color: Colors.black.withOpacity(0.05), // Shadow color
+      spreadRadius: 0, // Spread radius (controls the blur)
+      blurRadius: 2, // Blur radius
+      offset: const Offset(0, 2), // Offset in the x and y axes
+    ),
+  ],
+);

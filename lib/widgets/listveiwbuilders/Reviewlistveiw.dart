@@ -109,7 +109,7 @@ class _ReviewsBuilderState extends State<ReviewsBuilder> {
                               ),
                               Text(
                                 list[index].location!,
-                                style: k10B300style,
+                                style: k10grey300style,
                               ),
                             ],
                           ),
