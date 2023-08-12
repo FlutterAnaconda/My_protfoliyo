@@ -114,7 +114,7 @@ class _StoresdetailscreenState extends State<Storesdetailscreen> {
           headerSliverBuilder: (context, innerBoxIsScrolled) {
             return [
               SliverAppBar(
-                expandedHeight: 431.0,
+                expandedHeight: 433.0,
                 flexibleSpace: FlexibleSpaceBar(
                   background: Column(
                     children: [

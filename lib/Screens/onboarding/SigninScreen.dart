@@ -43,9 +43,7 @@ class _SignInScreenState extends State<SignInScreen> {
           height: mediaquery.height,
           child: SingleChildScrollView(
             child: Column(
-            
               crossAxisAlignment: CrossAxisAlignment.center,
-
               children: [
                 SizedBox(
                   height: mediaquery.height * 0.02,
@@ -100,8 +98,10 @@ class _SignInScreenState extends State<SignInScreen> {
                             context, ForgotScreen.routename),
                         child: Text(
                           'Forgot password',
-                          style:
-                              TextStyle(color: Theme.of(context).primaryColor),
+                          style: TextStyle(
+                              color: Theme.of(context).primaryColor,
+                              decoration: TextDecoration.underline,
+                              decorationColor: Theme.of(context).primaryColor),
                         )),
                   ],
                 ),
@@ -111,8 +111,12 @@ class _SignInScreenState extends State<SignInScreen> {
                 GradientElevatedButton(
                   text: 'Login',
                   onPressed: () {
-                    Navigator.pushReplacementNamed(
-                        context, HomeScreen.routename);
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const HomeScreen())
+                        //  HomeScreen.routename
+                        );
                   },
                 ),
                 SizedBox(
@@ -125,16 +129,14 @@ class _SignInScreenState extends State<SignInScreen> {
                 MyLoginWithButton(
                     onTap: () => print("button pressed"),
                     text: 'Continue with google',
-                    iconUrl:
-                        'https://th.bing.com/th/id/R.fcba2d6c6d52823730773a50e2906eed?rik=sPByQ0%2bTf%2beU2Q&pid=ImgRaw&r=0'),
+                    iconUrl: 'images/google.png'),
                 SizedBox(
                   height: mediaquery.height * 0.01,
                 ),
                 MyLoginWithButton(
                     onTap: () => print("button pressed"),
                     text: 'Continue with Facebook',
-                    iconUrl:
-                        'https://th.bing.com/th/id/OIP.NM5qan4eTiNM6tXXvUkMsgHaH0?pid=ImgDet&rs=1'),
+                    iconUrl: 'images/fb.png'),
                 SizedBox(
                   height: mediaquery.height * 0.01,
                 ),
@@ -159,6 +161,7 @@ class _SignInScreenState extends State<SignInScreen> {
                           style: TextStyle(
                             color: Theme.of(context).primaryColor,
                             decoration: TextDecoration.underline,
+                            decorationColor: Theme.of(context).primaryColor,
                           ),
                         ),
                       ),

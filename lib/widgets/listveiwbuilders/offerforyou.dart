@@ -75,7 +75,7 @@ class OfferListveiw extends StatelessWidget {
               ),
               margin: const EdgeInsets.all(8),
               child: SizedBox(
-                width: 212, // Replace with your desired fixed width
+                width: 200, // Replace with your desired fixed width
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [

@@ -33,14 +33,19 @@ class _MyPageViewState extends State<MyPageView> {
               alignment: Alignment.topRight,
               child: TextButton(
                 onPressed: () {
-                  Navigator.pushReplacementNamed(
-                      context, RegistrationScreen.routename);
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const RegistrationScreen())
+                      // RegistrationScreen.routename
+                      );
                 },
                 child: Text(
                   'Skip',
                   style: GoogleFonts.poppins(
                     color: Colors.black,
                     fontWeight: FontWeight.w500,
+                    decoration: TextDecoration.underline,
                   ),
                 ),
               ),

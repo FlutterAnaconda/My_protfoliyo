@@ -50,12 +50,14 @@ class _FavoritesScreenState extends State<FavoritesScreen>
       length: 2, // Number of tabs
       child: Scaffold(
         appBar: MYDetailsappbar(
-            text: 'Favorite',
-            onpressed: () => Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const HomeScreen(),
-                ))),
+          text: 'Favorite',
+          onpressed: () => Navigator.pop(context),
+        ),
+        // onpressed: () => Navigator.pushReplacement(
+        //     context,
+        //     MaterialPageRoute(
+        //       builder: (context) => const HomeScreen(),
+        //     ))),
         body: Column(
           children: [
             Padding(

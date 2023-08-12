@@ -51,7 +51,7 @@ class _HomeTabState extends State<HomeTab> {
               // Add your logic here for the first icon onTap event.
             },
             child: const Padding(
-              padding: EdgeInsets.all(13.0),
+              padding: EdgeInsets.all(14.0),
               child: Image(
                 image: AssetImage('images/menu-bar 1.png'),
               ),

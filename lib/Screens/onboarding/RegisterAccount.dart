@@ -116,7 +116,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                             )),
                 ),
                 SizedBox(
-                  height: mediaquery.height * 0.05,
+                  height: mediaquery.height * 0.03,
                 ),
                 GradientElevatedButton(
                   text: 'Next',
@@ -124,9 +124,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     // Perform form submission
                   },
                 ),
-                SizedBox(
-                  height: mediaquery.height * 0.01,
-                ),
+                // SizedBox(
+                //   height: mediaquery.height * 0.01,
+                // ),
                 SizedBox(
                   width: mediaquery.width,
                   child: Row(
@@ -149,6 +149,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                           style: TextStyle(
                             color: Theme.of(context).primaryColor,
                             decoration: TextDecoration.underline,
+                            decorationColor: Theme.of(context).primaryColor,
                           ),
                         ),
                       ),

@@ -26,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
     const CartScreen(
       cartItems: [],
     ),
-    const ProfileTab(),
+    ProfileTab(),
   ];
 
   @override
@@ -81,8 +81,13 @@ class _HomeScreenState extends State<HomeScreen> {
               label: 'Cart',
             ),
             BottomNavigationBarItem(
-              icon: Image.asset('images/user.png', height: 24, width: 24),
-              label: 'Profile',
+              icon: Image.asset(
+                  _currentIndex == 4
+                      ? 'images/settingicons/setting-2.png'
+                      : "images/settingicons/setting.png",
+                  height: 24,
+                  width: 24),
+              label: 'Setting',
             ),
           ],
         ),

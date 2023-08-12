@@ -1,9 +1,9 @@
 class PaymentMethodModel {
-  String Imageurl;
-  String text;
+  final String imageurl;
+  final String text;
 
-  PaymentMethodModel(
-    this.Imageurl,
+  const PaymentMethodModel(
+    this.imageurl,
     this.text,
   );
 }

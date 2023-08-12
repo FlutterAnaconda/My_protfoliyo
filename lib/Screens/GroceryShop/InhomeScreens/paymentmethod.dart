@@ -81,7 +81,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                     return Padding(
                       padding: const EdgeInsets.all(4.0),
                       child: Paymentmethodcard(
-                          imageUrl: paymethod[index].Imageurl,
+                          imageUrl: paymethod[index].imageurl,
                           text: paymethod[index].text,
                           isSelected: selectedCardIndex ==
                               index, // Pass the selected state

@@ -38,7 +38,7 @@ class MyLoginWithButton extends StatelessWidget {
                 SizedBox(
                     height: mediaquery.height * 0.1,
                     width: mediaquery.width * 0.1,
-                    child: Image.network(iconUrl)),
+                    child: Image.asset(iconUrl)),
                 const SizedBox(
                     width: 8.0), // Adjust the spacing between icon and text
                 Text(

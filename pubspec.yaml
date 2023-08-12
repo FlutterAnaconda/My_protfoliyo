@@ -69,6 +69,29 @@ flutter:
     - images/orderfill.png
     - images/cartfill.png
     - images/homefill.png
+    - images/pak.png
+    - images/us.png
+    - images/arabia.png
+    - images/google.png
+    - images/fb.png
+    - images/chatstrat.png
+    - images/attact.png
+    - images/camera.png
+    - images/send.png
+    - images/settingicons/arrow.png
+    - images/settingicons/setting-2.png
+    - images/settingicons/setting.png
+    - images/settingicons/s1.png
+    - images/settingicons/s2.png
+    - images/settingicons/s3.png
+    - images/settingicons/s4.png
+    - images/settingicons/s5.png
+    - images/settingicons/s6.png
+    - images/settingicons/s7.png
+    - images/settingicons/s8.png
+    - images/settingicons/s9.png
+    - images/settingicons/s10.png
+    - images/settingicons/s11.png
 
     # - images/Group 1000003127.png
     - images/catergoryimages/g12.png

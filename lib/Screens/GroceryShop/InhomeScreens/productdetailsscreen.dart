@@ -12,6 +12,7 @@ import '../../../widgets/customappbar.dart';
 import '../../../widgets/listveiwbuilders/Reviewlistveiw.dart';
 import '../../../widgets/text/constants.dart';
 import '../../../widgets/text/homerowtext.dart';
+import 'Seeallfavorites.dart';
 
 class ProductDetailsScreen extends StatefulWidget {
   static const String routename = '/ProductDetailsScreen';
@@ -32,6 +33,7 @@ class ProductDetailsScreen extends StatefulWidget {
 
 class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
   bool isAssetimage = true;
+  bool isfav = false;
 
   // List to hold items added to the cart
 
@@ -108,33 +110,57 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                         ),
                       ],
                     ),
-                    child: Stack(children: [
-                      // Image Widget
-                      isAssetimage
-                          ? Image.asset(
-                              widget.image,
-                              width: double.infinity,
-                              fit: BoxFit.fill,
-                            )
-                          : Image.network(
-                              widget.image,
-                              width: double.infinity,
-                              fit: BoxFit.fill,
-                            ),
-                      // Cart Quantity Control
-                      Positioned(
-                        bottom: 0,
-                        right: 5,
-                        child: CartQuantityWidget(
-                          initialquantity: cartQuantity,
-                          onQuantityChanged: (newQuantity) {
-                            setState(() {
-                              cartQuantity = newQuantity;
-                            });
-                          },
+                    child: Stack(
+                      children: [
+                        // Image Widget
+                        isAssetimage
+                            ? Image.asset(
+                                widget.image,
+                                width: double.infinity,
+                                fit: BoxFit.fill,
+                              )
+                            : Image.network(
+                                widget.image,
+                                width: double.infinity,
+                                fit: BoxFit.fill,
+                              ),
+                        // Cart Quantity Control
+                        Positioned(
+                          bottom: 0,
+                          right: 5,
+                          child: CartQuantityWidget(
+                            initialquantity: cartQuantity,
+                            onQuantityChanged: (newQuantity) {
+                              setState(() {
+                                cartQuantity = newQuantity;
+                              });
+                            },
+                          ),
                         ),
-                      ),
-                    ]),
+                        Positioned(
+                          bottom: 0,
+                          left: 5,
+                          child: GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                isfav = !isfav;
+                                // Toggle favorite state
+                              });
+                            },
+                            child: Padding(
+                              padding: const EdgeInsets.only(right: 12.0),
+                              child: Icon(
+                                isfav
+                                    ? Icons.favorite
+                                    : Icons.favorite_border_outlined,
+                                color: Colors.red,
+                                size: 30,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8.0),
@@ -201,6 +227,21 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                       ),
                     ),
                   ),
+                  // Padding(
+                  //   padding: const EdgeInsets.only(bottom: 18.0),
+                  //   child: TextButton(
+                  //     onPressed: () => Navigator.push(
+                  //       context,
+                  //       MaterialPageRoute(
+                  //         builder: (_) => const FavoritesScreen(),
+                  //       ),
+                  //     ),
+                  //     child: Text(
+                  //       'See All favorite',
+                  //       style: k10G400style,
+                  //     ),
+                  //   ),
+                  // ),
                   Padding(
                     padding: const EdgeInsets.only(left: 10.0),
                     child: Text(

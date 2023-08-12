@@ -265,7 +265,7 @@ Widget active() {
           ),
         ),
         child: Container(
-          decoration: containerdecoration,
+          decoration: cardcontainerdecoration,
           margin: const EdgeInsets.all(8),
           child: SizedBox(
             height: 125, // Replace with your desired fixed width
@@ -378,7 +378,7 @@ Widget completed() {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 4.0),
           child: Container(
-            decoration: containerdecoration,
+            decoration: cardcontainerdecoration,
             margin: const EdgeInsets.all(8),
             child: SizedBox(
               height: 125, // Replace with your desired fixed width

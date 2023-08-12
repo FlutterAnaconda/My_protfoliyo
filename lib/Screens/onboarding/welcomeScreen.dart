@@ -40,8 +40,12 @@ class WelcomeScreen extends StatelessWidget {
                   onPressed: () {
                     // Add your button's onPressed logic here
 
-                    Navigator.pushReplacementNamed(
-                        context, MyPageView.routename);
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const MyPageView())
+                        // MyPageView.routename
+                        );
                   },
                 ),
                 SizedBox(height: mediaquery.height * 0.02),
