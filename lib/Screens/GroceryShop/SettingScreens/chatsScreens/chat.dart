@@ -70,7 +70,7 @@ class _ConversationBodyState extends State<ConversationBody> {
         ),
         MessageInput(
           onSendMessage: (message) {
-            _addMessage(message, false);
+            _addMessage(message, true);
           },
         ),
       ],
@@ -187,10 +187,11 @@ class _MessageInputState extends State<MessageInput> {
                       border: InputBorder.none,
                       hintStyle: k12lightgrey400,
                     ),
+                    onSubmitted: (message) => _sendMessage(),
                   ),
                 ),
                 Container(
-                  color: const Color(0xff000000), // Customize the divider color
+                  color: const Color(0xff9C9D9D), // Customize the divider color
                   width: 0.5,
                   height: 30,
                 ),

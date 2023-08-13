@@ -1,4 +1,5 @@
 import 'package:dotcoder1/Screens/GroceryShop/SettingScreens/help.dart';
+import 'package:dotcoder1/Screens/GroceryShop/SettingScreens/policies.dart';
 import 'package:dotcoder1/Screens/GroceryShop/SettingScreens/userinfo.dart';
 import 'package:dotcoder1/Screens/GroceryShop/homeScreen.dart';
 import 'package:dotcoder1/Screens/onboarding/SigninScreen.dart';
@@ -9,6 +10,7 @@ import '../../../models/setting_tab_model.dart';
 import '../../../widgets/listveiwbuilders/settinglistview.dart';
 import '../../../widgets/textfields/butons/Myfilledbutton.dart';
 
+import '../SettingScreens/Term&conditions.dart';
 import '../SettingScreens/aboutus.dart';
 
 import '../SettingScreens/chatsScreens/startchating.dart';
@@ -52,7 +54,15 @@ class _SettingTabState extends State<SettingTab> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: ((context) => LangScreen()),
+              builder: ((context) => const PolicesScreen(
+                    answer: [
+                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec frngilla accumsan, risus sem sollicitudin lacus, ut interdum tellus. '
+                    ],
+                    appbartitle: 'Privacy Policy',
+                    height: 500,
+                    numberofQAs: 1,
+                    question: ['You need to fulfil these requirements'],
+                  )),
             ),
           );
         },
@@ -76,7 +86,7 @@ class _SettingTabState extends State<SettingTab> {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: ((context) => LangScreen()),
+            builder: ((context) => const TermconScreen()),
           ),
         );
       },
@@ -100,11 +110,19 @@ class _SettingTabState extends State<SettingTab> {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: ((context) => LangScreen()),
+            builder: ((context) => const PolicesScreen(
+                  answer: [
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec frngilla accumsan, risus sem sollicitudin lacus, ut interdum tellus. '
+                  ],
+                  appbartitle: 'Refund Policy',
+                  height: 500,
+                  numberofQAs: 1,
+                  question: ['You need to fulfil these requirements'],
+                )),
           ),
         );
       },
-      title: 'Refund Poliocy',
+      title: 'Refund Policy',
     ),
     SettingtabModel(
       iconspath: 'images/settingicons/s7.png',
@@ -112,11 +130,19 @@ class _SettingTabState extends State<SettingTab> {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: ((context) => LangScreen()),
+            builder: ((context) => const PolicesScreen(
+                  answer: [
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec frngilla accumsan, risus sem sollicitudin lacus, ut interdum tellus. '
+                  ],
+                  appbartitle: 'Cancelation Policy',
+                  height: 500,
+                  numberofQAs: 1,
+                  question: ['You need to fulfil these requirements'],
+                )),
           ),
         );
       },
-      title: 'Cancelation policy',
+      title: 'Cancelation Policy',
     ),
     SettingtabModel(
       iconspath: 'images/settingicons/s8.png',
@@ -124,7 +150,19 @@ class _SettingTabState extends State<SettingTab> {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: ((context) => LangScreen()),
+            builder: ((context) => const PolicesScreen(
+                  answer: [
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus.',
+                    ' Class aptent taciti sociosqu ad litora torquent per conubia nostra, per Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec frngilla accumsan, risus sem sollicitudin lacus, ut interdum tellus. '
+                  ],
+                  appbartitle: 'Shipping Policy',
+                  height: 500,
+                  numberofQAs: 2,
+                  question: [
+                    'You need to fulfil these requirements',
+                    'You need to access these requirements'
+                  ],
+                )),
           ),
         );
       },
@@ -136,7 +174,7 @@ class _SettingTabState extends State<SettingTab> {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: ((context) => const HelpScreen()),
+            builder: ((context) => LangScreen()),
           ),
         );
       },

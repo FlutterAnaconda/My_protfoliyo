@@ -22,7 +22,7 @@ class MyLoginWithButton extends StatelessWidget {
           style: ElevatedButton.styleFrom(
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8.0),
-              side: const BorderSide(color: Color(0xFFD6D8DA), width: 1),
+              side: const BorderSide(color: Color(0xFFD6D8DA), width: 0.5),
             ),
             padding: const EdgeInsets.all(16.0),
             elevation: 4.0,

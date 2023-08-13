@@ -16,17 +16,19 @@ class StartchatindScreen extends StatelessWidget {
           onpressed: () {
             Navigator.pop(context);
           }),
-      body: Column(
-        children: [
-          const SizedBox(
-            height: 40,
-          ),
-          Image.asset('images/chatstrat.png'),
-          Text(
-            'No Conversation yet?',
-            style: k20darkgrey400,
-          ),
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const SizedBox(
+              height: 40,
+            ),
+            Image.asset('images/chatstrat.png'),
+            Text(
+              'No Conversation yet?',
+              style: k20darkgrey400,
+            ),
+          ],
+        ),
       ),
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 60.0, vertical: 30),

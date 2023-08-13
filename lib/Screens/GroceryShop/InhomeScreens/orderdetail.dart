@@ -169,55 +169,61 @@ class Orderdetails extends StatelessWidget {
                   ),
                 ),
               ),
-              Container(
-                height: 125,
-                width: 370,
-                decoration: cardcontainerdecoration,
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('Details', style: k18G600style),
-                      Row(
-                        children: [
-                          Text(
-                            'Delivery Free for 3.6kms',
-                            style: k14lightblack400style,
-                          ),
-                          const Spacer(),
-                          Text(
-                            '+\$12.70',
-                            style: k14lightblack400style,
-                          ),
-                        ],
+              Row(
+                children: [
+                  Expanded(
+                    child: Container(
+                      height: 125,
+                      width: 370,
+                      decoration: cardcontainerdecoration,
+                      child: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text('Details', style: k18G600style),
+                            Row(
+                              children: [
+                                Text(
+                                  'Delivery Free for 3.6kms',
+                                  style: k14lightblack400style,
+                                ),
+                                const Spacer(),
+                                Text(
+                                  '+\$12.70',
+                                  style: k14lightblack400style,
+                                ),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                Text(
+                                  'Shipping fee',
+                                  style: k14lightblack400style,
+                                ),
+                                const Spacer(),
+                                Text('+\$12.70', style: k14lightblack400style),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                Text(
+                                  'Total',
+                                  style: k18lightgrey600style,
+                                ),
+                                const Spacer(),
+                                Text(
+                                  '\$34.70',
+                                  style: k18lightgrey600style,
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
-                      Row(
-                        children: [
-                          Text(
-                            'Shipping fee',
-                            style: k14lightblack400style,
-                          ),
-                          const Spacer(),
-                          Text('+\$12.70', style: k14lightblack400style),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Text(
-                            'Total',
-                            style: k18lightgrey600style,
-                          ),
-                          const Spacer(),
-                          Text(
-                            '\$34.70',
-                            style: k18lightgrey600style,
-                          ),
-                        ],
-                      ),
-                    ],
+                    ),
                   ),
-                ),
+                ],
               ),
             ],
           ),

@@ -91,10 +91,35 @@ final k14Grey500style = GoogleFonts.poppins(
   fontWeight: FontWeight.w500,
   color: const Color(0xff9C9898),
 );
+final k14Grey300style = GoogleFonts.poppins(
+  fontSize: 14,
+  fontWeight: FontWeight.w300,
+  color: const Color(0xff646363),
+);
+final k14darkGrey500style = GoogleFonts.poppins(
+  fontSize: 14,
+  fontWeight: FontWeight.w500,
+  color: const Color(0xff4D4C4C),
+);
+final k18B700style = GoogleFonts.mulish(
+  fontSize: 18,
+  fontWeight: FontWeight.w700,
+  color: const Color(0xff000000),
+);
+final k12B500style = GoogleFonts.mulish(
+  fontSize: 12,
+  fontWeight: FontWeight.w500,
+  color: const Color(0xff000000),
+);
 final k12Grey400style = GoogleFonts.poppins(
   fontSize: 12,
   fontWeight: FontWeight.w400,
   color: const Color(0xff9C9898),
+);
+final k16Grey400style = GoogleFonts.poppins(
+  fontSize: 16,
+  fontWeight: FontWeight.w400,
+  color: const Color(0xff8C8E97),
 );
 final k11_09Grey400style = GoogleFonts.poppins(
   fontSize: 11.09,

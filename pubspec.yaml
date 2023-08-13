@@ -77,7 +77,13 @@ flutter:
     - images/chatstrat.png
     - images/attact.png
     - images/camera.png
+    - images/helpsupport.png
     - images/send.png
+    - images/loc.png
+    - images/sms.png
+    - images/call.png
+    - images/procamera.png
+    - images/editable.png
     - images/settingicons/arrow.png
     - images/settingicons/setting-2.png
     - images/settingicons/setting.png
