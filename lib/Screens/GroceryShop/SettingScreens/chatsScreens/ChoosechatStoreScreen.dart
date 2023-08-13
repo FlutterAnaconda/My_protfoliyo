@@ -29,21 +29,25 @@ class _ChoosechatStoreScreenState extends State<ChoosechatStoreScreen> {
           text: 'Chat',
           onpressed: () => Navigator.pop(context),
         ),
-        body: Column(
-          children: [
-            const SizedBox(
-              height: 20,
-            ),
-            SearchTextField(
-              controller: controller,
-              suggestions: const [],
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            // const SizedBox(height: 500, child: AllStoresscreen()),
-            SizedBox(height: 500, child: chooseStores()),
-          ],
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              const SizedBox(
+                height: 20,
+              ),
+              SearchTextField(
+                controller: controller,
+                suggestions: const [],
+                isexpanded: true,
+                hinttext: 'Search Conversation',
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              // const SizedBox(height: 500, child: AllStoresscreen()),
+              SizedBox(height: 500, child: chooseStores()),
+            ],
+          ),
         ),
       ),
     );
@@ -57,9 +61,13 @@ class _ChoosechatStoreScreenState extends State<ChoosechatStoreScreen> {
           onTap: () => Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const ConversationScreen(),
+                builder: (context) => const ConversationScreen(
+                  imagepath: 'images/Group 1171276027.png',
+                  storetitle: 'Home Mart',
+                ),
               )),
           child: Container(
+            height: 82,
             decoration: BoxDecoration(
               color: Colors.white, // Set the container background color
               borderRadius: BorderRadius.circular(5),
@@ -78,73 +86,66 @@ class _ChoosechatStoreScreenState extends State<ChoosechatStoreScreen> {
             ),
             margin: const EdgeInsets.all(8),
             child: SizedBox(
-              width: 252, // Replace with your desired fixed width
-              child: Column(
+              width: MediaQuery.of(context).size.width *
+                  0.8, // Replace with your desired fixed width
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Row(
+                  const CircleAvatar(
+                    radius: 30,
+                    backgroundImage: AssetImage(
+                      'images/Group 1171276027.png',
+                    ),
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 8.0),
-                        child: CircleAvatar(
-                          radius: 30,
-                          backgroundImage: AssetImage(
-                            'images/Group 1171276027.png',
+                      Padding(
+                        padding: const EdgeInsets.only(
+                          top: 18.0,
+                        ),
+                        child: Text(
+                          'Home mart',
+                          style: GoogleFonts.poppins(
+                            fontSize: 12.8,
+                            fontWeight: FontWeight.w600,
                           ),
                         ),
                       ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                      Text(
+                        'Admin',
+                        style: GoogleFonts.poppins(
+                            color: const Color(0xff999999),
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400),
+                      ),
+                      Row(
                         children: [
-                          Padding(
-                            padding: const EdgeInsets.only(top: 18.0, left: 10),
-                            child: Text(
-                              'Home mart',
-                              style: GoogleFonts.poppins(
-                                fontSize: 12.8,
-                                fontWeight: FontWeight.w600,
-                              ),
+                          Text(
+                            '17th Jan, 2023',
+                            style: GoogleFonts.poppins(
+                              fontSize: 11.09,
+                              fontWeight: FontWeight.w300,
+                              color: const Color(0xff5A5A5A),
                             ),
                           ),
-                          Row(
-                            children: [
-                              const Icon(
-                                Icons.location_on,
-                                color: Color(0xff737373),
-                              ),
-                              Text(
-                                'al-barg pindi',
-                                style: GoogleFonts.poppins(
-                                    color: Colors.black45, fontSize: 12),
-                              ),
-                            ],
-                          ),
-                          Row(
-                            children: [
-                              const Icon(
-                                Icons.star,
-                                color: Colors.amber,
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(left: 5),
-                                child: Text(
-                                  '5.0',
-                                  style: GoogleFonts.poppins(
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                              ),
-                            ],
+                          Text(
+                            '-- 03:20 AM',
+                            style: GoogleFonts.poppins(
+                              fontSize: 11.09,
+                              fontWeight: FontWeight.w300,
+                              color: const Color(0xff9796A1),
+                            ),
                           ),
                         ],
                       ),
                     ],
                   ),
-                  Text(
-                    'Lorem ipsum dolor sit amet, Lorem \nipsum dolor sit amet, consectetur ',
-                    style: GoogleFonts.poppins(
-                        fontSize: 12, fontWeight: FontWeight.w400),
-                  )
+                  Image.asset(
+                    'images/settingicons/arrow.png',
+                    width: 5,
+                    height: 12,
+                  ),
                 ],
               ),
             ),

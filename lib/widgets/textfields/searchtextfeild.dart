@@ -3,9 +3,15 @@ import 'package:flutter/material.dart';
 class SearchTextField extends StatefulWidget {
   final TextEditingController controller;
   final List<String> suggestions;
+  final bool isexpanded;
+  final String hinttext;
 
   const SearchTextField(
-      {Key? key, required this.controller, required this.suggestions})
+      {Key? key,
+      required this.controller,
+      required this.suggestions,
+      required this.isexpanded,
+      required this.hinttext})
       : super(key: key);
 
   @override
@@ -53,7 +59,7 @@ class _SearchTextFieldState extends State<SearchTextField> {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12.0),
           child: SizedBox(
-            width: 276,
+            width: widget.isexpanded ? MediaQuery.of(context).size.width : 276,
             child: TextField(
               textAlign: TextAlign.center,
               controller: widget.controller,
@@ -67,7 +73,7 @@ class _SearchTextFieldState extends State<SearchTextField> {
                 // suffixIcon: Icon(
 
                 // ),
-                hintText: 'Search',
+                hintText: widget.hinttext,
                 hintStyle: const TextStyle(
                   color: Color(0xFF868889),
                 ),

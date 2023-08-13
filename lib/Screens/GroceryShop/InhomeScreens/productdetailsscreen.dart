@@ -138,8 +138,8 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                           ),
                         ),
                         Positioned(
-                          bottom: 0,
-                          left: 5,
+                          top: 0,
+                          right: 0,
                           child: GestureDetector(
                             onTap: () {
                               setState(() {

@@ -8,20 +8,20 @@ import 'package:flutter/material.dart';
 import '../../../models/setting_tab_model.dart';
 import '../../../widgets/listveiwbuilders/settinglistview.dart';
 import '../../../widgets/textfields/butons/Myfilledbutton.dart';
-import '../SettingScreens/Setting.dart';
+
 import '../SettingScreens/aboutus.dart';
-import '../SettingScreens/chatsScreens/chat.dart';
+
 import '../SettingScreens/chatsScreens/startchating.dart';
 import '../SettingScreens/language.dart';
 
-class ProfileTab extends StatefulWidget {
-  const ProfileTab({super.key});
+class SettingTab extends StatefulWidget {
+  const SettingTab({super.key});
 
   @override
-  State<ProfileTab> createState() => _ProfileTabState();
+  State<SettingTab> createState() => _SettingTabState();
 }
 
-class _ProfileTabState extends State<ProfileTab> {
+class _SettingTabState extends State<SettingTab> {
   int? index;
   final List<SettingtabModel> items = [
     SettingtabModel(
@@ -57,18 +57,7 @@ class _ProfileTabState extends State<ProfileTab> {
           );
         },
         title: 'Privacy Policy'),
-    SettingtabModel(
-      iconspath: 'images/settingicons/s4.png',
-      onpressed: (context) {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: ((context) => const SettingScreen()),
-          ),
-        );
-      },
-      title: 'Settings',
-    ),
+
     SettingtabModel(
       iconspath: 'images/settingicons/s11.png',
       onpressed: (context) {
@@ -82,7 +71,7 @@ class _ProfileTabState extends State<ProfileTab> {
       title: 'About Us',
     ),
     SettingtabModel(
-      iconspath: 'images/settingicons/s5.png',
+      iconspath: 'images/settingicons/s4.png',
       onpressed: (context) {
         Navigator.push(
           context,
@@ -94,7 +83,7 @@ class _ProfileTabState extends State<ProfileTab> {
       title: 'Terms & Conditions',
     ),
     SettingtabModel(
-      iconspath: 'images/settingicons/s6.png',
+      iconspath: 'images/settingicons/s5.png',
       onpressed: (context) {
         Navigator.push(
           context,
@@ -106,7 +95,7 @@ class _ProfileTabState extends State<ProfileTab> {
       title: 'Chat',
     ),
     SettingtabModel(
-      iconspath: 'images/settingicons/s7.png',
+      iconspath: 'images/settingicons/s6.png',
       onpressed: (context) {
         Navigator.push(
           context,
@@ -118,7 +107,7 @@ class _ProfileTabState extends State<ProfileTab> {
       title: 'Refund Poliocy',
     ),
     SettingtabModel(
-      iconspath: 'images/settingicons/s8.png',
+      iconspath: 'images/settingicons/s7.png',
       onpressed: (context) {
         Navigator.push(
           context,
@@ -130,7 +119,7 @@ class _ProfileTabState extends State<ProfileTab> {
       title: 'Cancelation policy',
     ),
     SettingtabModel(
-      iconspath: 'images/settingicons/s9.png',
+      iconspath: 'images/settingicons/s8.png',
       onpressed: (context) {
         Navigator.push(
           context,
@@ -142,6 +131,18 @@ class _ProfileTabState extends State<ProfileTab> {
       title: 'Shipping Policy',
     ),
     SettingtabModel(
+      iconspath: 'images/settingicons/s9.png',
+      onpressed: (context) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: ((context) => const HelpScreen()),
+          ),
+        );
+      },
+      title: 'Coupon',
+    ),
+    SettingtabModel(
       iconspath: 'images/settingicons/s10.png',
       onpressed: (context) {
         Navigator.push(
@@ -151,7 +152,7 @@ class _ProfileTabState extends State<ProfileTab> {
           ),
         );
       },
-      title: 'Help',
+      title: 'help',
     ),
 
     // Add more items as needed

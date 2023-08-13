@@ -94,6 +94,8 @@ class _HomeTabState extends State<HomeTab> {
                       child: SearchTextField(
                         controller: searchcontroller,
                         suggestions: searchSuggestions,
+                        isexpanded: false,
+                        hinttext: 'Search ',
                       ),
                     ),
                   ),

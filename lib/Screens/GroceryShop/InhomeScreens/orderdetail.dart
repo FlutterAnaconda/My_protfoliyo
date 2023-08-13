@@ -222,9 +222,12 @@ class Orderdetails extends StatelessWidget {
             ],
           ),
         ),
-        bottomNavigationBar: GradientElevatedButton(
-          onPressed: () {},
-          text: 'Track Order',
+        bottomNavigationBar: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 60.0, vertical: 5),
+          child: GradientElevatedButton(
+            onPressed: () {},
+            text: 'Track Order',
+          ),
         ),
       ),
     );

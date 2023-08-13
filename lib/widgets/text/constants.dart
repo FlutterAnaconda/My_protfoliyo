@@ -21,6 +21,11 @@ final k16B600style = GoogleFonts.poppins(
   fontWeight: FontWeight.w600,
   color: Colors.black,
 );
+final k16lightblack600style = GoogleFonts.poppins(
+  fontSize: 16,
+  fontWeight: FontWeight.w600,
+  color: const Color(0xff464646),
+);
 final k12_4B_49_400style = GoogleFonts.poppins(
   fontSize: 12.4,
   fontWeight: FontWeight.w400,
@@ -57,6 +62,11 @@ final k14lightblack400style = GoogleFonts.poppins(
   fontSize: 14,
   fontWeight: FontWeight.w400,
   color: const Color(0xff3A3A3A),
+);
+final k14lightgery400style = GoogleFonts.poppins(
+  fontSize: 14,
+  fontWeight: FontWeight.w300,
+  color: const Color(0xff646363),
 );
 final k14darkbrown500style = GoogleFonts.poppins(
     fontSize: 14, fontWeight: FontWeight.w500, color: const Color(0xff212220));
@@ -139,6 +149,11 @@ final k20darkgrey400 = GoogleFonts.poppins(
   fontSize: 20,
   fontWeight: FontWeight.w400,
   color: const Color(0xff858585),
+);
+final k16G600 = GoogleFonts.poppins(
+  fontSize: 16,
+  fontWeight: FontWeight.w600,
+  color: const Color(0xff07CD6E),
 );
 
 final cardcontainerdecoration = BoxDecoration(

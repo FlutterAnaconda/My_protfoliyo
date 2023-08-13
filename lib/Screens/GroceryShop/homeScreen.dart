@@ -4,7 +4,7 @@ import 'Bottomtab/Storetab.dart';
 import 'Bottomtab/cart.dart';
 import 'Bottomtab/hometab.dart';
 import 'Bottomtab/order.dart';
-import 'Bottomtab/profiletab.dart';
+import 'Bottomtab/Settingtab.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routename = '/HomeScreen';
@@ -26,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
     const CartScreen(
       cartItems: [],
     ),
-    ProfileTab(),
+    SettingTab(),
   ];
 
   @override

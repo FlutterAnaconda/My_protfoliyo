@@ -1,11 +1,15 @@
 import 'package:dotcoder1/widgets/customappbar.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 import '../../../../models/messagemodel.dart';
 import '../../../../widgets/text/constants.dart';
 
 class ConversationScreen extends StatefulWidget {
-  const ConversationScreen({super.key});
+  final String imagepath;
+  final String storetitle;
+  const ConversationScreen(
+      {super.key, required this.imagepath, required this.storetitle});
 
   @override
   // ignore: library_private_types_in_public_api
@@ -16,19 +20,23 @@ class _ConversationScreenState extends State<ConversationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MYDetailsappbar(
-        text: 'Chat',
+      appBar: Mytypingappbar(
+        text: widget.storetitle,
         onpressed: () => Navigator.pop(context),
+        imagepath: widget.imagepath,
       ),
       // backgroundColor: const Color(0xff23AA49)
       // .withOpacity(0.12), // Set the background color here
-      body: const ConversationBody(),
+      body: ConversationBody(
+        imagepath: widget.imagepath,
+      ),
     );
   }
 }
 
 class ConversationBody extends StatefulWidget {
-  const ConversationBody({super.key});
+  final String imagepath;
+  const ConversationBody({super.key, required this.imagepath});
 
   @override
   // ignore: library_private_types_in_public_api
@@ -53,7 +61,10 @@ class _ConversationBodyState extends State<ConversationBody> {
             itemCount: _messages.length,
             itemBuilder: (context, index) {
               final message = _messages[index];
-              return MessageBubble(message: message);
+              return MessageBubble(
+                message: message,
+                imagepath: widget.imagepath,
+              );
             },
           ),
         ),
@@ -69,8 +80,10 @@ class _ConversationBodyState extends State<ConversationBody> {
 
 class MessageBubble extends StatelessWidget {
   final Message message;
+  final String imagepath;
 
-  const MessageBubble({super.key, required this.message});
+  const MessageBubble(
+      {super.key, required this.message, required this.imagepath});
 
   @override
   Widget build(BuildContext context) {
@@ -82,10 +95,10 @@ class MessageBubble extends StatelessWidget {
         children: [
           message.isMe
               ? Container()
-              : const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 12.0),
+              : Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 12.0),
                   child: CircleAvatar(
-                      radius: 24, backgroundColor: Colors.lightBlueAccent),
+                      radius: 24, backgroundImage: AssetImage(imagepath)),
                 ),
           Container(
             margin: const EdgeInsets.all(8),
@@ -140,6 +153,7 @@ class _MessageInputState extends State<MessageInput> {
 
   void _sendMessage() {
     final message = _controller.text;
+
     if (message.isNotEmpty) {
       widget.onSendMessage(message);
       _controller.clear();
@@ -155,7 +169,7 @@ class _MessageInputState extends State<MessageInput> {
         children: [
           // Add spacing between divider and text field
           Container(
-            width: 324,
+            width: MediaQuery.of(context).size.width * 0.84,
             padding: const EdgeInsets.only(left: 4),
             decoration: BoxDecoration(
               color: const Color(0xff23AA49).withOpacity(0.12),
@@ -181,7 +195,7 @@ class _MessageInputState extends State<MessageInput> {
                   height: 30,
                 ),
                 const SizedBox(
-                  width: 8,
+                  width: 12,
                 ),
                 InkWell(
                   child: Image.asset(
@@ -192,13 +206,16 @@ class _MessageInputState extends State<MessageInput> {
                   onTap: () {},
                 ),
                 const SizedBox(
-                  width: 8,
+                  width: 12,
                 ),
                 InkWell(
-                  child: Image.asset(
-                    'images/camera.png',
-                    width: 16,
-                    height: 13.38,
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 8.0),
+                    child: Image.asset(
+                      'images/camera.png',
+                      width: 16,
+                      height: 13.38,
+                    ),
                   ),
                   onTap: () {},
                 )
@@ -208,14 +225,27 @@ class _MessageInputState extends State<MessageInput> {
           const SizedBox(
             width: 8,
           ),
-          InkWell(
+          GestureDetector(
             child: Image.asset(
               'images/send.png',
               width: 32,
               height: 32,
             ),
             onTap: () {
-              _sendMessage;
+              setState(() {
+                if (_controller.text.isEmpty) {
+                  Fluttertoast.showToast(
+                    msg: 'Message cannot be Empty',
+                    backgroundColor: Colors.red,
+                    fontSize: 14,
+                    gravity: ToastGravity.BOTTOM,
+                    textColor: Colors.white,
+                    toastLength: Toast.LENGTH_SHORT,
+                    timeInSecForIosWeb: 1,
+                  );
+                }
+                _sendMessage();
+              });
             },
           )
         ],

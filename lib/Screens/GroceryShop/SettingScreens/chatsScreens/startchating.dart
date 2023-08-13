@@ -29,9 +29,9 @@ class StartchatindScreen extends StatelessWidget {
         ],
       ),
       bottomNavigationBar: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 60.0, vertical: 5),
+        padding: const EdgeInsets.symmetric(horizontal: 60.0, vertical: 30),
         child: GradientElevatedButton(
-            text: 'Strat Chat',
+            text: 'Start Chat',
             onPressed: () {
               Navigator.pushReplacement(
                 context,

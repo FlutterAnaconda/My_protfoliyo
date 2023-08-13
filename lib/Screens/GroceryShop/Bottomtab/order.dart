@@ -84,6 +84,7 @@ class _OrderTabState extends State<OrderTab>
             ),
             Expanded(
               child: PageView(
+                physics: const NeverScrollableScrollPhysics(),
                 controller: _pageController,
                 children: [
                   active(),

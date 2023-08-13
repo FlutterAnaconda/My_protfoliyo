@@ -65,7 +65,7 @@ class _LangScreenState extends State<LangScreen> {
                         width: 28,
                         decoration: BoxDecoration(
                             color: Colors.white,
-                            borderRadius: BorderRadius.circular(10),
+                            borderRadius: BorderRadius.circular(15),
                             border: Border.all(
                               width: 1,
                               color: Theme.of(context).primaryColor,
