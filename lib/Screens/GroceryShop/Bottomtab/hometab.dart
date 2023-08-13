@@ -144,8 +144,10 @@ class _HomeTabState extends State<HomeTab> {
             OfferListveiw(),
             Myhomerowtext(
               text: 'All Stores',
-              ontap: () =>
-                  Navigator.pushNamed(context, AllStoresscreen.routename),
+              ontap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const AllStoresscreen())),
             ),
             const AllStores(),
           ],

@@ -74,7 +74,15 @@ class _SettingTabState extends State<SettingTab> {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: ((context) => const AboutusScreen()),
+            builder: ((context) => const PolicesScreen(
+                  answer: [
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec frngilla accumsan, risus sem sollicitudin lacus, ut interdum tellus. '
+                  ],
+                  appbartitle: 'Privacy Policy',
+                  height: 500,
+                  numberofQAs: 1,
+                  question: ['You need to fulfil these requirements'],
+                )),
           ),
         );
       },

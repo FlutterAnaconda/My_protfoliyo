@@ -1,5 +1,6 @@
 import 'package:dotcoder1/Screens/GroceryShop/InhomeScreens/productdetailsscreen.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../../models/productmodel.dart';
 import '../../../widgets/customappbar.dart';
@@ -47,95 +48,116 @@ class NewarrivalListScreen extends StatelessWidget {
         text: 'New Arrivals',
         onpressed: () => Navigator.pop(context),
       ),
-      body: Center(
-        child: SizedBox(
-          height: mediaquery.height,
-          width: mediaquery.width * 0.8,
-          child: ListView.builder(
-            scrollDirection: Axis.vertical,
-            itemCount: list.length,
-            itemBuilder: (context, index) {
-              return GestureDetector(
-                onTap: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (_) => ProductDetailsScreen(
-                              image: list[index].image!,
-                              location: list[index].location!,
-                              price: list[index].price!,
-                              title: list[index].title!,
-                            ))),
-                child: Card(
-                  surfaceTintColor: Colors.white,
-                  elevation: 2,
-                  margin: const EdgeInsets.all(8),
-                  child: SizedBox(
-                    width: 150,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Image.asset(
+      body: ListView.builder(
+        scrollDirection: Axis.vertical,
+        itemCount: list.length,
+        itemBuilder: (context, index) {
+          return GestureDetector(
+            onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (_) => ProductDetailsScreen(
+                          image: list[index].image!,
+                          location: list[index].location!,
+                          price: list[index].price!,
+                          title: list[index].title!,
+                        ))),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.white, // Set the container background color
+                  borderRadius:
+                      BorderRadius.circular(9), // Optional: Rounded corners
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.1), // Shadow color
+                      spreadRadius: 0, // Spread radius (controls the blur)
+                      blurRadius: 3.5630252361297607, // Blur radius
+                      offset: const Offset(
+                          0, 1.7815126180648804), // Offset in the x and y axes
+                    ),
+                  ],
+                ),
+                margin: const EdgeInsets.all(8),
+                child: SizedBox(
+                  width: 200, // Replace with your desired fixed width
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      ClipRRect(
+                        borderRadius: const BorderRadius.only(
+                            topLeft: Radius.circular(9),
+                            topRight: Radius.circular(9)),
+                        child: Image.asset(
                           list[index].image!,
-                          height: 130,
-                          width: mediaquery.width,
-                          fit: BoxFit.fill,
+                          height: 80,
                         ),
-                        Row(
-                          children: [
-                            Text(
+                      ),
+                      Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(left: 10.0),
+                            child: Text(
                               list[index].title!,
-                              style: const TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
+                              style: GoogleFonts.poppins(
+                                fontSize: 16.03,
+                                fontWeight: FontWeight.w600,
+                                color: const Color(0xff34A853),
                               ),
-                            ),
-                            const Spacer(),
-                            const Icon(
-                              Icons.star,
-                              color: Colors.amber,
-                            ),
-                            Text(
-                              list[index].rating!.toStringAsFixed(1),
-                              style: const TextStyle(
-                                fontSize: 18,
-                                // fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            const Icon(
-                              Icons.location_on,
-                              color: Colors.black45,
-                            ),
-                            Text(
-                              list[index].location!,
-                              style: const TextStyle(
-                                fontSize: 18,
-                                color: Colors.black45,
-                              ),
-                            ),
-                          ],
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(right: 18.0),
-                          child: Text(
-                            '\$${list[index].price!.toString()}',
-                            style: const TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
                             ),
                           ),
+                          const Spacer(),
+                          const Icon(
+                            Icons.star,
+                            color: Colors.amber,
+                            size: 16,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(right: 8.0),
+                            child: Text(
+                              list[index].rating!.toStringAsFixed(1),
+                              style: GoogleFonts.poppins(
+                                  fontSize: 12, fontWeight: FontWeight.w400
+                                  // fontWeight: FontWeight.bold,
+                                  ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          const Padding(
+                            padding: EdgeInsets.only(left: 5.0),
+                            child: Icon(Icons.location_on,
+                                color: Colors.black45, size: 16),
+                          ),
+                          Text(
+                            list[index].location!,
+                            style: const TextStyle(
+                                fontSize: 12.47,
+                                color: Colors.black45,
+                                fontWeight: FontWeight.w400),
+                          ),
+                        ],
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 18.0),
+                        child: Text(
+                          '\$${list[index].price!.toStringAsFixed(1)}',
+                          style: GoogleFonts.poppins(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
-              );
-            },
-          ),
-        ),
+              ),
+            ),
+          );
+        },
       ),
     );
   }

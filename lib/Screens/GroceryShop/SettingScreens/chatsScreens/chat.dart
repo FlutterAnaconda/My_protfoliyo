@@ -127,9 +127,12 @@ class MessageBubble extends StatelessWidget {
                     )
                   : null,
             ),
-            child: Text(
-              message.text,
-              style: message.isMe ? k12white400 : k12darkgrey400,
+            child: Container(
+              constraints: const BoxConstraints(minWidth: 20, maxWidth: 200),
+              child: Text(
+                message.text,
+                style: message.isMe ? k12white400 : k12darkgrey400,
+              ),
             ),
           ),
         ],

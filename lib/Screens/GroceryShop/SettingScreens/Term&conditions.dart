@@ -20,7 +20,7 @@ class _TermconScreenState extends State<TermconScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff23AA49).withOpacity(0.12),
+      // backgroundColor: const Color(0xff23AA49).withOpacity(0.12),
       appBar: MYDetailsappbar(
         text: 'Term & Conditions',
         onpressed: () {

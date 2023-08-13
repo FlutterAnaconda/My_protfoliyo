@@ -6,17 +6,17 @@ import 'package:provider/provider.dart';
 import 'Providers/cartprovider.dart';
 import 'Providers/storeprovider.dart';
 import 'Screens/GroceryShop/InhomeScreens/NewArrivalScreen.dart';
-import 'Screens/GroceryShop/InhomeScreens/allstoresscreen.dart';
+
 import 'Screens/GroceryShop/InhomeScreens/categoreyscreen.dart';
 
 import 'Screens/GroceryShop/InhomeScreens/offerforyou.dart';
 import 'Screens/GroceryShop/InhomeScreens/topsellings.dart';
+import 'Screens/MysplashScreen.dart';
 import 'Screens/onboarding/RegisterAccount.dart';
 import 'Screens/onboarding/SigninScreen.dart';
 import 'Screens/onboarding/Smoothpageindiactor.dart';
 import 'Screens/onboarding/forgotpasswordScreen.dart';
 import 'Screens/onboarding/newpassword.dart';
-import 'Screens/onboarding/welcomeScreen.dart';
 
 void main() => runApp(const MyApp());
 
@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
               useMaterial3: true,
             ),
             debugShowCheckedModeBanner: false,
-            home: const WelcomeScreen(),
+            home: const SplashScreen(),
             routes: {
               MyPageView.routename: (context) => const MyPageView(),
               RegistrationScreen.routename: (context) =>
@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
               Newpassword.routename: (context) => const Newpassword(),
               HomeScreen.routename: (context) => const HomeScreen(),
               AllCategory.routename: (context) => AllCategory(),
-              AllStoresscreen.routename: (context) => const AllStoresscreen(),
+              // AllStoresscreen.routename: (context) => const AllStoresscreen(),
               OfferListScreen.routename: (context) => OfferListScreen(),
               TopsellingListScreen.routename: (context) =>
                   TopsellingListScreen(),

@@ -1,3 +1,4 @@
+import 'package:dotcoder1/Screens/GroceryShop/SettingScreens/profilediting.dart';
 import 'package:dotcoder1/Screens/onboarding/SigninScreen.dart';
 import 'package:dotcoder1/widgets/customappbar.dart';
 import 'package:dotcoder1/widgets/textfields/butons/Myfilledbutton.dart';
@@ -39,6 +40,9 @@ class _UserInfoState extends State<UserInfo> {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            const SizedBox(
+              height: 50,
+            ),
             Stack(
               clipBehavior: Clip.none,
               // alignment: Alignment.bottomRight,
@@ -49,26 +53,34 @@ class _UserInfoState extends State<UserInfo> {
                       'https://images.unsplash.com/photo-1614595222974-8e6b3ad2a5ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8aGFuZHNvbWUlMjBtYW58ZW58MHx8MHx8fDA%3D&w=1000&q=80'),
                 ),
                 Positioned(
-                  right: 15,
+                  right: 10,
                   top: 82,
                   child: InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const ProfileUpdateScreen(),
+                          ));
+                    },
                     child: Container(
-                      height: 22,
-                      width: 22,
+                      height: 30,
+                      width: 30,
                       decoration: const BoxDecoration(
                         shape: BoxShape.circle,
-                        color: Colors.amber,
+                        // color: Colors.amber,
                       ),
                       padding: const EdgeInsets.all(4),
                       child: Image.asset(
                         'images/editable.png',
-                        fit: BoxFit.fill,
                       ),
                     ),
                   ),
                 ),
               ],
+            ),
+            const SizedBox(
+              height: 5,
             ),
             Text(
               'Syed Fawad Hussain',
@@ -154,6 +166,26 @@ class _UserInfoState extends State<UserInfo> {
                             ),
                           ),
                           Switch(
+                              inactiveThumbColor: Colors.white,
+                              inactiveTrackColor: const Color(0xffD6D8DA),
+                              activeTrackColor: const Color(0xff07CD6E),
+                              thumbColor:
+                                  MaterialStateProperty.resolveWith<Color>(
+                                      (Set<MaterialState> states) {
+                                if (states.contains(MaterialState.disabled)) {
+                                  return Colors.white.withOpacity(.48);
+                                }
+                                return Colors.white;
+                              }),
+                              trackOutlineColor:
+                                  MaterialStateProperty.resolveWith<Color>(
+                                      (Set<MaterialState> states) {
+                                if (states.contains(MaterialState.disabled)) {
+                                  return const Color(0xffD6D8DA)
+                                      .withOpacity(.48);
+                                }
+                                return const Color(0xff07CD6E).withOpacity(0);
+                              }),
                               activeColor: Theme.of(context).primaryColor,
                               value: switchlist[index].ischeck,
                               onChanged: (_) {
@@ -173,7 +205,7 @@ class _UserInfoState extends State<UserInfo> {
         ),
       ),
       bottomNavigationBar: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 50.0),
+        padding: const EdgeInsets.symmetric(horizontal: 50.0, vertical: 10),
         child: GradientElevatedButton(
             text: 'Delete Account?',
             onPressed: () {
