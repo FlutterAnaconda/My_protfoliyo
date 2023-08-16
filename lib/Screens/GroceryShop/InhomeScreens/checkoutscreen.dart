@@ -1,4 +1,5 @@
 import 'package:dotcoder1/Screens/GroceryShop/InhomeScreens/paymentmethod.dart';
+import 'package:dotcoder1/widgets/textfields/butons/Myfilledbutton.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -8,7 +9,7 @@ import '../../../widgets/Stepper/Stepper.dart';
 
 import '../../../widgets/dropdown/Mydropdown.dart';
 
-import '../../../widgets/textfields/butons/whiteTextButton.dart';
+
 import '../../../widgets/textfields/textfield.dart';
 
 class CheckOutScreen extends StatefulWidget {
@@ -211,11 +212,11 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
                         Padding(
                           padding: const EdgeInsets.only(top: 12.0),
                           child: Center(
-                              child: buildButton(context, () {
+                              child: GradientElevatedButton(onPressed:  () {
                             _contentPageController.nextPage(
                                 duration: const Duration(milliseconds: 500),
                                 curve: Curves.linear);
-                          }, 'Next')),
+                          }, text: 'Next')),
                         ),
                       ]),
                 ),

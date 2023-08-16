@@ -124,6 +124,7 @@ class _TopsellingListScreenState extends State<TopsellingListScreen> {
                   padding: const EdgeInsets.symmetric(
                       horizontal: 16.0, vertical: 16),
                   child: Container(
+                    height: 80,
                     decoration: BoxDecoration(
                       color: Colors.white, // Set the container background color
                       borderRadius:
@@ -138,19 +139,20 @@ class _TopsellingListScreenState extends State<TopsellingListScreen> {
                         ),
                       ],
                     ),
-                    margin: const EdgeInsets.all(8),
+                    margin: const EdgeInsets.symmetric(horizontal: 8,vertical: 4),
                     child: SizedBox(
-                      width: 290,
+                      width: 260,
+
 
                       // Replace with your desired fixed width
                       child: Row(
                         children: [
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.end,
+                            // mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               Padding(
-                                padding: const EdgeInsets.only(left: 6.0),
+                                padding: const EdgeInsets.only(left: 6.0,top: 6),
                                 child: Text(
                                   list[index].title!,
                                   style: GoogleFonts.poppins(
@@ -171,7 +173,7 @@ class _TopsellingListScreenState extends State<TopsellingListScreen> {
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsets.only(left: 6.0),
+                                padding: const EdgeInsets.only(left: 6.0,top: 10),
                                 child: Text(
                                   '\$${list[index].price!.toStringAsFixed(1)}',
                                   style: GoogleFonts.poppins(
@@ -191,8 +193,8 @@ class _TopsellingListScreenState extends State<TopsellingListScreen> {
               ),
               Positioned(
                 // top: 0,
-                bottom: 23,
-                right: 50,
+                bottom: 43,
+                right: 70,
                 // right: 0,
                 child: InkWell(
                   onTap: () => Navigator.push(

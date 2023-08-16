@@ -17,37 +17,37 @@ class _TopsellingListviewState extends State<TopsellingListview> {
       title: "Orgnaic",
       image: "images/mango.png",
       price: 23,
-      subtitle: '91 park st,12',
+      subtitle: 'alabama',
     ),
     ProductModel(
       title: "Orange",
       image: "images/mango.png",
       price: 64,
-      subtitle: '91 park st,12',
+      subtitle: 'alabama',
     ),
     ProductModel(
       title: "Gun",
       image: "images/mango.png",
       price: 45,
-      subtitle: '91 park st,12',
+      subtitle: 'alabama',
     ),
     ProductModel(
       title: "shorma",
       image: "images/mango.png",
       price: 45,
-      subtitle: '91 park st,12',
+      subtitle: 'alabama',
     ),
     ProductModel(
       title: "alo",
       image: "images/mango.png",
       price: 45,
-      subtitle: '91 park st,12',
+      subtitle: 'alabama',
     ),
     ProductModel(
       title: "pizza",
       image: "images/mango.png",
       price: 45,
-      subtitle: '91 park st,12',
+      subtitle: 'alabama',
     ),
     ProductModel(
       title: "burger",
@@ -93,7 +93,7 @@ class _TopsellingListviewState extends State<TopsellingListview> {
     // final mediaquery = MediaQuery.of(context).size;
 
     return SizedBox(
-      height: 77,
+      height: 80,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: list.length,
@@ -132,7 +132,7 @@ class _TopsellingListviewState extends State<TopsellingListview> {
                         ),
                       ],
                     ),
-                    margin: const EdgeInsets.all(8),
+                    margin: const EdgeInsets.symmetric(horizontal: 8,vertical: 4),
                     child: SizedBox(
                       width: 210,
 
@@ -141,10 +141,10 @@ class _TopsellingListviewState extends State<TopsellingListview> {
                         children: [
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.end,
+                            // mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Padding(
-                                padding: const EdgeInsets.only(left: 6.0),
+                                padding: const EdgeInsets.only(left: 6.0,top:6),
                                 child: Text(
                                   list[index].title!,
                                   style: GoogleFonts.poppins(
@@ -165,7 +165,7 @@ class _TopsellingListviewState extends State<TopsellingListview> {
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsets.only(left: 6.0),
+                                padding: const EdgeInsets.only(left: 6.0,top: 10),
                                 child: Text(
                                   '\$${list[index].price!.toStringAsFixed(1)}',
                                   style: GoogleFonts.poppins(

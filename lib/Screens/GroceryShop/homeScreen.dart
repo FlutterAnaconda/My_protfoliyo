@@ -26,13 +26,14 @@ class _HomeScreenState extends State<HomeScreen> {
     const CartScreen(
       cartItems: [],
     ),
-    SettingTab(),
+    const SettingTab(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+
         body: _tabs[_currentIndex],
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,

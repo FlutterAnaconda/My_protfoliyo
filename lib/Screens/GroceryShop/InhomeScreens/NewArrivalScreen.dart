@@ -42,7 +42,7 @@ class NewarrivalListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final mediaquery = MediaQuery.of(context).size;
+    // final mediaquery = MediaQuery.of(context).size;
     return Scaffold(
       appBar: MYDetailsappbar(
         text: 'New Arrivals',
@@ -81,9 +81,9 @@ class NewarrivalListScreen extends StatelessWidget {
                 ),
                 margin: const EdgeInsets.all(8),
                 child: SizedBox(
-                  width: 200, // Replace with your desired fixed width
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  // width: 200,
+                  height: 100, // Replace with your desired fixed width
+                  child: Row(
                     children: [
                       ClipRRect(
                         borderRadius: const BorderRadius.only(
@@ -91,64 +91,58 @@ class NewarrivalListScreen extends StatelessWidget {
                             topRight: Radius.circular(9)),
                         child: Image.asset(
                           list[index].image!,
-                          height: 80,
+                          height: 100,
                         ),
                       ),
-                      Row(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(left: 10.0),
-                            child: Text(
-                              list[index].title!,
+                      Padding(
+                        padding: const EdgeInsets.only(left: 12.0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Text(
+                                  list[index].title!,
+                                  style: GoogleFonts.poppins(
+                                    fontSize: 16.03,
+                                    fontWeight: FontWeight.w600,
+                                    color: const Color(0xff34A853),
+                                  ),
+                                ),
+                                const SizedBox(width: 20,),
+                                Image.asset('images/star1.png',width: 14.25,height:  14.25,),
+                                Text(
+                                  list[index].rating!.toStringAsFixed(1),
+                                  style: GoogleFonts.poppins(
+                                      fontSize: 12, fontWeight: FontWeight.w400
+                                      // fontWeight: FontWeight.bold,
+                                      ),
+                                ),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                const Icon(Icons.location_on,
+                                    color: Colors.black45, size: 16),
+                                Text(
+                                  list[index].location!,
+                                  style: const TextStyle(
+                                      fontSize: 12.47,
+                                      color: Colors.black45,
+                                      fontWeight: FontWeight.w400),
+                                ),
+                              ],
+                            ),
+                            Text(
+                              '\$${list[index].price!.toStringAsFixed(1)}',
                               style: GoogleFonts.poppins(
-                                fontSize: 16.03,
+                                fontSize: 14,
                                 fontWeight: FontWeight.w600,
-                                color: const Color(0xff34A853),
                               ),
                             ),
-                          ),
-                          const Spacer(),
-                          const Icon(
-                            Icons.star,
-                            color: Colors.amber,
-                            size: 16,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(right: 8.0),
-                            child: Text(
-                              list[index].rating!.toStringAsFixed(1),
-                              style: GoogleFonts.poppins(
-                                  fontSize: 12, fontWeight: FontWeight.w400
-                                  // fontWeight: FontWeight.bold,
-                                  ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          const Padding(
-                            padding: EdgeInsets.only(left: 5.0),
-                            child: Icon(Icons.location_on,
-                                color: Colors.black45, size: 16),
-                          ),
-                          Text(
-                            list[index].location!,
-                            style: const TextStyle(
-                                fontSize: 12.47,
-                                color: Colors.black45,
-                                fontWeight: FontWeight.w400),
-                          ),
-                        ],
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 18.0),
-                        child: Text(
-                          '\$${list[index].price!.toStringAsFixed(1)}',
-                          style: GoogleFonts.poppins(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w600,
-                          ),
+                          ],
                         ),
                       ),
                     ],

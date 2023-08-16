@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 
 import 'Providers/cartprovider.dart';
 import 'Providers/storeprovider.dart';
+import 'Providers/usertype.dart';
 import 'Screens/GroceryShop/InhomeScreens/NewArrivalScreen.dart';
 
 import 'Screens/GroceryShop/InhomeScreens/categoreyscreen.dart';
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
         providers: [
           ChangeNotifierProvider(create: (_) => CartProvider()),
           ChangeNotifierProvider(create: (_) => StoreProvider()),
+          ChangeNotifierProvider(create: (_) => Usertype()),
         ],
         child: MaterialApp(
             theme: ThemeData(
@@ -49,7 +51,7 @@ class MyApp extends StatelessWidget {
               // AllStoresscreen.routename: (context) => const AllStoresscreen(),
               OfferListScreen.routename: (context) => OfferListScreen(),
               TopsellingListScreen.routename: (context) =>
-                  TopsellingListScreen(),
+                  const TopsellingListScreen(),
               NewarrivalListScreen.routename: (context) =>
                   NewarrivalListScreen(),
             }));

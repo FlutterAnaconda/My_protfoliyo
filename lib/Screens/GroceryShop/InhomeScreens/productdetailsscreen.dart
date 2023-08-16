@@ -1,5 +1,6 @@
 import 'package:dotcoder1/Screens/GroceryShop/InhomeScreens/AddreviewScreen.dart';
 import 'package:dotcoder1/Screens/GroceryShop/InhomeScreens/reviewScreen.dart';
+import 'package:dotcoder1/widgets/textfields/butons/Myfilledbutton.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -12,7 +13,6 @@ import '../../../widgets/customappbar.dart';
 import '../../../widgets/listveiwbuilders/Reviewlistveiw.dart';
 import '../../../widgets/text/constants.dart';
 import '../../../widgets/text/homerowtext.dart';
-import 'Seeallfavorites.dart';
 
 class ProductDetailsScreen extends StatefulWidget {
   static const String routename = '/ProductDetailsScreen';
@@ -34,10 +34,6 @@ class ProductDetailsScreen extends StatefulWidget {
 class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
   bool isAssetimage = true;
   bool isfav = false;
-
-  // List to hold items added to the cart
-
-  // ... your existing code ...
 
   void addToCart() {
     if (cartQuantity > 0) {
@@ -82,202 +78,225 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        // backgroundColor: const Color(0xff23AA49).withOpacity(0.12),
-        appBar: MYDetailsappbar(
-            text: 'Product Details', onpressed: () => Navigator.pop(context)),
-        body: Stack(
-          children: [
-            SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white, // Set the container background color
-                      borderRadius: BorderRadius.circular(34),
-                      border: Border.all(
-                          width: 0.5,
-                          color: Colors.black
-                              .withOpacity(0.05)), // Optional: Rounded corners
-
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.1), // Shadow color
-                          spreadRadius: 0, // Spread radius (controls the blur)
-                          blurRadius: 2.84415602684021, // Blur radius
-                          offset:
-                              const Offset(0, 2), // Offset in the x and y axes
-                        ),
-                      ],
-                    ),
-                    child: Stack(
-                      children: [
-                        // Image Widget
-                        isAssetimage
-                            ? Image.asset(
-                                widget.image,
-                                width: double.infinity,
-                                fit: BoxFit.fill,
-                              )
-                            : Image.network(
-                                widget.image,
-                                width: double.infinity,
-                                fit: BoxFit.fill,
-                              ),
-                        // Cart Quantity Control
-                        Positioned(
-                          bottom: 0,
-                          right: 5,
-                          child: CartQuantityWidget(
-                            initialquantity: cartQuantity,
-                            onQuantityChanged: (newQuantity) {
-                              setState(() {
-                                cartQuantity = newQuantity;
-                              });
-                            },
+          backgroundColor: const Color(0xffffffff),
+          appBar: MYDetailsappbar(
+              text: 'Product Details', onpressed: () => Navigator.pop(context)),
+          body: Stack(
+            children: [
+              SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      color: Colors.white,
+                      height: 310,
+                      // decoration: BoxDecoration(
+                      //   color: Colors.white, // Set the container background color
+                      //   // borderRadius: BorderRadius.circular(34),
+                      //   border: Border.all(
+                      //       width: 0.5,
+                      //       color: Colors.black
+                      //           .withOpacity(0.05)), // Optional: Rounded corners
+                      //
+                      //   boxShadow: [
+                      //     BoxShadow(
+                      //       color: Colors.black.withOpacity(0.1), // Shadow color
+                      //       spreadRadius: 0, // Spread radius (controls the blur)
+                      //       blurRadius: 2.84415602684021, // Blur radius
+                      //       offset:
+                      //           const Offset(0, 2), // Offset in the x and y axes
+                      //     ),
+                      //   ],
+                      // ),
+                      child: Stack(
+                        children: [
+                          // Image Widget
+                          isAssetimage
+                              ? Image.asset(
+                                  widget.image,
+                                  width: double.infinity,
+                                  height: 260,
+                                  fit: BoxFit.contain,
+                                )
+                              : Image.network(
+                                  widget.image,
+                                  width: double.infinity,
+                                  height: 260,
+                                  fit: BoxFit.contain,
+                                ),
+                          // Cart Quantity Control
+                          Positioned(
+                            bottom: 0,
+                            right: 10,
+                            child: CartQuantityWidget(
+                              initialquantity: cartQuantity,
+                              onQuantityChanged: (newQuantity) {
+                                setState(() {
+                                  cartQuantity = newQuantity;
+                                });
+                              },
+                            ),
                           ),
-                        ),
-                        Positioned(
-                          top: 0,
-                          right: 0,
-                          child: GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                isfav = !isfav;
-                                // Toggle favorite state
-                              });
-                            },
-                            child: Padding(
-                              padding: const EdgeInsets.only(right: 12.0),
-                              child: Icon(
-                                isfav
-                                    ? Icons.favorite
-                                    : Icons.favorite_border_outlined,
-                                color: Colors.red,
-                                size: 30,
+                          Positioned(
+                            top: 0,
+                            right: 0,
+                            child: GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  isfav = !isfav;
+                                  // Toggle favorite state
+                                });
+                              },
+                              child: Padding(
+                                padding: const EdgeInsets.only(right: 12.0),
+                                child: Image.asset(
+                                  isfav
+                                      ? 'images/fillheart.png'
+                                      : 'images/heart.png',
+                                  width: 30,
+                                  height: 30,
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                    child: Row(
-                      children: [
-                        Text(
-                          ' ${widget.title}',
-                          style: k22B600style,
-                        ),
-                        const Spacer(),
-                        Text(
-                          ' \$${widget.price.toStringAsFixed(1)}',
-                          style: k20B600style,
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                    child: Row(
-                      children: [
-                        const Icon(
-                          Icons.location_on,
-                          color: Colors.red,
-                          size: 17.8,
-                        ),
-                        Text(
-                          widget.location,
-                          style: k12_4B_49_400style,
-                        ),
-                      ],
-                    ),
-                  ),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 8.0),
-                          child: buildMinorDetail('45minutes',
-                              Icons.bike_scooter, Colors.orangeAccent, context),
-                        ),
-                        buildMinorDetail('80 kcal,100 gm', Icons.water_drop,
-                            Colors.green, context),
-                        buildMinorDetail('80 kcal,100 gm', Icons.water_drop,
-                            Colors.green, context),
-                      ],
-                    ),
-                  ),
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: TextButton(
-                      onPressed: () => Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (_) => AddReviewScreen(
-                                    image: widget.image,
-                                    price: widget.price,
-                                    title: widget.title,
-                                  ))),
-                      child: Text(
-                        'AddReview',
-                        style: k10G400style,
+                        ],
                       ),
                     ),
-                  ),
-                  // Padding(
-                  //   padding: const EdgeInsets.only(bottom: 18.0),
-                  //   child: TextButton(
-                  //     onPressed: () => Navigator.push(
-                  //       context,
-                  //       MaterialPageRoute(
-                  //         builder: (_) => const FavoritesScreen(),
-                  //       ),
-                  //     ),
-                  //     child: Text(
-                  //       'See All favorite',
-                  //       style: k10G400style,
-                  //     ),
-                  //   ),
-                  // ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10.0),
-                    child: Text(
-                      'Description',
-                      style: k16B500style,
+                    const SizedBox(
+                      height: 10,
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(
-                      'Lorem ipsum dolor sit amet, Lorem ipsum dolor\n sit amet, consectetur adipiscing elit.consectetur \nadipiscing ',
-                      style: k14Grey500style,
+                    Divider(
+                      color: Colors.black.withOpacity(0.05),
+                      height: 1,
                     ),
-                  ),
-                  Myhomerowtext(
-                      text: 'Reviews',
-                      ontap: () => Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (_) => const ReviewsBuilderScreen()))),
-                  const ReviewsBuilder(),
-                ],
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: Row(
+                        children: [
+                          Text(
+                            ' ${widget.title}',
+                            style: k22B600style,
+                          ),
+                          const Spacer(),
+                          Text(
+                            ' \$${widget.price.toStringAsFixed(1)}',
+                            style: k20B600style,
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: Row(
+                        children: [
+                          const Icon(
+                            Icons.location_on,
+                            color: Colors.red,
+                            size: 17.8,
+                          ),
+                          Text(
+                            widget.location,
+                            style: k12_4B_49_400style,
+                          ),
+                        ],
+                      ),
+                    ),
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(left: 8.0),
+                            child: buildMinorDetail(
+                                '45minutes',
+                                Icons.bike_scooter,
+                                Colors.orangeAccent,
+                                context),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 8.0),
+                            child: buildMinorDetail('80 kcal,100 gm',
+                                Icons.water_drop, Colors.green, context),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 8.0),
+                            child: buildMinorDetail('80 kcal,100 gm',
+                                Icons.water_drop, Colors.green, context),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: TextButton(
+                        onPressed: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (_) => AddReviewScreen(
+                                      image: widget.image,
+                                      price: widget.price,
+                                      title: widget.title,
+                                    ))),
+                        child: Text(
+                          'AddReview',
+                          style: k10G400style,
+                        ),
+                      ),
+                    ),
+                    // Padding(
+                    //   padding: const EdgeInsets.only(bottom: 18.0),
+                    //   child: TextButton(
+                    //     onPressed: () => Navigator.push(
+                    //       context,
+                    //       MaterialPageRoute(
+                    //         builder: (_) => const FavoritesScreen(),
+                    //       ),
+                    //     ),
+                    //     child: Text(
+                    //       'See All favorite',
+                    //       style: k10G400style,
+                    //     ),
+                    //   ),
+                    // ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10.0),
+                      child: Text(
+                        'Description',
+                        style: k16B500style,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        'Lorem ipsum dolor sit amet, Lorem ipsum dolor\n sit amet, consectetur adipiscing elit.consectetur \nadipiscing ',
+                        style: k14Grey500style,
+                      ),
+                    ),
+                    Myhomerowtext(
+                        text: 'Reviews',
+                        ontap: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (_) => const ReviewsBuilderScreen()))),
+                    const ReviewsBuilder(),
+                  ],
+                ),
               ),
+            ],
+          ),
+          bottomNavigationBar: Padding(
+            padding: const EdgeInsets.symmetric(
+                horizontal: 16.0),
+            child: GradientElevatedButton(
+              onPressed: () {
+                addToCart();
+              },
+              text: 'Add to Cart',
             ),
-          ],
-        ),
-        bottomNavigationBar: buildButton(context, () {
-          addToCart();
-
-          // setState(() {
-          //   cartQuantity = 0;
-          //   print(
-          //       "{setsattefdsf}"); // Reset cart quantity after adding to cart
-          // });
-        }, 'Add to Cart'),
-      ),
+          )),
     );
   }
 }
@@ -296,7 +315,7 @@ Widget buildMinorDetail(
       ),
       height: mediaqurey.height * 0.05,
       child: Padding(
-        padding: const EdgeInsets.all(3.0),
+        padding: const EdgeInsets.symmetric(horizontal: 8.0),
         child: SizedBox(
           height: 40,
           child: Row(
@@ -315,45 +334,6 @@ Widget buildMinorDetail(
               ),
             ],
           ),
-        ),
-      ),
-    ),
-  );
-}
-
-Widget buildButton(BuildContext context, VoidCallback onPressed, String text) {
-  return Padding(
-    padding: const EdgeInsets.all(8.0),
-    child: Container(
-      width: MediaQuery.of(context).size.width,
-      height: 50,
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [
-            Theme.of(context).primaryColor,
-            const Color(0xFF059F55)
-          ], // Customize your gradient colors
-          begin: Alignment.topCenter, // Adjust the gradient's start position
-          end: Alignment.bottomCenter, // Adjust the gradient's end position
-        ),
-        borderRadius:
-            BorderRadius.circular(8.0), // Customize the border radius as needed
-      ),
-      child: ElevatedButton(
-        onPressed: onPressed,
-        style: ElevatedButton.styleFrom(
-          backgroundColor: Colors
-              .transparent, // Set the button's background color to transparent
-          elevation: 0, // Remove the default button elevation
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(
-                8.0), // Match the container's border radius
-          ),
-        ),
-        child: Text(
-          text,
-          style: GoogleFonts.poppins(
-              color: Colors.white, fontWeight: FontWeight.w600, fontSize: 16),
         ),
       ),
     ),

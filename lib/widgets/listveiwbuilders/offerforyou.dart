@@ -43,7 +43,7 @@ class OfferListveiw extends StatelessWidget {
   Widget build(BuildContext context) {
     // final mediaquery = MediaQuery.of(context).size;
     return SizedBox(
-      height: 200,
+      height: 224,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: list.length,
@@ -75,7 +75,7 @@ class OfferListveiw extends StatelessWidget {
               ),
               margin: const EdgeInsets.all(8),
               child: SizedBox(
-                width: 200, // Replace with your desired fixed width
+                width: 212, // Replace with your desired fixed width
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
@@ -85,10 +85,11 @@ class OfferListveiw extends StatelessWidget {
                           topRight: Radius.circular(9)),
                       child: Image.asset(
                         list[index].image!,
-                        height: 130,
+                        height: 140,
                         fit: BoxFit.fill,
                       ),
                     ),
+                    const SizedBox(height: 10,),
                     Row(
                       children: [
                         Padding(
@@ -103,7 +104,10 @@ class OfferListveiw extends StatelessWidget {
                           ),
                         ),
                         const Spacer(),
-                        const Icon(Icons.star, color: Colors.amber, size: 16),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 4.0,),
+                          child: Image.asset('images/star1.png',width: 14.25,height:  14.25,),
+                        ),
                         Padding(
                           padding: const EdgeInsets.only(right: 8.0),
                           child: Text(
@@ -116,6 +120,7 @@ class OfferListveiw extends StatelessWidget {
                         ),
                       ],
                     ),
+                    const SizedBox(height: 5,),
                     Row(
                       children: [
                         const Padding(

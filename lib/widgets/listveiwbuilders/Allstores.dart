@@ -1,3 +1,4 @@
+import 'package:dotcoder1/widgets/text/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -127,12 +128,9 @@ class _AllStoresState extends State<AllStores> {
                             ),
                             Row(
                               children: [
-                                const Icon(
-                                  Icons.star,
-                                  color: Colors.amber,
-                                ),
+                                Image.asset('images/star1.png',width: 14.25,height:  14.25,),
                                 Padding(
-                                  padding: const EdgeInsets.only(left: 5),
+                                  padding: const EdgeInsets.only(left: 5,right: 3),
                                   child: Text(
                                     list[index].rating!.toStringAsFixed(1),
                                     style: GoogleFonts.poppins(
@@ -141,6 +139,7 @@ class _AllStoresState extends State<AllStores> {
                                     ),
                                   ),
                                 ),
+                                Text('(19)',style: k12lightgrey400,),
                               ],
                             ),
                           ],
@@ -155,12 +154,12 @@ class _AllStoresState extends State<AllStores> {
                           },
                           child: Padding(
                             padding: const EdgeInsets.only(right: 12.0),
-                            child: Icon(
+                            child: Image.asset(
                               list[index].isfav
-                                  ? Icons.favorite
-                                  : Icons.favorite_border_outlined,
-                              color: Colors.red,
-                              size: 30,
+                                  ? 'images/fillheart.png'
+                                  : 'images/heart.png',
+                             width: 20,
+                              height: 20,
                             ),
                           ),
                         ),
@@ -169,7 +168,9 @@ class _AllStoresState extends State<AllStores> {
                     Text(
                       'Lorem ipsum dolor sit amet, Lorem \nipsum dolor sit amet, consectetur ',
                       style: GoogleFonts.poppins(
-                          fontSize: 12, fontWeight: FontWeight.w400),
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400,
+                          color: const Color(0xff9C9898)),
                     )
                   ],
                 ),

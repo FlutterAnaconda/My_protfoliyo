@@ -30,42 +30,45 @@ class AllCategory extends StatelessWidget {
         text: 'All Categories',
         onpressed: () => Navigator.pop(context),
       ),
-      body: GridView.builder(
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 4,
-          crossAxisSpacing: 0.0,
-          mainAxisSpacing: 8.0,
-        ),
-        itemCount: imagepath.length,
-        itemBuilder: (BuildContext context, int index) {
-          return GridTile(
-            child: Column(
-              children: [
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.all(
-                      Radius.circular(5),
+      body: Padding(
+        padding: const EdgeInsets.only(top: 30.0),
+        child: GridView.builder(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 4,
+            crossAxisSpacing: 0.0,
+            mainAxisSpacing: 8.0,
+          ),
+          itemCount: imagepath.length,
+          itemBuilder: (BuildContext context, int index) {
+            return GridTile(
+              child: Column(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: const BorderRadius.all(
+                        Radius.circular(5),
+                      ),
+                      color: const Color(0xff51BC7D).withOpacity(0.20),
                     ),
-                    color: const Color(0xff51BC7D).withOpacity(0.20),
-                  ),
-                  height: 70,
-                  width: 70,
-                  child: Center(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Image(
-                        image: AssetImage(imagepath[index]),
-                        // Adjust the height of the images as needed
-                        fit: BoxFit.fill,
+                    height: 70,
+                    width: 70,
+                    child: Center(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Image(
+                          image: AssetImage(imagepath[index]),
+                          // Adjust the height of the images as needed
+                          fit: BoxFit.fill,
+                        ),
                       ),
                     ),
                   ),
-                ),
-                const Text("data"),
-              ],
-            ),
-          );
-        },
+                  const Text("data"),
+                ],
+              ),
+            );
+          },
+        ),
       ),
     );
   }

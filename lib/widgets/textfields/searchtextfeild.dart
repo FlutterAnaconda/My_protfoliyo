@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+
+import '../../Providers/usertype.dart';
 
 class SearchTextField extends StatefulWidget {
   final TextEditingController controller;
@@ -50,39 +54,67 @@ class _SearchTextFieldState extends State<SearchTextField> {
     });
   }
 
+  void _dismissKeyboard() {
+    FocusScope.of(context).unfocus(); // Close the keyboard
+  }
+
   @override
   Widget build(BuildContext context) {
     // final mediaquery = MediaQuery.of(context).size;
-
+    final whichicon = Provider.of<Usertype>(
+      context,
+    );
+    bool islocationicon = whichicon.islocationicon;
     return Column(
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12.0),
           child: SizedBox(
-            width: widget.isexpanded ? MediaQuery.of(context).size.width : 276,
+            width: widget.isexpanded ? MediaQuery.of(context).size.width : 280,
+            height: 49.41,
             child: TextField(
-              textAlign: TextAlign.center,
+              // onTapOutside: (event) {
+              //   setState(() {
+              //     islocationicon = true;
+              //     whichicon.isLocationIcon(islocationicon);
+              //     _dismissKeyboard();
+              //   });
+              // },
+              onTap: () {
+                setState(() {
+                  islocationicon = false;
+                  whichicon.isLocationIcon(islocationicon);
+                });
+              },
+              onSubmitted: (value) {
+                setState(() {
+                  islocationicon = true;
+                  whichicon.isLocationIcon(islocationicon);
+                  _dismissKeyboard();
+                });
+              },
               controller: widget.controller,
               onChanged: (value) => onSearchTextChanged(),
               decoration: InputDecoration(
                 prefixIcon: const Icon(
                   Icons.search,
                   color: Color(0xFF868889),
-                  size: 30,
+                  size: 16.32,
                 ),
                 // suffixIcon: Icon(
 
                 // ),
                 hintText: widget.hinttext,
-                hintStyle: const TextStyle(
-                  color: Color(0xFF868889),
+                hintStyle: GoogleFonts.mulish(
+                  fontSize: 13,
+                  fontWeight: FontWeight.w500,
+                  color: const Color(0xFF868889),
                 ),
                 filled: true,
-                fillColor: const Color(0xffF8F9FB),
+                fillColor: const Color.fromARGB(250, 240, 249, 250),
                 border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8.0),
-                  borderSide: BorderSide.none,
-                ),
+                    borderRadius: BorderRadius.circular(8.0),
+                    borderSide: BorderSide.none),
               ),
             ),
           ),

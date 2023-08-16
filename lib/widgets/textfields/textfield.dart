@@ -34,7 +34,7 @@ class MyTextFormField extends StatelessWidget {
         controller: controller,
         decoration: InputDecoration(
           contentPadding:
-              const EdgeInsets.symmetric(vertical: 14.0, horizontal: 10),
+              const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10),
           focusedBorder: const OutlineInputBorder(
             borderSide: BorderSide(color: Color(0xFFD6D8DA), width: 2),
             borderRadius: BorderRadius.all(

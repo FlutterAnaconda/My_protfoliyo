@@ -3,11 +3,9 @@ import 'package:google_fonts/google_fonts.dart';
 
 class GradientElevatedButton extends StatelessWidget {
   final String text;
-
   final VoidCallback onPressed;
 
   const GradientElevatedButton({
-    super.key,
     required this.text,
     required this.onPressed,
   });
@@ -15,35 +13,37 @@ class GradientElevatedButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width * 0.7,
+      width: MediaQuery.of(context).size.width * 0.9,
       height: 50,
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            const Color(0xff00FF85),
-            const Color(0xFF059F55).withOpacity(0.86)
-          ], // Customize your gradient colors
-          begin: Alignment.topCenter, // Adjust the gradient's start position
-          end: Alignment.bottomCenter, // Adjust the gradient's end position
+            const Color(0xff07CD6E),
+            const Color(0xFF059F55).withOpacity(0.86),
+          ],
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
         ),
-        borderRadius:
-            BorderRadius.circular(8.0), // Customize the border radius as needed
+        borderRadius: BorderRadius.circular(8.0),
       ),
-      child: ElevatedButton(
-        onPressed: onPressed,
-        style: ElevatedButton.styleFrom(
-          backgroundColor: Colors
-              .transparent, // Set the button's background color to transparent
-          elevation: 0, // Remove the default button elevation
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(
-                8.0), // Match the container's border radius
+      child: Material(
+        color: Colors
+            .transparent, // Important: Set the material color to transparent
+        child: InkWell(
+          borderRadius: BorderRadius.circular(8.0),
+          onTap: onPressed,
+          splashColor:
+              Colors.white.withOpacity(0.3), // Customize the splash color
+          child: Center(
+            child: Text(
+              text,
+              style: GoogleFonts.poppins(
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+                color: Colors.white,
+              ),
+            ),
           ),
-        ),
-        child: Text(
-          text,
-          style: GoogleFonts.poppins(
-              fontSize: 16, fontWeight: FontWeight.w500, color: Colors.white),
         ),
       ),
     );

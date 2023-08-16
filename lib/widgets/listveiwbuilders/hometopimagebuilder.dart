@@ -20,29 +20,48 @@ class ImageSlider extends StatelessWidget {
     return CarouselSlider(
       options: CarouselOptions(
         // viewportFraction: 0.9,
-        height: 150, // Adjust the height as needed
-        autoPlay: true, // Enable auto-play
-        enlargeCenterPage: true,
+        height: 150,
+        // Adjust the height as needed
+        // autoPlay: true, // Enable auto-play
+        // enlargeCenterPage: true,
         aspectRatio: 1,
-        autoPlayCurve: Curves.fastOutSlowIn,
+        // autoPlayCurve: Curves.fastOutSlowIn,
         enableInfiniteScroll: true,
-        pauseAutoPlayOnTouch: true,
+        // pauseAutoPlayOnTouch: true,
       ),
       items: imagepath.map((imagepath) {
         return Builder(
           builder: (BuildContext context) {
             return Padding(
-              padding: const EdgeInsets.only(left: 8.0, top: 5),
+              padding: const EdgeInsets.only(left: 12.0, top: 5),
               child: Image.asset(
                 imagepath,
-                // width: MediaQuery.of(context).size.width,
-                // height: MediaQuery.of(context).size.height,
-                fit: BoxFit.fill,
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height,
+                fit: BoxFit.contain,
+
               ),
             );
           },
         );
       }).toList(),
     );
+    // return SizedBox(
+    //   height: 200,
+    //   child: ListView.builder(
+    //     scrollDirection: Axis.horizontal,
+    //     itemCount: imagepath.length,
+    //     itemBuilder: (context, index) {
+    //       return Padding(
+    //         padding: const EdgeInsets.only(left: 8.0),
+    //         child: Image.asset(
+    //           imagepath[index],
+    //           width: 350,
+    //           fit: BoxFit.contain,
+    //         ),
+    //       );
+    //     },
+    //   ),
+    // );
   }
 }

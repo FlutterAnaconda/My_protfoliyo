@@ -30,6 +30,7 @@ class _ForgotScreenState extends State<ForgotScreen> {
 
     return SafeArea(
       child: Scaffold(
+        backgroundColor: const Color(0xff23AA49).withOpacity(0.12),
         body: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
           SizedBox(
             height: mediaquery.height * 0.02,
@@ -55,8 +56,8 @@ class _ForgotScreenState extends State<ForgotScreen> {
             labelText: 'Email',
             controller: _nameController,
           ),
-          SizedBox(
-            height: mediaquery.height * 0.02,
+          const SizedBox(
+            height: 30,
           ),
           GradientElevatedButton(
             text: 'Next',

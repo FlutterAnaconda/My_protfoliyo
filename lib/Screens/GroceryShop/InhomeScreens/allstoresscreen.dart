@@ -136,10 +136,7 @@ class _AllStoresscreenState extends State<AllStoresscreen> {
                               ),
                               Row(
                                 children: [
-                                  const Icon(
-                                    Icons.star,
-                                    color: Colors.amber,
-                                  ),
+                                  Image.asset('images/star1.png',width: 14.25,height:  14.25,),
                                   Padding(
                                     padding: const EdgeInsets.only(left: 5),
                                     child: Text(
@@ -164,12 +161,12 @@ class _AllStoresscreenState extends State<AllStoresscreen> {
                             },
                             child: Padding(
                               padding: const EdgeInsets.only(right: 12.0),
-                              child: Icon(
+                              child:  Image.asset(
                                 list[index].isfav
-                                    ? Icons.favorite
-                                    : Icons.favorite_border_outlined,
-                                color: Colors.red,
-                                size: 30,
+                                    ? 'images/fillheart.png'
+                                    : 'images/heart.png',
+                                width: 20,
+                                height: 20,
                               ),
                             ),
                           ),
@@ -178,7 +175,9 @@ class _AllStoresscreenState extends State<AllStoresscreen> {
                       Text(
                         'Lorem ipsum dolor sit amet, Lorem \nipsum dolor sit amet, consectetur ',
                         style: GoogleFonts.poppins(
-                            fontSize: 12, fontWeight: FontWeight.w400),
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400,
+                            color: const Color(0xff9C9898)),
                       )
                     ],
                   ),

@@ -137,6 +137,11 @@ final k14B400interstyle = GoogleFonts.inter(
   fontWeight: FontWeight.w400,
   color: const Color(0xff27272A),
 );
+final k14B600style = GoogleFonts.poppins(
+  fontSize: 14,
+  fontWeight: FontWeight.w600,
+  color: const Color(0xff000000),
+);
 
 final k12_8B500style = GoogleFonts.poppins(
   fontSize: 12.8,

@@ -436,18 +436,14 @@ class _StoresdetailscreenState extends State<Storesdetailscreen> {
                 ),
                 const Spacer(),
                 Padding(
-                  padding: const EdgeInsets.only(right: 12.0),
-                  child: isfav
-                      ? const Icon(
-                          Icons.favorite,
-                          color: Colors.red,
-                          size: 30,
-                        )
-                      : const Icon(
-                          Icons.favorite_border_outlined,
-                          color: Colors.grey,
-                          size: 30,
-                        ),
+                  padding: const EdgeInsets.only(right: 25.0),
+                  child: Image.asset(
+                    isfav
+                        ? 'images/fillheart.png'
+                        : 'images/heart.png',
+                    width: 20,
+                    height: 20,
+                  ),
                 ),
               ],
             ),

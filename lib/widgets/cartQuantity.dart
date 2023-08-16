@@ -13,21 +13,25 @@ class CartQuantityWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Container(
-          decoration: const BoxDecoration(
-            color: Colors.white,
-            shape: BoxShape.circle,
-          ),
-          padding: const EdgeInsets.all(8),
-          child: IconButton(
-            onPressed: () {
-              if (initialquantity > 0) {
-                onQuantityChanged(initialquantity - 1);
-              }
-            },
-            icon: const Icon(Icons.remove, color: Colors.black),
-          ),
+        GestureDetector(
+        onTap: () {
+      if (initialquantity > 0) {
+        onQuantityChanged(initialquantity - 1);
+      }},
+
+          child: Container(
+            alignment: Alignment.center,
+            width: 45,
+            height: 45,
+            decoration: const BoxDecoration(
+              color:   Color.fromARGB(250, 240, 249, 250),
+              shape: BoxShape.circle,
+            ),
+
+            child: const Icon(Icons.remove, color: Colors.black),),
         ),
+
+
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: Text(
@@ -39,20 +43,30 @@ class CartQuantityWidget extends StatelessWidget {
             ),
           ),
         ),
-        Container(
-          decoration: BoxDecoration(
-            color: Theme.of(context).primaryColor,
-            shape: BoxShape.circle,
-          ),
-          padding: const EdgeInsets.all(8),
-          child: IconButton(
-            onPressed: () {
-              onQuantityChanged(initialquantity + 1);
-            },
-            icon: const Icon(Icons.add, color: Colors.white),
+        GestureDetector(
+
+          onTap: () {
+            onQuantityChanged(initialquantity + 1);
+          },
+          child: Container(
+            alignment: Alignment.center,
+            width: 45,
+            height: 45,
+            decoration: BoxDecoration(
+              color: Theme.of(context).primaryColor,
+              shape: BoxShape.circle,
+            ),
+
+            child:  const Icon(Icons.add, color: Colors.white),
+
+
           ),
         ),
       ],
     );
   }
 }
+
+
+
+

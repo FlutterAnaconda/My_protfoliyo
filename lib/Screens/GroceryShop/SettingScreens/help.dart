@@ -14,7 +14,7 @@ class HelpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff23AA49).withOpacity(0.12),
+      // backgroundColor: const Color(0xff23AA49).withOpacity(0.12),
       appBar: MYDetailsappbar(
         text: 'Help & Support',
         onpressed: () {
@@ -32,7 +32,7 @@ class HelpScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Container(
-                  height: 180,
+                  height: 200,
                   width: 342,
                   decoration: cardcontainerdecoration,
                   child: Padding(
@@ -69,7 +69,7 @@ class HelpScreen extends StatelessWidget {
                                     ),
                                     Container(
                                       height: 1,
-                                      width: 229,
+                                      width: 209,
                                       color: const Color(0xffEBEBF0),
                                     ),
                                   ],

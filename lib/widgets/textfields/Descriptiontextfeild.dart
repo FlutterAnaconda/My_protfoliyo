@@ -1,4 +1,6 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/Material.dart';
+
+import '../text/constants.dart';
 
 class DescriptionWidget extends StatelessWidget {
   final String description;
@@ -9,26 +11,28 @@ class DescriptionWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      child: TextFormField(
-        readOnly: true, // Make the field read-only
-        initialValue: description, // Set the description text
-        style: const TextStyle(
-          fontSize: 16,
-          color: Colors.black87,
+      child: Container(
+        decoration: BoxDecoration(
+          border: Border.all(
+            width: 1,
+            color: const Color(0xffD6D8DA), // Your desired border color
+          ),
+          borderRadius: BorderRadius.circular(8),
         ),
-        maxLines: null, // Allow the text to wrap to multiple lines
-        decoration: InputDecoration(
-          labelText: 'Description', // Set the label text
-          labelStyle: const TextStyle(
+        child: TextFormField(
+          readOnly: true,
+          initialValue: description,
+          style: const TextStyle(
             fontSize: 16,
-            fontWeight: FontWeight.bold,
+            color: Colors.black87,
           ),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(8),
+          maxLines: null,
+          decoration: InputDecoration(
+            labelText: 'Description',
+            labelStyle: k14Grey500style,
+            border: InputBorder.none, // Remove the default border
+            contentPadding: const EdgeInsets.all(16),
           ),
-          filled: true,
-          fillColor: Colors.transparent, // Fill color for the background
-          contentPadding: const EdgeInsets.all(16),
         ),
       ),
     );

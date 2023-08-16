@@ -34,31 +34,32 @@ class _NewpasswordState extends State<Newpassword> {
 
     return SafeArea(
       child: Scaffold(
+        backgroundColor: const Color(0xff23AA49).withOpacity(0.12),
         body: SizedBox(
           height: mediaquery.height,
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(
-                  height: mediaquery.height * 0.02,
+                const SizedBox(
+                  height: 30,
                 ),
                 Image(
                   image: const AssetImage('images/registerimage.png'),
                   height: mediaquery.height * 0.2,
                 ),
-                SizedBox(
-                  height: mediaquery.height * 0.02,
+                const SizedBox(
+                  height: 15,
                 ),
                 const BoldText(text: " Account Recovery"),
-                SizedBox(
-                  height: mediaquery.height * 0.02,
+                const SizedBox(
+                  height: 15,
                 ),
                 const Thintext(
                     text:
                         "   Enter your new password\n for accessing your account"),
-                SizedBox(
-                  height: mediaquery.height * 0.05,
+                const SizedBox(
+                  height: 30,
                 ),
                 MyTextFormField(
                   obscure: showpass,
@@ -71,14 +72,26 @@ class _NewpasswordState extends State<Newpassword> {
                         setState(() {});
                       },
                       child: showpass
-                          ? const Icon(Icons.visibility_off)
+                          ? Container(
+                              height: 20,
+                              width: 20,
+                              alignment: Alignment.center,
+                              child: Image.asset(
+                                width:
+                                    20, // Adjust the image width within the container
+                                height: 20,
+                                'images/eye.png',
+                                fit: BoxFit.cover,
+                              ),
+                            )
                           : const Icon(
                               Icons.visibility,
                               color: Colors.blue,
+                              size: 20,
                             )),
                 ),
-                SizedBox(
-                  height: mediaquery.height * 0.01,
+                const SizedBox(
+                  height: 15,
                 ),
                 MyTextFormField(
                   obscure: showpass1,
@@ -91,10 +104,22 @@ class _NewpasswordState extends State<Newpassword> {
                         setState(() {});
                       },
                       child: showpass1
-                          ? const Icon(Icons.visibility_off)
+                          ? Container(
+                              height: 20,
+                              width: 20,
+                              alignment: Alignment.center,
+                              child: Image.asset(
+                                width:
+                                    20, // Adjust the image width within the container
+                                height: 20,
+                                'images/eye.png',
+                                fit: BoxFit.cover,
+                              ),
+                            )
                           : const Icon(
                               Icons.visibility,
                               color: Colors.blue,
+                              size: 20,
                             )),
                 ),
                 SizedBox(

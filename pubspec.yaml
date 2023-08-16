@@ -24,6 +24,9 @@ dependencies:
   flutter_stepper: ^0.0.1
   dotted_border: ^2.0.0+3
   carousel_slider: ^4.2.1
+  google_maps_flutter: ^2.4.0
+  syncfusion_flutter_sliders: ^22.2.9
+  
 
 dev_dependencies:
   flutter_test:
@@ -41,6 +44,11 @@ flutter:
   assets:
     - images/Welcome Screen.png
     - images/image 3.png
+    - images/delicon.png
+    - images/star1.png
+    - images/star3.png
+    - images/fillheart.png
+    - images/heart.png
     - images/handsomafarican.png
     - images/image 6.png
     - images/registerimage.png
@@ -61,6 +69,7 @@ flutter:
     - images/m1.png
     - images/m2.png
     - images/m3.png
+    - images/star.png
     - images/card1.png
     - images/card2.png
     - images/store.png
@@ -80,6 +89,11 @@ flutter:
     - images/helpsupport.png
     - images/send.png
     - images/loc.png
+    - images/eye.png
+    - images/filtericon.png
+    - images/onmap.png
+    - images/Currentloc.png
+    - images/loclogo.png
     - images/sms.png
     - images/call.png
     - images/procamera.png

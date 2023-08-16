@@ -42,7 +42,7 @@ class NewarrivalListview extends StatelessWidget {
   Widget build(BuildContext context) {
     final mediaquery = MediaQuery.of(context).size;
     return SizedBox(
-      height: 210,
+      height: 240,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: list.length,
@@ -74,7 +74,7 @@ class NewarrivalListview extends StatelessWidget {
               ),
               margin: const EdgeInsets.all(8),
               child: SizedBox(
-                width: 200, // Replace with your desired fixed width
+                width: 212, // Replace with your desired fixed width
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
@@ -84,57 +84,61 @@ class NewarrivalListview extends StatelessWidget {
                           topRight: Radius.circular(9)),
                       child: Image.asset(
                         list[index].image!,
-                        height: 130,
+                        height: 140,
                         width: mediaquery.width,
                         fit: BoxFit.fill,
                       ),
                     ),
-                    Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 10.0),
-                          child: Text(
-                            list[index].title!,
-                            style: GoogleFonts.poppins(
-                              fontSize: 16.03,
-                              fontWeight: FontWeight.w600,
-                              color: const Color(0xff34A853),
+                    Padding(
+                      padding: const EdgeInsets.only(top:10.0),
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(left: 10.0),
+                            child: Text(
+                              list[index].title!,
+                              style: GoogleFonts.poppins(
+                                fontSize: 16.03,
+                                fontWeight: FontWeight.w600,
+                                color: const Color(0xff34A853),
+                              ),
                             ),
                           ),
-                        ),
-                        const Spacer(),
-                        const Icon(
-                          Icons.star,
-                          color: Colors.amber,
-                          size: 16,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(right: 8.0),
-                          child: Text(
-                            list[index].rating!.toStringAsFixed(1),
-                            style: GoogleFonts.poppins(
-                                fontSize: 12, fontWeight: FontWeight.w400
-                                // fontWeight: FontWeight.bold,
-                                ),
+                          const Spacer(),
+                          Image.asset('images/star1.png',width: 14.25,height:  14.25,),
+                          const SizedBox(width: 5,),
+                          Padding(
+                            padding: const EdgeInsets.only(right: 8.0),
+                            child: Text(
+                              list[index].rating!.toStringAsFixed(1),
+                              style: GoogleFonts.poppins(
+                                  fontSize: 12, fontWeight: FontWeight.w400
+                                  // fontWeight: FontWeight.bold,
+                                  ),
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                    Row(
-                      children: [
-                        const Padding(
-                          padding: EdgeInsets.only(left: 5.0),
-                          child: Icon(Icons.location_on,
-                              color: Colors.black45, size: 16),
-                        ),
-                        Text(
-                          list[index].location!,
-                          style: const TextStyle(
-                              fontSize: 12.47,
-                              color: Colors.black45,
-                              fontWeight: FontWeight.w400),
-                        ),
-                      ],
+                    Padding(
+                      padding: const EdgeInsets.only(top:5.0),
+                      child: Row(
+                        children: [
+                          const Padding(
+                            padding: EdgeInsets.only(left: 5.0),
+                            child: Icon(Icons.location_on,
+                                color: Colors.black45, size: 16),
+                          ),
+                          const SizedBox(width: 4,),
+                          Text(
+                            list[index].location!,
+                            style: const TextStyle(
+                                fontSize: 12.47,
+                                color: Colors.black45,
+                                fontWeight: FontWeight.w400),
+                          ),
+                        ],
+                      ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(right: 18.0),

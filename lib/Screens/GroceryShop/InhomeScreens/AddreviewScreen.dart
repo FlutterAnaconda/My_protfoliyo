@@ -1,10 +1,13 @@
+import 'package:dotcoder1/widgets/text/constants.dart';
+import 'package:dotcoder1/widgets/textfields/butons/Myfilledbutton.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../../widgets/customappbar.dart';
 
 import '../../../widgets/rating.dart';
 import '../../../widgets/textfields/Descriptiontextfeild.dart';
-import '../../../widgets/textfields/butons/whiteTextButton.dart';
+
 
 class AddReviewScreen extends StatelessWidget {
   final String title;
@@ -29,26 +32,53 @@ class AddReviewScreen extends StatelessWidget {
       body: Column(
         children: [
           SizedBox(
+            height: 90,
             width: 300,
-            child: Card(
-              surfaceTintColor: Colors.white,
-              elevation: 2,
-              child: ListTile(
-                leading: image.contains('http')
-                    ? Image.network(
-                        image,
-                        fit: BoxFit.fill,
-                      )
-                    : Image.asset(
-                        image,
-                        fit: BoxFit.fill,
-                        // height: 100,
-                      ),
-                title: Text(title),
-                subtitle: Text(
-                  'Price: \$$price',
-                  style: const TextStyle(fontSize: 14),
-                ),
+            child: Container(
+              decoration: cardcontainerdecoration,
+              child: Row(
+                children: [
+                  image.contains('http')
+                      ? Image.network(
+                          image,
+                          fit: BoxFit.fill,
+                        )
+                      : Image.asset(
+                          image,
+                          fit: BoxFit.fill,
+                          // height: 100,
+                        ),
+                  Padding(
+                    padding: const EdgeInsets.only(left:16.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment:MainAxisAlignment.spaceAround ,
+                      children: [
+
+                        Text(title,style: k16G600style,),
+                        Row(
+                          children: [
+                            Image.asset('images/star1.png',width: 14.25,height:  14.25,),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 5),
+                              child: Text(
+                                '5.0',
+                                style: GoogleFonts.poppins(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Text(
+                          '\$${price.toStringAsFixed(1)}',
+                          style: k14B600style,
+                        ),
+                      ],
+                    ),
+                  )
+                ],
               ),
             ),
           ),
@@ -63,9 +93,9 @@ class AddReviewScreen extends StatelessWidget {
           SizedBox(
             height: mediaquery.height * 0.01,
           ),
-          buildButton(context, () {
+          GradientElevatedButton(text: 'Submit',onPressed:  () {
             Navigator.pop(context);
-          }, 'Submit'),
+          }, ),
         ],
       ),
     );
