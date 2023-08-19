@@ -50,7 +50,7 @@ class _AllStoresState extends State<AllStores> {
   Widget build(BuildContext context) {
     // final mediaquery = MediaQuery.of(context).size;
     return SizedBox(
-      height: 140,
+      height: 150,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: list.length,
@@ -101,10 +101,11 @@ class _AllStoresState extends State<AllStores> {
                         ),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             Padding(
                               padding:
-                                  const EdgeInsets.only(top: 18.0, left: 10),
+                                  const EdgeInsets.only(top: 18.0, left: 10,),
                               child: Text(
                                 list[index].title!,
                                 style: GoogleFonts.poppins(
@@ -113,34 +114,41 @@ class _AllStoresState extends State<AllStores> {
                                 ),
                               ),
                             ),
-                            Row(
-                              children: [
-                                const Icon(
-                                  Icons.location_on,
-                                  color: Color(0xff737373),
-                                ),
-                                Text(
-                                  list[index].location!,
-                                  style: GoogleFonts.poppins(
-                                      color: Colors.black45, fontSize: 12),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                Image.asset('images/star1.png',width: 14.25,height:  14.25,),
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 5,right: 3),
-                                  child: Text(
-                                    list[index].rating!.toStringAsFixed(1),
+                            Padding(
+                              padding: const EdgeInsets.only(left:6,top:6.0),
+                              child: Row(
+                                children: [
+                                  const Icon(
+                                    Icons.location_on,
+                                    color: Color(0xff737373),
+                                    size: 15,
+                                  ),
+                                  Text(
+                                    list[index].location!,
                                     style: GoogleFonts.poppins(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w400,
+                                        color: Colors.black45, fontSize: 12),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 6,top:6.0),
+                              child: Row(
+                                children: [
+                                  Image.asset('images/star1.png',width: 14.25,height:  14.25,),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 5,right: 3),
+                                    child: Text(
+                                      list[index].rating!.toStringAsFixed(1),
+                                      style: GoogleFonts.poppins(
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w400,
+                                      ),
                                     ),
                                   ),
-                                ),
-                                Text('(19)',style: k12lightgrey400,),
-                              ],
+                                  Text('(19)',style: k12lightgrey400,),
+                                ],
+                              ),
                             ),
                           ],
                         ),
@@ -165,6 +173,7 @@ class _AllStoresState extends State<AllStores> {
                         ),
                       ],
                     ),
+                    const SizedBox(height: 8,),
                     Text(
                       'Lorem ipsum dolor sit amet, Lorem \nipsum dolor sit amet, consectetur ',
                       style: GoogleFonts.poppins(

@@ -87,7 +87,7 @@ class _ReviewsBuilderState extends State<ReviewsBuilder> {
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: CircleAvatar(
-                            radius: 30,
+                            radius: 25,
                             backgroundImage: NetworkImage(
                               list[index].image!,
                             ),
@@ -97,23 +97,27 @@ class _ReviewsBuilderState extends State<ReviewsBuilder> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: const EdgeInsets.only(top: 18.0, left: 10),
+                              padding: const EdgeInsets.only( left: 10),
                               child: Text(
                                 list[index].title!,
                                 style: k12_8B500style,
                               ),
                             ),
-                            Row(
-                              children: [
-                                const Icon(
-                                  Icons.location_on,
-                                  color: Color(0xff737373),
-                                ),
-                                Text(
-                                  list[index].location!,
-                                  style: k10grey300style,
-                                ),
-                              ],
+                            Padding(
+                              padding: const EdgeInsets.only(top: 4.0,left:8.0),
+                              child: Row(
+                                children: [
+                                  const Icon(
+                                    Icons.location_on,
+                                    color: Color(0xff737373),
+                                    size: 18,
+                                  ),
+                                  Text(
+                                    list[index].location!,
+                                    style: k10grey300style,
+                                  ),
+                                ],
+                              ),
                             ),
                           ],
                         ),
@@ -122,10 +126,7 @@ class _ReviewsBuilderState extends State<ReviewsBuilder> {
                           padding: const EdgeInsets.all(8.0),
                           child: Row(
                             children: [
-                              const Icon(
-                                Icons.star,
-                                color: Colors.amber,
-                              ),
+                              Image.asset('images/star1.png',width: 14.25,height:  14.25,),
                               Padding(
                                 padding: const EdgeInsets.only(left: 5),
                                 child: Text(

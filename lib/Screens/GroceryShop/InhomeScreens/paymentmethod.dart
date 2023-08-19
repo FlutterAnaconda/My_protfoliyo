@@ -1,7 +1,7 @@
 import 'package:flutter/Material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../../models/paymentmethod.dart';
+
 import '../../../widgets/cards/paymentmethodcard.dart';
 import '../../../widgets/textfields/butons/Myfilledbutton.dart';
 import '../../../widgets/textfields/butons/addcardbutton.dart';
@@ -17,16 +17,12 @@ class PaymentScreen extends StatefulWidget {
 }
 
 class _PaymentScreenState extends State<PaymentScreen> {
-  List<PaymentMethodModel> paymethod = [
-    PaymentMethodModel("images/m3.png", "Cash on Delivery"),
-    PaymentMethodModel("images/m1.png", "Paypal"),
-    PaymentMethodModel("images/m2.png", "MasterCard"),
-  ];
+
   List<String> imagepath = [
     'images/card2.png',
     'images/card1.png',
   ];
-  int? selectedCardIndex;
+  int? selectedCardIndex=-1;
   @override
   Widget build(BuildContext context) {
     return paymentwidget();
@@ -73,28 +69,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                       fontSize: 18, fontWeight: FontWeight.w500),
                 ),
               ),
-              SizedBox(
-                height: 250,
-                child: ListView.builder(
-                  itemCount: 3,
-                  itemBuilder: (BuildContext context, int index) {
-                    return Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: Paymentmethodcard(
-                          imageUrl: paymethod[index].imageurl,
-                          text: paymethod[index].text,
-                          isSelected: selectedCardIndex ==
-                              index, // Pass the selected state
-                          onTap: () {
-                            setState(() {
-                              selectedCardIndex =
-                                  index; // Update the selected card index
-                            });
-                          }),
-                    );
-                  },
-                ),
-              ),
+                  const Paymentmethodcard(),
             ]),
           ),
           Align(

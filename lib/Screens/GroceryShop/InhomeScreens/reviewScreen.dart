@@ -93,89 +93,100 @@ class _ReviewsBuilderScreenState extends State<ReviewsBuilderScreen> {
           itemCount: list.length,
           shrinkWrap: true,
           itemBuilder: (BuildContext context, int index) {
-            return Container(
-              height: 118,
-              decoration: BoxDecoration(
-                color: Colors.white, // Set the container background color
-                borderRadius: BorderRadius.circular(5),
-                border: Border.all(
-                    width: 0.5,
-                    color: Colors.black
-                        .withOpacity(0.05)), // Optional: Rounded corners
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.1), // Shadow color
-                    spreadRadius: 0, // Spread radius (controls the blur)
-                    blurRadius: 2.84415602684021, // Blur radius
-                    offset: const Offset(0, 2), // Offset in the x and y axes
-                  ),
-                ],
-              ),
-              margin: const EdgeInsets.all(8),
-              child: SizedBox(
-                width: mediaquery.width *
-                    0.7, // Replace with your desired fixed width
-                child: Column(
-                  children: [
-                    Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: CircleAvatar(
-                            radius: 30,
-                            backgroundImage: NetworkImage(
-                              list[index].image!,
-                            ),
-                          ),
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding:
-                                  const EdgeInsets.only(top: 18.0, left: 10),
-                              child: Text(
-                                list[index].title!,
-                                style: k12_8B500style,
+            return Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: Container(
+                height: 118,
+                decoration: BoxDecoration(
+                  color: Colors.white, // Set the container background color
+                  borderRadius: BorderRadius.circular(5),
+                  border: Border.all(
+                      width: 0.5,
+                      color: Colors.black
+                          .withOpacity(0.05)), // Optional: Rounded corners
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.1), // Shadow color
+                      spreadRadius: 0, // Spread radius (controls the blur)
+                      blurRadius: 2.84415602684021, // Blur radius
+                      offset: const Offset(0, 2), // Offset in the x and y axes
+                    ),
+                  ],
+                ),
+                margin: const EdgeInsets.all(8),
+                child: SizedBox(
+                  width: mediaquery.width *
+                      0.7, // Replace with your desired fixed width
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: CircleAvatar(
+                              radius: 25,
+                              backgroundImage: NetworkImage(
+                                list[index].image!,
                               ),
                             ),
-                            Row(
-                              children: [
-                                const Icon(
-                                  Icons.location_on,
-                                  color: Color(0xff737373),
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding:
+                                    const EdgeInsets.only( left: 10),
+                                child: Text(
+                                  list[index].title!,
+                                  style: k12_8B500style,
                                 ),
-                                Text(
-                                  list[index].location!,
-                                  style: k10grey300style,
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(top: 4.0,left:8.0),
+                                child: Row(
+                                  children: [
+                                    const Icon(
+                                      Icons.location_on,
+                                      color: Color(0xff737373),
+                                      size: 15,
+                                    ),
+                                    Text(
+                                      list[index].location!,
+                                      style: k10grey300style,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                          const Spacer(),
+                          Padding(
+                            padding: const EdgeInsets.only(right: 20.0),
+                            child: Row(
+                              children: [
+                                Image.asset('images/star1.png',width: 14.25,height:  14.25,),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 5),
+                                  child: Text(
+                                    list[index].rating!.toStringAsFixed(1),
+                                    style: k12B600style,
+                                  ),
                                 ),
                               ],
                             ),
-                          ],
+                          ),
+                        ],
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left:10.0),
+                        child: Text(
+                          'Lorem ipsum dolor sit amet, Lorem \nipsum dolor sit amet, consectetur ',
+                          style: k12Grey400style,
                         ),
-                        const Spacer(),
-                        Row(
-                          children: [
-                            const Icon(
-                              Icons.star,
-                              color: Colors.amber,
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 5),
-                              child: Text(
-                                list[index].rating!.toStringAsFixed(1),
-                                style: k12B600style,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                    Text(
-                      'Lorem ipsum dolor sit amet, Lorem \nipsum dolor sit amet, consectetur ',
-                      style: k12Grey400style,
-                    )
-                  ],
+                      )
+                    ],
+                  ),
                 ),
               ),
             );

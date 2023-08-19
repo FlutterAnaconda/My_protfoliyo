@@ -5,5 +5,6 @@ class PaymentMethodModel {
   const PaymentMethodModel(
     this.imageurl,
     this.text,
+
   );
 }

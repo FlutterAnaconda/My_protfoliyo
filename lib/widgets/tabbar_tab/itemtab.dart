@@ -151,9 +151,9 @@ Widget items() {
               ),
             ],
           ),
-          margin: const EdgeInsets.all(8),
+          margin: const EdgeInsets.symmetric(vertical: 4),
           child: SizedBox(
-            height: 100, // Replace with your desired fixed width
+            height: 110, // Replace with your desired fixed width
             child: Row(
               // crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -268,7 +268,7 @@ Widget active() {
           decoration: cardcontainerdecoration,
           margin: const EdgeInsets.all(8),
           child: SizedBox(
-            height: 125, // Replace with your desired fixed width
+            height: 132, // Replace with your desired fixed width
             child: Stack(
               alignment: Alignment.topRight,
               children: [
@@ -318,7 +318,7 @@ Widget active() {
                       ],
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 23.0),
+                      padding: const EdgeInsets.only(left: 23.0,top:10,),
                       child: Row(
                         children: [
                           const Icon(
@@ -381,7 +381,7 @@ Widget completed() {
             decoration: cardcontainerdecoration,
             margin: const EdgeInsets.all(8),
             child: SizedBox(
-              height: 125, // Replace with your desired fixed width
+              height: 132, // Replace with your desired fixed width
               child: Stack(
                 alignment: Alignment.centerRight,
                 children: [
@@ -442,7 +442,7 @@ Widget completed() {
                         ],
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(left: 23.0),
+                        padding: const EdgeInsets.only(left: 23.0,top:10),
                         child: Row(
                           children: [
                             const Icon(

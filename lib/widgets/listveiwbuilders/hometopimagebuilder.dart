@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 
 class ImageSlider extends StatelessWidget {
   final List<String> imagepath = [
-    'images/displayimage2.png',
-    'images/displayimage2.png',
-    'images/displayimage2.png',
-    'images/displayimage2.png',
-    'images/displayimage2.png', // Replace with your image URLs
+    'images/slide1.png',
+    'images/slide1.png',
+    'images/slide1.png',
+    'images/slide1.png',
+    'images/slide1.png', // Replace with your image URLs
     // Replace with your image URLs
     // Add more image URLs here if needed
   ];
@@ -19,6 +19,9 @@ class ImageSlider extends StatelessWidget {
     // final mediaquery = MediaQuery.of(context).size;
     return CarouselSlider(
       options: CarouselOptions(
+        // clipBehavior: Clip.none,
+        padEnds: false,
+        // disableCenter: true,
         // viewportFraction: 0.9,
         height: 150,
         // Adjust the height as needed
@@ -33,7 +36,7 @@ class ImageSlider extends StatelessWidget {
         return Builder(
           builder: (BuildContext context) {
             return Padding(
-              padding: const EdgeInsets.only(left: 12.0, top: 5),
+              padding: const EdgeInsets.only(left: 10.0, ),
               child: Image.asset(
                 imagepath,
                 width: MediaQuery.of(context).size.width,

@@ -9,7 +9,7 @@ class NewarrivalListview extends StatelessWidget {
   List<ProductModel> list = [
     ProductModel(
       title: 'zulam',
-      image: 'images/Group 7066.png',
+      image: 'images/image17.png',
       rating: 3,
       location: '91 park st,12',
       price: 25,
@@ -42,7 +42,7 @@ class NewarrivalListview extends StatelessWidget {
   Widget build(BuildContext context) {
     final mediaquery = MediaQuery.of(context).size;
     return SizedBox(
-      height: 240,
+      height: 260,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: list.length,
@@ -84,8 +84,8 @@ class NewarrivalListview extends StatelessWidget {
                           topRight: Radius.circular(9)),
                       child: Image.asset(
                         list[index].image!,
-                        height: 140,
-                        width: mediaquery.width,
+                        height: 160,
+                        width: 211,
                         fit: BoxFit.fill,
                       ),
                     ),
@@ -108,7 +108,7 @@ class NewarrivalListview extends StatelessWidget {
                           Image.asset('images/star1.png',width: 14.25,height:  14.25,),
                           const SizedBox(width: 5,),
                           Padding(
-                            padding: const EdgeInsets.only(right: 8.0),
+                            padding: const EdgeInsets.only(right: 16.0),
                             child: Text(
                               list[index].rating!.toStringAsFixed(1),
                               style: GoogleFonts.poppins(

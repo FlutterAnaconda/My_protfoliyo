@@ -1,3 +1,4 @@
+import 'package:dotcoder1/Screens/GroceryShop/InhomeScreens/trackorder.dart';
 import 'package:dotcoder1/widgets/customappbar.dart';
 import 'package:dotcoder1/widgets/tabbar_tab/itemtab.dart';
 import 'package:flutter/material.dart';
@@ -61,7 +62,7 @@ class Orderdetails extends StatelessWidget {
                 child: Container(
                   decoration: cardcontainerdecoration,
                   child: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.symmetric(vertical: 8.0),
                     child: Column(
                       children: [
                         Row(
@@ -169,19 +170,21 @@ class Orderdetails extends StatelessWidget {
                   ),
                 ),
               ),
+              const SizedBox(height: 25,),
               Row(
                 children: [
                   Expanded(
                     child: Container(
-                      height: 125,
+                      height: 145,
                       width: 370,
-                      decoration: cardcontainerdecoration,
+                      decoration: typingcardcontainerdecoration,
                       child: Padding(
                         padding: const EdgeInsets.all(16.0),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text('Details', style: k18G600style),
+                            const SizedBox(height: 10,),
                             Row(
                               children: [
                                 Text(
@@ -195,6 +198,7 @@ class Orderdetails extends StatelessWidget {
                                 ),
                               ],
                             ),
+                            const SizedBox(height: 5,),
                             Row(
                               children: [
                                 Text(
@@ -205,6 +209,7 @@ class Orderdetails extends StatelessWidget {
                                 Text('+\$12.70', style: k14lightblack400style),
                               ],
                             ),
+                            const SizedBox(height: 5,),
                             Row(
                               children: [
                                 Text(
@@ -229,9 +234,16 @@ class Orderdetails extends StatelessWidget {
           ),
         ),
         bottomNavigationBar: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 60.0, vertical: 5),
+          padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 5),
           child: GradientElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const Trackorder(),
+                ),
+              );
+            },
             text: 'Track Order',
           ),
         ),
@@ -250,7 +262,7 @@ class Orderdetails extends StatelessWidget {
             borderRadius: BorderRadius.all(Radius.circular(radius)),
             gradient: LinearGradient(
               colors: [
-                const Color(0xff00FF85),
+                const Color(0xff07CD6E),
                 const Color(0xff059F55).withOpacity(0.86),
               ],
               begin: Alignment.topCenter,

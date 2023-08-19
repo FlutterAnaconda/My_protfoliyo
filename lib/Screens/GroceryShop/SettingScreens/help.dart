@@ -37,13 +37,13 @@ class HelpScreen extends StatelessWidget {
                   decoration: cardcontainerdecoration,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 20, vertical: 20),
+                         vertical: 20),
                     child: ListView.builder(
                       physics: const NeverScrollableScrollPhysics(),
                       itemCount: list.length,
                       itemBuilder: (context, index) {
                         return Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: const EdgeInsets.all(12.0),
                           child: Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -58,18 +58,20 @@ class HelpScreen extends StatelessWidget {
                               Padding(
                                 padding: const EdgeInsets.only(left: 16.0),
                                 child: Column(
+
                                   crossAxisAlignment: CrossAxisAlignment.start,
+
                                   children: [
                                     Text(
                                       list[index].text,
                                       style: k12Grey400style,
                                     ),
                                     const SizedBox(
-                                      height: 3,
+                                      height: 10,
                                     ),
                                     Container(
                                       height: 1,
-                                      width: 209,
+                                      width: 240,
                                       color: const Color(0xffEBEBF0),
                                     ),
                                   ],

@@ -90,10 +90,11 @@ class _UserInfoState extends State<UserInfo> {
               'fawadh747@gmail.com',
               style: k12B500style,
             ),
+            const SizedBox(height: 25,),
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Container(
-                  height: 180,
+                  height: 200,
                   width: 342,
                   decoration: cardcontainerdecoration,
                   child: Padding(
@@ -125,7 +126,7 @@ class _UserInfoState extends State<UserInfo> {
                                 ],
                               ),
                               const SizedBox(
-                                height: 3,
+                                height: 8,
                               ),
                               Container(
                                 height: 1,

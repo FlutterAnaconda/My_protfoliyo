@@ -37,8 +37,9 @@ class ContainerListItem extends StatelessWidget {
               const SizedBox(width: 16.0),
               Image.asset(
                 'images/settingicons/arrow.png', // Replace with your image asset path
-                width: 20.0,
-                height: 20.0,
+                width: 10.0,
+                height: 13.0,
+                fit: BoxFit.fill,
               ),
             ],
           ),

@@ -83,7 +83,7 @@ class Mytypingappbar extends StatelessWidget implements PreferredSizeWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'Active',
+                'Active Now',
                 style: k12darkgrey400,
               ),
               const SizedBox(

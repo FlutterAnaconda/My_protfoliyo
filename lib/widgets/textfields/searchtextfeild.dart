@@ -67,55 +67,52 @@ class _SearchTextFieldState extends State<SearchTextField> {
     bool islocationicon = whichicon.islocationicon;
     return Column(
       children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 12.0),
-          child: SizedBox(
-            width: widget.isexpanded ? MediaQuery.of(context).size.width : 280,
-            height: 49.41,
-            child: TextField(
-              // onTapOutside: (event) {
-              //   setState(() {
-              //     islocationicon = true;
-              //     whichicon.isLocationIcon(islocationicon);
-              //     _dismissKeyboard();
-              //   });
-              // },
-              onTap: () {
-                setState(() {
-                  islocationicon = false;
-                  whichicon.isLocationIcon(islocationicon);
-                });
-              },
-              onSubmitted: (value) {
-                setState(() {
-                  islocationicon = true;
-                  whichicon.isLocationIcon(islocationicon);
-                  _dismissKeyboard();
-                });
-              },
-              controller: widget.controller,
-              onChanged: (value) => onSearchTextChanged(),
-              decoration: InputDecoration(
-                prefixIcon: const Icon(
-                  Icons.search,
-                  color: Color(0xFF868889),
-                  size: 16.32,
-                ),
-                // suffixIcon: Icon(
-
-                // ),
-                hintText: widget.hinttext,
-                hintStyle: GoogleFonts.mulish(
-                  fontSize: 13,
-                  fontWeight: FontWeight.w500,
-                  color: const Color(0xFF868889),
-                ),
-                filled: true,
-                fillColor: const Color.fromARGB(250, 240, 249, 250),
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8.0),
-                    borderSide: BorderSide.none),
+        SizedBox(
+          width: widget.isexpanded ? MediaQuery.of(context).size.width : 280,
+          height: 49.41,
+          child: TextField(
+            // onTapOutside: (event) {
+            //   setState(() {
+            //     islocationicon = true;
+            //     whichicon.isLocationIcon(islocationicon);
+            //     _dismissKeyboard();
+            //   });
+            // },
+            onTap: () {
+              setState(() {
+                islocationicon = false;
+                whichicon.isLocationIcon(islocationicon);
+              });
+            },
+            onSubmitted: (value) {
+              setState(() {
+                islocationicon = true;
+                whichicon.isLocationIcon(islocationicon);
+                _dismissKeyboard();
+              });
+            },
+            controller: widget.controller,
+            onChanged: (value) => onSearchTextChanged(),
+            decoration: InputDecoration(
+              prefixIcon: const Icon(
+                Icons.search,
+                color: Color(0xFF868889),
+                size: 16.32,
               ),
+              // suffixIcon: Icon(
+
+              // ),
+              hintText: widget.hinttext,
+              hintStyle: GoogleFonts.mulish(
+                fontSize: 13,
+                fontWeight: FontWeight.w500,
+                color: const Color(0xFF868889),
+              ),
+              filled: true,
+              fillColor: const Color.fromARGB(250, 240, 249, 250),
+              border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                  borderSide: BorderSide.none),
             ),
           ),
         ),

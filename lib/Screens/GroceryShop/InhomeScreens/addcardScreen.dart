@@ -56,7 +56,7 @@ class _AddCardScreenState extends State<AddCardScreen> {
                 height: 50,
               ),
               SizedBox(
-                height: 260,
+                height: 220,
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: VisaCardWidget(
@@ -157,30 +157,38 @@ class VisaCardWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       elevation: 3,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       child: Container(
         width: double.infinity,
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
           gradient: const LinearGradient(
-            colors: [Colors.blue, Colors.purple], // Add the gradient colors
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
+            colors: [ Colors.purple,Colors.lightBlueAccent,Colors.purple,], // Add the gradient colors
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
           ),
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(20),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              'Visa',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment .spaceBetween,
+              children: [
+
+                const Text(
+                  'Visa',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+
+                Image.asset('images/chip.png',width: 31.67,height: 27.71,),
+              ],
             ),
-            const SizedBox(height: 30),
+            const SizedBox(height: 15),
             Text(
               (cardNumber.isEmpty) ? '**** **** ****' : cardNumber,
               style: const TextStyle(
@@ -189,7 +197,7 @@ class VisaCardWidget extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            const SizedBox(height: 30),
+            const SizedBox(height: 5),
             const Text(
               'Holder Name',
               style: TextStyle(

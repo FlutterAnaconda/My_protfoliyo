@@ -121,33 +121,40 @@ class _AllStoresscreenState extends State<AllStoresscreen> {
                                   ),
                                 ),
                               ),
-                              Row(
-                                children: [
-                                  const Icon(
-                                    Icons.location_on,
-                                    color: Color(0xff737373),
-                                  ),
-                                  Text(
-                                    list[index].location!,
-                                    style: GoogleFonts.poppins(
-                                        color: Colors.black45, fontSize: 12),
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                children: [
-                                  Image.asset('images/star1.png',width: 14.25,height:  14.25,),
-                                  Padding(
-                                    padding: const EdgeInsets.only(left: 5),
-                                    child: Text(
-                                      list[index].rating!.toStringAsFixed(1),
+                              Padding(
+                                padding: const EdgeInsets.only(left:8.0,top: 6),
+                                child: Row(
+                                  children: [
+                                    const Icon(
+                                      Icons.location_on,
+                                      color: Color(0xff737373),
+                                      size: 15,
+                                    ),
+                                    Text(
+                                      list[index].location!,
                                       style: GoogleFonts.poppins(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w400,
+                                          color: Colors.black45, fontSize: 12),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(left:8.0,top:6),
+                                child: Row(
+                                  children: [
+                                    Image.asset('images/star1.png',width: 14.25,height:  14.25,),
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 5),
+                                      child: Text(
+                                        list[index].rating!.toStringAsFixed(1),
+                                        style: GoogleFonts.poppins(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w400,
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ],
                           ),
@@ -172,6 +179,7 @@ class _AllStoresscreenState extends State<AllStoresscreen> {
                           ),
                         ],
                       ),
+                      const SizedBox(height: 10,),
                       Text(
                         'Lorem ipsum dolor sit amet, Lorem \nipsum dolor sit amet, consectetur ',
                         style: GoogleFonts.poppins(

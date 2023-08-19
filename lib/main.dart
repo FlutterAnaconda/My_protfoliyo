@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'Providers/cartprovider.dart';
+
 import 'Providers/storeprovider.dart';
 import 'Providers/usertype.dart';
 import 'Screens/GroceryShop/InhomeScreens/NewArrivalScreen.dart';
@@ -31,6 +32,8 @@ class MyApp extends StatelessWidget {
           ChangeNotifierProvider(create: (_) => CartProvider()),
           ChangeNotifierProvider(create: (_) => StoreProvider()),
           ChangeNotifierProvider(create: (_) => Usertype()),
+
+
         ],
         child: MaterialApp(
             theme: ThemeData(

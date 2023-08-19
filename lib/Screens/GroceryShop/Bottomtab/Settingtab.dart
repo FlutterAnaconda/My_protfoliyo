@@ -11,7 +11,7 @@ import '../../../widgets/listveiwbuilders/settinglistview.dart';
 import '../../../widgets/textfields/butons/Myfilledbutton.dart';
 
 import '../SettingScreens/Term&conditions.dart';
-import '../SettingScreens/aboutus.dart';
+
 
 import '../SettingScreens/chatsScreens/startchating.dart';
 import '../SettingScreens/language.dart';

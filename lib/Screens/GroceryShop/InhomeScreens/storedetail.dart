@@ -14,6 +14,7 @@ class Storesdetailscreen extends StatefulWidget {
   final String location;
   final int rating;
   final bool isfav;
+
   const Storesdetailscreen(
       {super.key,
       required this.imagepath,
@@ -35,6 +36,7 @@ class _StoresdetailscreenState extends State<Storesdetailscreen> {
     const Tab(text: 'Vegetables'),
     const Tab(text: 'Dairy'),
   ];
+
   // List<ProductModel> list = [
   //   ProductModel(
   //     title: 'Blazzing Store',
@@ -142,6 +144,7 @@ class _StoresdetailscreenState extends State<Storesdetailscreen> {
                 unselectedLabelColor: const Color(0xff868889),
                 labelStyle: k12Grey400style,
                 tabs: tabs,
+                dividerColor: Colors.white,
               ),
               Expanded(
                 child: TabBarView(
@@ -160,25 +163,26 @@ class _StoresdetailscreenState extends State<Storesdetailscreen> {
 
   List<ProductModel> list = [
     ProductModel(
-      title: 'zulam',
-      image: 'images/Group 7066.png',
-      rating: 3,
-      location: '91 park st,12',
-      price: 25,
-    ),
+        title: 'zulam',
+        image: 'images/Group 7066.png',
+        rating: 3,
+        location: '91 park st,12',
+        price: 25,
+        discount: true,),
     ProductModel(
-      title: 'italia',
-      image: 'images/Group 1171276027.png',
-      rating: 3,
-      location: '91 park st,12',
-      price: 25,
-    ),
+        title: 'italia',
+        image: 'images/Group 1171276027.png',
+        rating: 3,
+        location: '91 park st,12',
+        price: 20,
+        discount: true,),
     ProductModel(
       title: 'norm',
       image: 'images/Group 1171276027.png',
       rating: 3,
       location: '91 park st,12',
       price: 25,
+
     ),
     ProductModel(
       title: 'pharse',
@@ -193,6 +197,7 @@ class _StoresdetailscreenState extends State<Storesdetailscreen> {
       rating: 3,
       location: '91 park st,12',
       price: 25,
+      discount: true,
     ),
     ProductModel(
       title: 'master',
@@ -207,6 +212,7 @@ class _StoresdetailscreenState extends State<Storesdetailscreen> {
       rating: 3,
       location: '91 park st,12',
       price: 25,
+      discount: true,
     ),
     ProductModel(
       title: 'doremon',
@@ -237,6 +243,7 @@ class _StoresdetailscreenState extends State<Storesdetailscreen> {
       price: 25,
     ),
   ];
+
   Widget buildContentForTab() {
     // Implement the content for each tab here
     return ListView.builder(
@@ -269,83 +276,96 @@ class _StoresdetailscreenState extends State<Storesdetailscreen> {
               ],
             ),
             margin: const EdgeInsets.all(8),
-            child: SizedBox(
-              height: 100, // Replace with your desired fixed width
-              child: Row(
-                // crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  ClipRRect(
-                    borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(9),
-                        topRight: Radius.circular(9)),
-                    child: Image.asset(
-                      list[index].image!,
-                      height: 100,
-                      width: 100,
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 20,
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
+            child: Stack(
+              children: [
+               list[index].discount!? Positioned(
+                  right: 20,
+                  child:Container(
+                    width: 30,
+                    height: 35,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage(list[index].price! ==25?'images/yellow.png':'images/green.png',),
+                          fit: BoxFit.cover, // Adjust the fit to your needs
+                        ),),
+
+                  )
+                ):Container(),
+                SizedBox(
+                  height: 100, // Replace with your desired fixed width
+                  child: Row(
+                    // crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        list[index].title!,
-                        style: GoogleFonts.poppins(
-                          fontSize: 16.03,
-                          fontWeight: FontWeight.w600,
-                          color: const Color(0xff34A853),
+                      ClipRRect(
+                        borderRadius: const BorderRadius.only(
+                            topLeft: Radius.circular(9),
+                            topRight: Radius.circular(9)),
+                        child: Image.asset(
+                          list[index].image!,
+                          height: 100,
+                          width: 100,
+                          fit: BoxFit.fill,
                         ),
                       ),
-                      Row(
+                      const SizedBox(
+                        width: 20,
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Icon(
-                            Icons.star,
-                            color: Colors.amber,
-                            size: 16,
+                          Text(
+                            list[index].title!,
+                            style: GoogleFonts.poppins(
+                              fontSize: 16.03,
+                              fontWeight: FontWeight.w600,
+                              color: const Color(0xff34A853),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          Row(
+                            children: [
+                              Image.asset(
+                                'images/star1.png',
+                                width: 14.25,
+                                height: 14.25,
+                              ),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.only(right: 2.0, left: 6),
+                                child: Text(
+                                  list[index].rating!.toStringAsFixed(1),
+                                  style: GoogleFonts.poppins(
+                                      fontSize: 12, fontWeight: FontWeight.w400
+                                      // fontWeight: FontWeight.bold,
+                                      ),
+                                ),
+                              ),
+                              Text(
+                                '(24)',
+                                style: k12lightgrey400,
+                              )
+                            ],
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(right: 8.0),
+                            padding:
+                                const EdgeInsets.only(right: 18.0, top: 15),
                             child: Text(
-                              list[index].rating!.toStringAsFixed(1),
+                              '\$${list[index].price!.toStringAsFixed(1)}',
                               style: GoogleFonts.poppins(
-                                  fontSize: 12, fontWeight: FontWeight.w400
-                                  // fontWeight: FontWeight.bold,
-                                  ),
+                                fontSize: 14,
+                                fontWeight: FontWeight.w600,
+                              ),
                             ),
                           ),
                         ],
                       ),
-                      Row(
-                        children: [
-                          const Icon(Icons.location_on,
-                              color: Colors.black45, size: 16),
-                          Text(
-                            list[index].location!,
-                            style: const TextStyle(
-                                fontSize: 12.47,
-                                color: Colors.black45,
-                                fontWeight: FontWeight.w400),
-                          ),
-                        ],
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 18.0),
-                        child: Text(
-                          '\$${list[index].price!.toStringAsFixed(1)}',
-                          style: GoogleFonts.poppins(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                      ),
                     ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         );
@@ -374,7 +394,7 @@ class _StoresdetailscreenState extends State<Storesdetailscreen> {
       // margin: const EdgeInsets.all(8),
       child: SizedBox(
         width: double.infinity,
-        height: 170, // Replace with your desired fixed width
+        height: 191, // Replace with your desired fixed width
         child: Column(
           children: [
             Row(
@@ -406,30 +426,39 @@ class _StoresdetailscreenState extends State<Storesdetailscreen> {
                         const Icon(
                           Icons.location_on,
                           color: Color(0xff737373),
+                          size: 20,
                         ),
-                        Text(
-                          location,
-                          style: GoogleFonts.poppins(
-                              color: Colors.black45, fontSize: 12),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 4.0),
+                          child: Text(
+                            location,
+                            style: GoogleFonts.poppins(
+                                color: Colors.black45, fontSize: 12),
+                          ),
                         ),
                       ],
                     ),
                     Row(
                       children: [
-                        const Icon(
-                          Icons.star,
-                          color: Colors.amber,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 5),
-                          child: Text(
-                            rating.toStringAsFixed(1),
-                            style: GoogleFonts.poppins(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w400,
-                            ),
+                        SizedBox(
+                          width: 130,
+                          height: 18,
+                          child: ListView.builder(
+                            physics: const NeverScrollableScrollPhysics(),
+                            scrollDirection: Axis.horizontal,
+                            itemCount: 5,
+                            itemBuilder: (context, index) {
+                              return Padding(
+                                padding: const EdgeInsets.only(left: 4.0),
+                                child: Image.asset(
+                                  'images/star1.png',
+                                  height: 16,
+                                  width: 16,
+                                ),
+                              );
+                            },
                           ),
-                        ),
+                        )
                       ],
                     ),
                   ],
@@ -438,24 +467,22 @@ class _StoresdetailscreenState extends State<Storesdetailscreen> {
                 Padding(
                   padding: const EdgeInsets.only(right: 25.0),
                   child: Image.asset(
-                    isfav
-                        ? 'images/fillheart.png'
-                        : 'images/heart.png',
-                    width: 20,
-                    height: 20,
+                    isfav ? 'images/fillheart.png' : 'images/heart.png',
+                    width: 24,
+                    height: 24,
                   ),
                 ),
               ],
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 8.0),
+              padding: const EdgeInsets.only(left: 25.0, top: 8),
               child: Text(
                 'Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet,\nconsectetur adipiscing elit.consectetur adipiscing. ',
                 style: k12Grey400style,
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 8.0),
+              padding: const EdgeInsets.only(left: 25.0, top: 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -483,3 +510,13 @@ class _StoresdetailscreenState extends State<Storesdetailscreen> {
     );
   }
 }
+
+
+
+
+
+
+
+
+
+

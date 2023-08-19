@@ -101,7 +101,7 @@ class _ProfileUpdateScreenState extends State<ProfileUpdateScreen> {
                           name: 'Name',
                         ),
                         const SizedBox(
-                          height: 15,
+                          height: 20,
                         ),
                         MyTextFormField(
                           controller: emailcontroller,
@@ -109,7 +109,7 @@ class _ProfileUpdateScreenState extends State<ProfileUpdateScreen> {
                           name: 'Email',
                         ),
                         const SizedBox(
-                          height: 15,
+                          height: 20,
                         ),
                         MyTextFormField(
                           isreadonly: true,

@@ -34,7 +34,7 @@ class _NewpasswordState extends State<Newpassword> {
 
     return SafeArea(
       child: Scaffold(
-        backgroundColor: const Color(0xff23AA49).withOpacity(0.12),
+        // backgroundColor: const Color(0xff23AA49).withOpacity(0.12),
         body: SizedBox(
           height: mediaquery.height,
           child: SingleChildScrollView(

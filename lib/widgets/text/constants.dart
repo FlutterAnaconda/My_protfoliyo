@@ -53,6 +53,21 @@ final k16G600style = GoogleFonts.poppins(
   fontWeight: FontWeight.w600,
   color: const Color(0xff34A853),
 );
+final k2w600inter = GoogleFonts.inter(
+  fontSize: 2,
+  fontWeight: FontWeight.w600,
+  color: const Color(0xffffffff),
+);
+final k7w600inter = GoogleFonts.inter(
+  fontSize: 7,
+  fontWeight: FontWeight.w600,
+  color: const Color(0xffffffff),
+);
+final k3w500inter = GoogleFonts.inter(
+  fontSize: 3,
+  fontWeight: FontWeight.w500,
+  color: const Color(0xffffffff),
+);
 final k18G600style = GoogleFonts.poppins(
   fontSize: 18,
   fontWeight: FontWeight.w600,
@@ -208,9 +223,9 @@ final typingcardcontainerdecoration = BoxDecoration(
   // Optional: Rounded corners
   boxShadow: [
     BoxShadow(
-      color: Colors.black.withOpacity(0.25), // Shadow color
+      color: Colors.black.withOpacity(0.08), // Shadow color
       spreadRadius: 0, // Spread radius (controls the blur)
-      blurRadius: 8, // Blur radius
+      blurRadius: 4, // Blur radius
       offset: const Offset(0, -2), // Offset in the x and y axes
     ),
   ],

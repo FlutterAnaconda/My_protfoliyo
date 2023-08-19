@@ -3,7 +3,10 @@ import 'package:flutter/Material.dart';
 // ignore: must_be_immutable
 class Mystepper extends StatelessWidget {
   int? currentindex;
-  Mystepper({super.key, this.currentindex});
+  final String firsttext;
+  final String secondtext;
+  final String thridtext;
+  Mystepper({super.key, this.currentindex, required this.firsttext, required this.secondtext, required this.thridtext});
 
   @override
   Widget build(BuildContext context) {
@@ -47,15 +50,15 @@ class Mystepper extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "Delivery",
+                      firsttext,
                       style: _getStepperTextStyle(0, context),
                     ),
                     Text(
-                      "Address",
+                      secondtext,
                       style: _getStepperTextStyle(1, context),
                     ),
                     Text(
-                      "Payment",
+                      thridtext,
                       style: _getStepperTextStyle(2, context),
                     ),
                   ],
@@ -71,12 +74,16 @@ class Mystepper extends StatelessWidget {
         height: 40,
         width: 40,
         decoration: BoxDecoration(
-            color: Theme.of(context).primaryColor,
-            borderRadius: BorderRadius.circular(8),
-            border: Border.all(
-              width: 2,
-              color: Theme.of(context).primaryColor,
-            )),
+            gradient: LinearGradient(
+              colors: [
+                const Color(0xff07CD6E),
+                const Color(0xFF059F55).withOpacity(0.86),
+              ],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            ),
+            borderRadius: BorderRadius.circular(15),
+            ),
         child: const Center(
           child: Icon(
             Icons.check,
@@ -94,9 +101,17 @@ class Mystepper extends StatelessWidget {
       height: 40,
       width: 40,
       decoration: BoxDecoration(
-          color: isCompleted ? Theme.of(context).primaryColor : Colors.white,
-          borderRadius: BorderRadius.circular(8),
-          border: Border.all(
+          color: isCompleted ? null : Colors.white,
+          gradient:isCompleted? LinearGradient(
+            colors: [
+              const Color(0xff07CD6E),
+              const Color(0xFF059F55).withOpacity(0.86),
+            ],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ):null,
+          borderRadius: BorderRadius.circular(15),
+          border:isCompleted? null:Border.all(
             width: 2,
             color: Theme.of(context).primaryColor,
           )),

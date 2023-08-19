@@ -27,10 +27,12 @@ class _LocationSliderState extends State<LocationSlider> {
                     tickOffset: const Offset(2, 2),
                     activeTickColor: Theme.of(context).primaryColor,
                     tooltipBackgroundColor: Theme.of(context).primaryColor,
+                    thumbColor: const Color(0xffD6D8DA),
                     tooltipTextStyle: GoogleFonts.poppins(
                       fontSize: 10.63,
                       fontWeight: FontWeight.w500,
                       color: Colors.white,
+
                     )),
                 child: SfSlider(
                   value: _currentMiles,

@@ -41,54 +41,66 @@ class _HomeTabState extends State<HomeTab> {
     'Strawberry',
     'Watermelon',
   ];
+
   @override
   Widget build(BuildContext context) {
     // final mediaquery = MediaQuery.of(context).size;
-    final islocationicon = Provider.of<Usertype>(context).islocationicon;
+    final islocationicon = Provider
+        .of<Usertype>(context)
+        .islocationicon;
 
     return Scaffold(
       // backgroundColor: const Color(0xff23AA49).withOpacity(0.12),
-      appBar: AppBar(
-          scrolledUnderElevation: 0,
-          backgroundColor: Colors.white,
-          automaticallyImplyLeading: false,
-          centerTitle: true,
-          leading: InkWell(
-            onTap: () {
-              // Add your logic here for the first icon onTap event.
-            },
-            child: const Padding(
-              padding: EdgeInsets.all(15.0),
-              child: Image(
-                image: AssetImage('images/menu-bar 1.png'),
-              ),
-            ),
-          ),
-          title: Text(
-            'Grocery Shop',
-            style: GoogleFonts.poppins(
-              fontWeight: FontWeight.bold,
-              fontSize: 18,
-              color: Colors.black,
-            ),
-          ),
-          actions: [
-            InkWell(
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const CartScreen(cartItems: [],),));
-              },
-              child: const Padding(
-                padding: EdgeInsets.only(right: 8.0),
-                child: Image(
-                  image: AssetImage('images/cart.png'),
-                  height: 25,
-                ),
-              ),
-            ),
-          ]),
+
       body: SingleChildScrollView(
         child: Column(
           children: [
+            const SizedBox(
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: InkWell(
+                    onTap: () {
+                      // Add your logic here for the first icon onTap event.
+                    },
+                    child: const Image(
+                      image: AssetImage('images/menu-bar 1.png',),
+                      width: 25,
+                      height: 24,
+                    ),
+                  ),
+                ),
+
+                Text(
+                  'Grocery Shop',
+                  style: GoogleFonts.poppins(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                    color: Colors.black,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(right:4.0),
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(
+                        builder: (context) => const CartScreen(cartItems: [],),));
+                    },
+                    child: const Padding(
+                      padding: EdgeInsets.only(right: 8.0),
+                      child: Image(
+                        image: AssetImage('images/cart.png'),
+                        height: 25,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
             const SizedBox(
               height: 30,
             ),
@@ -98,7 +110,7 @@ class _HomeTabState extends State<HomeTab> {
               children: [
                 Padding(
                   padding: const EdgeInsets.only(
-                    left: 6,
+                    left: 12,
                   ),
                   // height: 100, // Set a fixed height for the row
                   child: SearchTextField(
@@ -108,18 +120,20 @@ class _HomeTabState extends State<HomeTab> {
                     hinttext: 'Search Categories',
                   ),
                 ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => islocationicon
-                              ? const PickLocationScreen()
-                              : const FilterScreen(),
-                        ));
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.only(right:6.0),
+                const SizedBox(width: 5,),
+                Padding(
+                  padding: const EdgeInsets.only(right: 8.0),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                            islocationicon
+                                ? const PickLocationScreen()
+                                : const FilterScreen(),
+                          ));
+                    },
                     child: Container(
                         height: 49.41,
                         width: 44,
@@ -133,22 +147,24 @@ class _HomeTabState extends State<HomeTab> {
                         ),
                         child: islocationicon
                             ? Icon(
-                                Icons.location_on,
-                                color: Theme.of(context).primaryColor,
-                                size: 23,
-                              )
+                          Icons.location_on,
+                          color: Theme
+                              .of(context)
+                              .primaryColor,
+                          size: 23,
+                        )
                             : Container(
-                                height: 20,
-                                width: 20,
-                                alignment: Alignment.center,
-                                child: Image.asset(
-                                  width:
-                                      20, // Adjust the image width within the container
-                                  height: 20,
-                                  'images/filtericon.png',
-                                  fit: BoxFit.cover,
-                                ),
-                              )),
+                          height: 20,
+                          width: 20,
+                          alignment: Alignment.center,
+                          child: Image.asset(
+                            width:
+                            20, // Adjust the image width within the container
+                            height: 20,
+                            'images/filtericon.png',
+                            fit: BoxFit.cover,
+                          ),
+                        )),
                   ),
                 )
               ],
@@ -182,10 +198,11 @@ class _HomeTabState extends State<HomeTab> {
             OfferListveiw(),
             Myhomerowtext(
               text: 'All Stores',
-              ontap: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const AllStoresscreen())),
+              ontap: () =>
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const AllStoresscreen())),
             ),
             const AllStores(),
           ],

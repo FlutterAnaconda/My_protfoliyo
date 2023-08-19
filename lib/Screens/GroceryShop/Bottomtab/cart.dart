@@ -43,7 +43,7 @@ class _CartScreenState extends State<CartScreen> {
                 height: 30,
               ),
               SizedBox(
-                height: 400,
+                height: 450,
                 child: ListView.builder(
                   itemCount: cartItems.length,
                   itemBuilder: (context, index) {
@@ -57,22 +57,23 @@ class _CartScreenState extends State<CartScreen> {
                         child: Align(
                           alignment: AlignmentDirectional.centerEnd,
                           child: Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(15),
-                              color: Colors.white,
-                            ),
-                            width: 66,
-                            height: 110,
-                            child: Container(
-                              alignment: Alignment.center,
-                              height: 24,
-                              width: 22,
-                              child: Image.asset('images/delicon.png',
-                              height: 24,
-                              width: 22,
-                              fit: BoxFit.contain,),
-                            )
-                          ),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(15),
+                                color: Colors.white,
+                              ),
+                              width: 66,
+                              height: 110,
+                              child: Container(
+                                alignment: Alignment.center,
+                                height: 24,
+                                width: 22,
+                                child: Image.asset(
+                                  'images/delicon.png',
+                                  height: 24,
+                                  width: 22,
+                                  fit: BoxFit.contain,
+                                ),
+                              )),
                         ),
                       ),
                       onDismissed: (_) {
@@ -101,8 +102,8 @@ class _CartScreenState extends State<CartScreen> {
                                 9), // Optional: Rounded corners
                             boxShadow: [
                               BoxShadow(
-                                color:
-                                    Colors.black.withOpacity(0.1), // Shadow color
+                                color: Colors.black
+                                    .withOpacity(0.1), // Shadow color
                                 spreadRadius:
                                     0, // Spread radius (controls the blur)
                                 blurRadius: 3.5630252361297607, // Blur radius
@@ -119,21 +120,26 @@ class _CartScreenState extends State<CartScreen> {
                                   padding: const EdgeInsets.symmetric(
                                       horizontal: 25.0, vertical: 5),
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
-                                      const SizedBox(height: 10,),
+                                      const SizedBox(
+                                        height: 10,
+                                      ),
                                       Text(
-
                                         item.title,
                                         style: k16B600style,
                                       ),
-                                      const SizedBox(height: 5,),
+                                      const SizedBox(
+                                        height: 5,
+                                      ),
                                       Text(
                                         item.title,
                                         style: k14Grey500style,
                                       ),
                                       Padding(
-                                        padding: const EdgeInsets.only(top: 5.0),
+                                        padding:
+                                            const EdgeInsets.only(top: 5.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.min,
                                           children: [
@@ -149,8 +155,10 @@ class _CartScreenState extends State<CartScreen> {
                                                 cartProvider
                                                     .decrementQuantity(item);
                                                 Fluttertoast.showToast(
-                                                  msg: "Item quantity decreased!",
-                                                  toastLength: Toast.LENGTH_SHORT,
+                                                  msg:
+                                                      "Item quantity decreased!",
+                                                  toastLength:
+                                                      Toast.LENGTH_SHORT,
                                                   gravity: ToastGravity.BOTTOM,
                                                   timeInSecForIosWeb: 1,
                                                   backgroundColor:
@@ -178,8 +186,10 @@ class _CartScreenState extends State<CartScreen> {
                                                 cartProvider
                                                     .incrementQuantity(item);
                                                 Fluttertoast.showToast(
-                                                  msg: "Item quantity increased!",
-                                                  toastLength: Toast.LENGTH_SHORT,
+                                                  msg:
+                                                      "Item quantity increased!",
+                                                  toastLength:
+                                                      Toast.LENGTH_SHORT,
                                                   gravity: ToastGravity.BOTTOM,
                                                   timeInSecForIosWeb: 1,
                                                   backgroundColor:
@@ -225,97 +235,106 @@ class _CartScreenState extends State<CartScreen> {
                   },
                 ),
               ),
-              SizedBox(
-                height: 194,
-                child: Card(
-                  surfaceTintColor: Colors.white60,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(left:10.0,top: 10),
-                            child: Text(
-                              "Details",
-                              style: GoogleFonts.poppins(
-                                  fontSize: 18,
-                                  color: Theme.of(context).primaryColor,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                          const SizedBox(height: 10,),
-                          Padding(
-                            padding: const EdgeInsets.only(left:9.0),
-                            child: Row(
-                              children: [
-                                Text(
-                                  "Total",
-                                  style: GoogleFonts.poppins(
-                                      fontSize: 18,fontWeight: FontWeight.w600,
-                                      color: Colors.black45),
-                                ),
-                                const Spacer(),
-                                Text(
-                                    '\$${cartProvider.calculateTotalPrice(cartItems).toStringAsFixed(2)}',
-                                    style: GoogleFonts.poppins(
-                                        fontSize: 18,fontWeight: FontWeight.w600,
-                                        color: Colors.black45),),
-                              ],
-                            ),
-                          ),
-                          const SizedBox(height: 8,),
-                          Padding(
-                            padding: const EdgeInsets.only(left:8.0),
-                            child: Row(
-                              children: [
-                                Text(" Delivery free for 3.6km",
-                                    style: GoogleFonts.poppins(
-                                        fontSize: 14,fontWeight: FontWeight.w400, color: Colors.black)),
-                                const Spacer(),
-                                Text("+\$12.70",
-                                    style: GoogleFonts.poppins(
-                                        fontWeight: FontWeight.w400,fontSize: 14, color: Colors.black)),
-                              ],
-                            ),
-                          ),
-
-const SizedBox(height:20,),
-                          GradientElevatedButton(text:'Check Out' ,onPressed: () {
-                            if (cartProvider.calculateTotalPrice(cartItems) >
-                                0) {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (_) => CheckOutScreen(
-                                        total: cartProvider
-                                            .calculateTotalPrice(cartItems),
-                                      )));
-                            } else {
-                              Fluttertoast.showToast(
-                                msg: 'please Select items',
-                                toastLength: Toast.LENGTH_SHORT,
-                                gravity: ToastGravity.BOTTOM,
-                                timeInSecForIosWeb: 1,
-                                backgroundColor: Colors.red,
-                                textColor: Colors.white,
-                                fontSize: 16.0,
-                              );
-                            }
-                          },)
-
-
-
-
-
-
-
-                        ],),
-                  ),
-                ),
-              )
             ],
+          ),
+        ),
+        bottomNavigationBar: SizedBox(
+          height: 204,
+          child: Card(
+            surfaceTintColor: Colors.white60,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10.0, top: 10),
+                    child: Text(
+                      "Details",
+                      style: GoogleFonts.poppins(
+                          fontSize: 18,
+                          color: Theme.of(context).primaryColor,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 9.0),
+                    child: Row(
+                      children: [
+                        Text(
+                          "Total",
+                          style: GoogleFonts.poppins(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.black45),
+                        ),
+                        const Spacer(),
+                        Text(
+                          '\$${cartProvider.calculateTotalPrice(cartItems).toStringAsFixed(2)}',
+                          style: GoogleFonts.poppins(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.black45),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 8.0),
+                    child: Row(
+                      children: [
+                        Text(" Delivery free for 3.6km",
+                            style: GoogleFonts.poppins(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400,
+                                color: Colors.black)),
+                        const Spacer(),
+                        Text("+\$12.70",
+                            style: GoogleFonts.poppins(
+                                fontWeight: FontWeight.w400,
+                                fontSize: 14,
+                                color: Colors.black)),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  GradientElevatedButton(
+                    text: 'Check Out',
+                    onPressed: () {
+                      if (cartProvider.calculateTotalPrice(cartItems) > 0) {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (_) => CheckOutScreen(
+                                      total: cartProvider
+                                          .calculateTotalPrice(cartItems),
+                                    )));
+                      } else {
+                        Fluttertoast.showToast(
+                          msg: 'please Select items',
+                          toastLength: Toast.LENGTH_SHORT,
+                          gravity: ToastGravity.BOTTOM,
+                          timeInSecForIosWeb: 1,
+                          backgroundColor: Colors.red,
+                          textColor: Colors.white,
+                          fontSize: 16.0,
+                        );
+                      }
+                    },
+                  ),
+                  const SizedBox(height: 10,),
+                ],
+              ),
+            ),
           ),
         ),
       ),

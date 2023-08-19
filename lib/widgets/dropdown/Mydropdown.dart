@@ -9,47 +9,56 @@ class MyDropDownFormField extends StatefulWidget {
 
 class _MyDropDownFormFieldState extends State<MyDropDownFormField> {
   String _selectedItem = 'Delivery'; // Default selected item
+  bool _isDropdownOpen = false;
 
+  void _toggleDropdown() {
+    setState(() {
+      _isDropdownOpen = !_isDropdownOpen;
+    });
+  }
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 18.0, vertical: 8),
+    return  Padding(
+      padding: const EdgeInsets.only(left:8.0),
       child: DropdownButtonFormField<String>(
-        iconSize: 35,
-        iconDisabledColor: Colors.grey,
-        iconEnabledColor: Colors.black45,
-        decoration: InputDecoration(
-            contentPadding:
-                const EdgeInsets.symmetric(vertical: 12, horizontal: 15),
-            border: const OutlineInputBorder(
-              // Set Border to InputBorder.none to remove the underline
-              borderSide: BorderSide.none,
-            ),
-            hintText: 'Delivery',
-            fillColor: Colors.green.withOpacity(0.12),
-            filled: true),
-        borderRadius: BorderRadius.circular(20),
-        value: _selectedItem,
-        onChanged: (String? newValue) {
-          setState(() {
-            _selectedItem = newValue!;
-          });
-        },
-        items: <String>[
-          'Delivery',
-          'Item 2',
-          'Item 3',
-          'Item 4',
-        ].map<DropdownMenuItem<String>>((String value) {
-          return DropdownMenuItem<String>(
-            value: value, // Ensure that each item has a unique value
-            child: Text(
-              value,
-              style: const TextStyle(color: Colors.grey),
-            ),
-          );
-        }).toList(),
-      ),
+                icon: Padding(
+                  padding: const EdgeInsets.only(right:16.0),
+                  child: Image.asset('images/arrow3.png',height: 6,width: 12,),
+                ),
+                decoration: const InputDecoration(
+                    contentPadding:
+                        EdgeInsets.symmetric(vertical: 16, horizontal: 15),
+                    border: OutlineInputBorder(
+                      // Set Border to InputBorder.none to remove the underline
+                      borderSide: BorderSide.none,
+                    ),
+                    hintText: 'Delivery',
+                    fillColor: Color(0xffF5F8F8),
+                    filled: true),
+                borderRadius: const BorderRadius.all(Radius.circular(20)),
+                value: _selectedItem,
+                onChanged: (String? newValue) {
+                  setState(() {
+                    _selectedItem = newValue!;
+                  });
+                },
+                items: <String>[
+                  'Delivery',
+                  'Item 2',
+                  'Item 3',
+                  'Item 4',
+                ].map<DropdownMenuItem<String>>((String value) {
+                  return DropdownMenuItem<String>(
+                    value: value, // Ensure that each item has a unique value
+                    child: Text(
+                      value,
+                      style: const TextStyle(color: Colors.grey),
+                    ),
+                  );
+                }).toList(),
+              ),
     );
+
+
   }
 }

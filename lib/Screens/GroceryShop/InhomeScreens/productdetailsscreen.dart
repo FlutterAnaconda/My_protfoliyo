@@ -115,18 +115,18 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                               ? Image.asset(
                                   widget.image,
                                   width: double.infinity,
-                                  height: 260,
-                                  fit: BoxFit.contain,
+                                  height: 300,
+                                  fit: BoxFit.cover,
                                 )
                               : Image.network(
                                   widget.image,
                                   width: double.infinity,
-                                  height: 260,
-                                  fit: BoxFit.contain,
+                                  height: 270,
+                                  fit: BoxFit.fill,
                                 ),
                           // Cart Quantity Control
                           Positioned(
-                            bottom: 0,
+                            bottom: 10,
                             right: 10,
                             child: CartQuantityWidget(
                               initialquantity: cartQuantity,
@@ -138,8 +138,8 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                             ),
                           ),
                           Positioned(
-                            top: 0,
-                            right: 0,
+                            bottom: 10,
+                            left: 10,
                             child: GestureDetector(
                               onTap: () {
                                 setState(() {

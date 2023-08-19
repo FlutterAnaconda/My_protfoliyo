@@ -35,11 +35,14 @@ class _ChoosechatStoreScreenState extends State<ChoosechatStoreScreen> {
               const SizedBox(
                 height: 20,
               ),
-              SearchTextField(
-                controller: controller,
-                suggestions: const [],
-                isexpanded: true,
-                hinttext: 'Search Conversation',
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: SearchTextField(
+                  controller: controller,
+                  suggestions: const [],
+                  isexpanded: true,
+                  hinttext: 'Search Conversation',
+                ),
               ),
               const SizedBox(
                 height: 20,
@@ -84,7 +87,7 @@ class _ChoosechatStoreScreenState extends State<ChoosechatStoreScreen> {
                 ),
               ],
             ),
-            margin: const EdgeInsets.all(8),
+            margin: const EdgeInsets.symmetric(horizontal: 20,vertical: 4  ),
             child: SizedBox(
               width: MediaQuery.of(context).size.width *
                   0.8, // Replace with your desired fixed width

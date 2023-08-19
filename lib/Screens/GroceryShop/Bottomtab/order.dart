@@ -32,7 +32,7 @@ class _OrderTabState extends State<OrderTab>
   void _handleTabChange() {
     _pageController.animateToPage(
       _tabController.index,
-      duration: const Duration(milliseconds: 400),
+      duration: const Duration(milliseconds: 600),
       curve: Curves.decelerate,
     );
   }
@@ -58,6 +58,7 @@ class _OrderTabState extends State<OrderTab>
                 ))),
         body: Column(
           children: [
+
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Container(
@@ -82,6 +83,7 @@ class _OrderTabState extends State<OrderTab>
                 ),
               ),
             ),
+            const SizedBox(height: 10,),
             Expanded(
               child: PageView(
                 physics: const NeverScrollableScrollPhysics(),

@@ -1,4 +1,6 @@
 import 'package:dotcoder1/Screens/GroceryShop/InhomeScreens/paymentmethod.dart';
+import 'package:dotcoder1/widgets/customappbar.dart';
+import 'package:dotcoder1/widgets/text/constants.dart';
 import 'package:dotcoder1/widgets/textfields/butons/Myfilledbutton.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -9,11 +11,12 @@ import '../../../widgets/Stepper/Stepper.dart';
 
 import '../../../widgets/dropdown/Mydropdown.dart';
 
-
 import '../../../widgets/textfields/textfield.dart';
+import 'SearchScreens/locationScreen.dart';
 
 class CheckOutScreen extends StatefulWidget {
   final double total;
+
   const CheckOutScreen({super.key, required this.total});
 
   @override
@@ -27,6 +30,7 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
   TextEditingController cityController = TextEditingController();
 
   final PageController _contentPageController = PageController(initialPage: 0);
+
   // int? selectedCardIndex;
 
   List<CheckoutModel> deliverywidgetform = [
@@ -51,8 +55,9 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        title: const Text('Checkout'),
+      appBar: MYDetailsappbar(
+        text: 'Check out',
+        onpressed: (){Navigator.pop(context);},
       ),
       body: Container(
         color: Colors.white,
@@ -62,7 +67,11 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
             const SizedBox(
               height: 20,
             ),
-            Mystepper(currentindex: _currentPage),
+            Mystepper(
+                currentindex: _currentPage,
+                firsttext: 'Delivery',
+                thridtext: 'Payment',
+                secondtext: 'Address'),
             const SizedBox(
               height: 20,
             ),
@@ -88,10 +97,52 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
   }
 
   bool issave = false;
+
   Widget addresswidget(Function ontap) => SingleChildScrollView(
         child: Column(
           children: [
-            const MyDropDownFormField(),
+            SizedBox(
+              width: MediaQuery.of(context).size.width,
+              height: 100,
+              child: Row(
+                children: [
+                  SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.8,
+                      child: const Padding(
+                        padding: EdgeInsets.only(right: 4.0, left: 10),
+                        child: MyDropDownFormField(),
+                      )),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const PickLocationScreen(),
+                          ));
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 6.0),
+                      child: Container(
+                          height: 57,
+                          width: 52,
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.rectangle,
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                            color: Color(0xffF5F8F8),
+                            // border: OutlinedBorder(
+                            //   borderRadius: BorderRadius.circular(8.0),
+                            //   borderSide: BorderSide.none,
+                          ),
+                          child: Icon(
+                            Icons.location_on,
+                            color: Theme.of(context).primaryColor,
+                            size: 23,
+                          )),
+                    ),
+                  )
+                ],
+              ),
+            ),
             SizedBox(
               height: 215,
               child: ListView.builder(
@@ -106,7 +157,8 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
                       keyboardType = TextInputType.phone;
                     }
                     return Padding(
-                      padding: const EdgeInsets.all(4.0),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 4.0, vertical: 10),
                       child: MyTextFormField(
                         controller: deliverywidgetform[index].controller,
                         labelText: deliverywidgetform[index].label,
@@ -170,53 +222,73 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
               ),
             ),
             SizedBox(
-              height: 160,
-              child: Card(
-                surfaceTintColor: Colors.white60,
+              height: 180,
+              child: Container(
+                decoration: typingcardcontainerdecoration,
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          "Details",
-                          style: GoogleFonts.poppins(
-                              fontSize: 18,
-                              color: Theme.of(context).primaryColor,
-                              fontWeight: FontWeight.bold),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 8.0, top: 5),
+                          child: Text(
+                            "Details",
+                            style: GoogleFonts.poppins(
+                                fontSize: 18,
+                                color: Theme.of(context).primaryColor,
+                                fontWeight: FontWeight.bold),
+                          ),
                         ),
-                        Row(
-                          children: [
-                            Text(
-                              "Total",
-                              style: GoogleFonts.poppins(
-                                  fontSize: 16, color: Colors.black45),
-                            ),
-                            const Spacer(),
-                            Text('\$${widget.total.toStringAsFixed(2)}',
+                        Padding(
+                          padding: const EdgeInsets.only(left: 8,top:12.0),
+                          child: Row(
+                            children: [
+                              Text(
+                                "Total",
                                 style: GoogleFonts.poppins(
-                                    fontSize: 16, color: Colors.black45)),
-                          ],
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w600,
+                                  color: const Color(0xff6F6B6B),
+                                ),
+                              ),
+                              const Spacer(),
+                              Text(
+                                '\$${widget.total.toStringAsFixed(2)}',
+                                style: GoogleFonts.poppins(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w600,
+                                  color: const Color(0xff6F6B6B),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
-                        Row(
-                          children: [
-                            Text(" Delivery free for 3.6km",
-                                style: GoogleFonts.poppins(
-                                    fontSize: 14, color: Colors.black)),
-                            const Spacer(),
-                            Text("data",
-                                style: GoogleFonts.poppins(
-                                    fontSize: 14, color: Colors.black)),
-                          ],
+                        Padding(
+                          padding: const EdgeInsets.only(left:8.0,top: 4),
+                          child: Row(
+                            children: [
+                              Text(" Delivery free for 3.6km",
+                                  style: GoogleFonts.poppins(
+                                      fontSize: 14, color: Colors.black)),
+                              const Spacer(),
+                              Text("data",
+                                  style: GoogleFonts.poppins(
+                                      fontSize: 14, color: Colors.black)),
+                            ],
+                          ),
                         ),
                         Padding(
                           padding: const EdgeInsets.only(top: 12.0),
                           child: Center(
-                              child: GradientElevatedButton(onPressed:  () {
-                            _contentPageController.nextPage(
-                                duration: const Duration(milliseconds: 500),
-                                curve: Curves.linear);
-                          }, text: 'Next')),
+                              child: GradientElevatedButton(
+                                  onPressed: () {
+                                    _contentPageController.nextPage(
+                                        duration:
+                                            const Duration(milliseconds: 500),
+                                        curve: Curves.linear);
+                                  },
+                                  text: 'Next')),
                         ),
                       ]),
                 ),
