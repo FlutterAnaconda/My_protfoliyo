@@ -358,6 +358,466 @@ Widget active() {
     },
   );
 }
+Widget All() {
+  // Implement the content for each tab here
+  return ListView.builder(
+    scrollDirection: Axis.vertical,
+    itemCount: list.length,
+    itemBuilder: (context, index) {
+      Color? labelColor;
+      String? labelText;
+      // Determine label color and text based on your data
+      if (list[index].status == "in_progress") {
+        labelColor = const Color(0xFF1FB46D);
+        labelText = "In Progress";
+      } else if (list[index].status == "pending") {
+        labelColor = const Color(0xFFFB3C5E);
+        labelText = "Pending";
+      } else if (list[index].status == "delivered") {
+        labelColor = const Color(0xFFF3743D);
+        labelText = "Delivered";
+      } else {
+        return Container();
+      }
+      return GestureDetector(
+        onTap: () => {},
+        child: Container(
+          decoration: cardcontainerdecoration,
+          margin: const EdgeInsets.all(8),
+          child: SizedBox(
+            height: 132, // Replace with your desired fixed width
+            child: Stack(
+              alignment: Alignment.topRight,
+              children: [
+                Column(
+                  // crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(
+                            top: 27,
+                            left: 23,
+                          ),
+                          child: ClipRRect(
+                            borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(9),
+                                topRight: Radius.circular(9)),
+                            child: Image.asset(
+                              list[index].image!,
+                              height: 60,
+                              width: 60,
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding:
+                              const EdgeInsets.symmetric(horizontal: 8.0),
+                              child: Text(
+                                'Order Number',
+                                style: k14_79B400style,
+                              ),
+                            ),
+                            Padding(
+                              padding:
+                              const EdgeInsets.symmetric(horizontal: 8.0),
+                              child: Text(
+                                '#264100',
+                                style: k12_94G400style,
+                              ),
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 23.0,top:10,),
+                      child: Row(
+                        children: [
+                          const Icon(
+                            Icons.calendar_month_outlined,
+                            color: Color(0xffD6CCC6),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              '09th Jan, 2023 -- 11:20AM',
+                              style: k12Grey400style,
+                            ),
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+                Container(
+                  width: 83, // Width of the label container
+                  height: 25, // Height of the label container
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    color: labelColor,
+                    borderRadius: const BorderRadius.only(
+                      topRight: Radius.circular(9),
+                      bottomLeft: Radius.circular(9),
+                    ),
+                  ),
+                  child: Text(labelText, style: k11_09w400style),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+    },
+  );
+}
+Widget Pending() {
+  // Implement the content for each tab here
+  return ListView.builder(
+    scrollDirection: Axis.vertical,
+    itemCount: list.length,
+    itemBuilder: (context, index) {
+      if (list[index].status != 'pending') {
+        return Container();
+      }
+      Color? labelColor;
+      String? labelText;
+      // Determine label color and text based on your data
+       if (list[index].status == "pending") {
+         labelColor = const Color(0xFFFB3C5E);
+         labelText = "Pending";
+       }else {
+         return Container();
+       }
+      return GestureDetector(
+        onTap: () => {},
+        child: Container(
+          decoration: cardcontainerdecoration,
+          margin: const EdgeInsets.all(8),
+          child: SizedBox(
+            height: 132, // Replace with your desired fixed width
+            child: Stack(
+              alignment: Alignment.topRight,
+              children: [
+                Column(
+                  // crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(
+                            top: 27,
+                            left: 23,
+                          ),
+                          child: ClipRRect(
+                            borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(9),
+                                topRight: Radius.circular(9)),
+                            child: Image.asset(
+                              list[index].image!,
+                              height: 60,
+                              width: 60,
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding:
+                              const EdgeInsets.symmetric(horizontal: 8.0),
+                              child: Text(
+                                'Order Number',
+                                style: k14_79B400style,
+                              ),
+                            ),
+                            Padding(
+                              padding:
+                              const EdgeInsets.symmetric(horizontal: 8.0),
+                              child: Text(
+                                '#264100',
+                                style: k12_94G400style,
+                              ),
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 23.0,top:10,),
+                      child: Row(
+                        children: [
+                          const Icon(
+                            Icons.calendar_month_outlined,
+                            color: Color(0xffD6CCC6),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              '09th Jan, 2023 -- 11:20AM',
+                              style: k12Grey400style,
+                            ),
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+                Container(
+                  width: 83, // Width of the label container
+                  height: 25, // Height of the label container
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    color: labelColor,
+                    borderRadius: const BorderRadius.only(
+                      topRight: Radius.circular(9),
+                      bottomLeft: Radius.circular(9),
+                    ),
+                  ),
+                  child: Text(labelText, style: k11_09w400style),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+    },
+      );
+}
+
+Widget inprogress() {
+  // Implement the content for each tab here
+  return ListView.builder(
+    scrollDirection: Axis.vertical,
+    itemCount: list.length,
+    itemBuilder: (context, index) {
+      if (list[index].status != 'in_progress') {
+        return Container();
+      }
+      Color? labelColor;
+      String? labelText;
+      // Determine label color and text based on your data
+      if (list[index].status == "in_progress") {
+        labelColor = const Color(0xFF1FB46D);
+        labelText = "In Progress";
+      }else {
+        return Container();
+      }
+      return GestureDetector(
+        onTap: () => {},
+        child: Container(
+          decoration: cardcontainerdecoration,
+          margin: const EdgeInsets.all(8),
+          child: SizedBox(
+            height: 132, // Replace with your desired fixed width
+            child: Stack(
+              alignment: Alignment.topRight,
+              children: [
+                Column(
+                  // crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(
+                            top: 27,
+                            left: 23,
+                          ),
+                          child: ClipRRect(
+                            borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(9),
+                                topRight: Radius.circular(9)),
+                            child: Image.asset(
+                              list[index].image!,
+                              height: 60,
+                              width: 60,
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding:
+                              const EdgeInsets.symmetric(horizontal: 8.0),
+                              child: Text(
+                                'Order Number',
+                                style: k14_79B400style,
+                              ),
+                            ),
+                            Padding(
+                              padding:
+                              const EdgeInsets.symmetric(horizontal: 8.0),
+                              child: Text(
+                                '#264100',
+                                style: k12_94G400style,
+                              ),
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 23.0,top:10,),
+                      child: Row(
+                        children: [
+                          const Icon(
+                            Icons.calendar_month_outlined,
+                            color: Color(0xffD6CCC6),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              '09th Jan, 2023 -- 11:20AM',
+                              style: k12Grey400style,
+                            ),
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+                Container(
+                  width: 83, // Width of the label container
+                  height: 25, // Height of the label container
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    color: labelColor,
+                    borderRadius: const BorderRadius.only(
+                      topRight: Radius.circular(9),
+                      bottomLeft: Radius.circular(9),
+                    ),
+                  ),
+                  child: Text(labelText, style: k11_09w400style),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+    },
+  );
+}
+Widget Delivered() {
+  // Implement the content for each tab here
+  return ListView.builder(
+    scrollDirection: Axis.vertical,
+    itemCount: list.length,
+    itemBuilder: (context, index) {
+      if (list[index].status != 'delivered') {
+        return Container();
+      }
+      Color? labelColor;
+      String? labelText;
+      // Determine label color and text based on your data
+        if (list[index].status == "delivered") {
+        labelColor = const Color(0xFFF3743D);
+        labelText = "Delivered";
+      }else {
+          return Container();
+        }
+      return GestureDetector(
+        onTap: () => {},
+        child: Container(
+          decoration: cardcontainerdecoration,
+          margin: const EdgeInsets.all(8),
+          child: SizedBox(
+            height: 132, // Replace with your desired fixed width
+            child: Stack(
+              alignment: Alignment.topRight,
+              children: [
+                Column(
+                  // crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(
+                            top: 27,
+                            left: 23,
+                          ),
+                          child: ClipRRect(
+                            borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(9),
+                                topRight: Radius.circular(9)),
+                            child: Image.asset(
+                              list[index].image!,
+                              height: 60,
+                              width: 60,
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding:
+                              const EdgeInsets.symmetric(horizontal: 8.0),
+                              child: Text(
+                                'Order Number',
+                                style: k14_79B400style,
+                              ),
+                            ),
+                            Padding(
+                              padding:
+                              const EdgeInsets.symmetric(horizontal: 8.0),
+                              child: Text(
+                                '#264100',
+                                style: k12_94G400style,
+                              ),
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 23.0,top:10,),
+                      child: Row(
+                        children: [
+                          const Icon(
+                            Icons.calendar_month_outlined,
+                            color: Color(0xffD6CCC6),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              '09th Jan, 2023 -- 11:20AM',
+                              style: k12Grey400style,
+                            ),
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+                Container(
+                  width: 83, // Width of the label container
+                  height: 25, // Height of the label container
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    color: labelColor,
+                    borderRadius: const BorderRadius.only(
+                      topRight: Radius.circular(9),
+                      bottomLeft: Radius.circular(9),
+                    ),
+                  ),
+                  child: Text(labelText, style: k11_09w400style),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+    },
+  );
+}
 
 Widget completed() {
   // Implement the content for each tab here

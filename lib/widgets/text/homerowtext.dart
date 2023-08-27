@@ -34,3 +34,38 @@ class Myhomerowtext extends StatelessWidget {
     );
   }
 }
+
+class Vendorhomerowtext extends StatelessWidget {
+  final String righttext;
+  final String lefttext;
+  final VoidCallback? ontap;
+  const Vendorhomerowtext({super.key,  this.ontap, required this.righttext, required this.lefttext});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 12),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            righttext,
+            style:
+            GoogleFonts.poppins(fontWeight: FontWeight.w500, fontSize: 14),
+          ),
+          TextButton(
+            onPressed: ontap,
+            child: Text(
+              lefttext,
+              style: GoogleFonts.mulish(
+                fontWeight: FontWeight.w600,
+                fontSize: 12,
+                color: const Color(0xff34A853),
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}

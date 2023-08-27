@@ -9,13 +9,14 @@ class SearchTextField extends StatefulWidget {
   final List<String> suggestions;
   final bool isexpanded;
   final String hinttext;
+  final bool iscolorchanged;
 
   const SearchTextField(
       {Key? key,
       required this.controller,
       required this.suggestions,
       required this.isexpanded,
-      required this.hinttext})
+      required this.hinttext, required this.iscolorchanged})
       : super(key: key);
 
   @override
@@ -109,7 +110,7 @@ class _SearchTextFieldState extends State<SearchTextField> {
                 color: const Color(0xFF868889),
               ),
               filled: true,
-              fillColor: const Color.fromARGB(250, 240, 249, 250),
+              fillColor: widget.iscolorchanged ?Color(0xffEBF8EE):const Color.fromARGB(250, 240, 249, 250),
               border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8.0),
                   borderSide: BorderSide.none),

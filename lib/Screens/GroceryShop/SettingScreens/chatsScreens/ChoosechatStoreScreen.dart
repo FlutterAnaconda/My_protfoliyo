@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../widgets/textfields/searchtextfeild.dart';
-import '../../InhomeScreens/allstoresscreen.dart';
+
 import 'chat.dart';
 
 class ChoosechatStoreScreen extends StatefulWidget {
@@ -41,14 +41,14 @@ class _ChoosechatStoreScreenState extends State<ChoosechatStoreScreen> {
                   controller: controller,
                   suggestions: const [],
                   isexpanded: true,
-                  hinttext: 'Search Conversation',
+                  hinttext: 'Search Conversation', iscolorchanged: false,
                 ),
               ),
               const SizedBox(
                 height: 20,
               ),
               // const SizedBox(height: 500, child: AllStoresscreen()),
-              SizedBox(height: 500, child: chooseStores()),
+              SizedBox(height: 500, child: choosechat()),
             ],
           ),
         ),
@@ -56,7 +56,7 @@ class _ChoosechatStoreScreenState extends State<ChoosechatStoreScreen> {
     );
   }
 
-  Widget chooseStores() {
+  Widget choosechat() {
     return ListView.builder(
       itemCount: 5,
       itemBuilder: (context, index) {

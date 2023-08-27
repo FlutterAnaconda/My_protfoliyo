@@ -166,35 +166,38 @@ class _UserInfoState extends State<UserInfo> {
                               style: k16Grey400style,
                             ),
                           ),
-                          Switch(
-                              inactiveThumbColor: Colors.white,
-                              inactiveTrackColor: const Color(0xffD6D8DA),
-                              activeTrackColor: const Color(0xff07CD6E),
-                              thumbColor:
-                                  MaterialStateProperty.resolveWith<Color>(
-                                      (Set<MaterialState> states) {
-                                if (states.contains(MaterialState.disabled)) {
-                                  return Colors.white.withOpacity(.48);
-                                }
-                                return Colors.white;
-                              }),
-                              trackOutlineColor:
-                                  MaterialStateProperty.resolveWith<Color>(
-                                      (Set<MaterialState> states) {
-                                if (states.contains(MaterialState.disabled)) {
-                                  return const Color(0xffD6D8DA)
-                                      .withOpacity(.48);
-                                }
-                                return const Color(0xff07CD6E).withOpacity(0);
-                              }),
-                              activeColor: Theme.of(context).primaryColor,
-                              value: switchlist[index].ischeck,
-                              onChanged: (_) {
-                                setState(() {
-                                  switchlist[index].ischeck =
-                                      !switchlist[index].ischeck;
-                                });
-                              })
+                          Transform.scale(
+                            scale: 0.5,
+                            child: Switch(
+                                inactiveThumbColor: Colors.white,
+                                inactiveTrackColor: const Color(0xffD6D8DA),
+                                activeTrackColor: const Color(0xff07CD6E),
+                                thumbColor:
+                                    MaterialStateProperty.resolveWith<Color>(
+                                        (Set<MaterialState> states) {
+                                  if (states.contains(MaterialState.disabled)) {
+                                    return Colors.white.withOpacity(.48);
+                                  }
+                                  return Colors.white;
+                                }),
+                                trackOutlineColor:
+                                    MaterialStateProperty.resolveWith<Color>(
+                                        (Set<MaterialState> states) {
+                                  if (states.contains(MaterialState.disabled)) {
+                                    return const Color(0xffD6D8DA)
+                                        .withOpacity(.48);
+                                  }
+                                  return const Color(0xff07CD6E).withOpacity(0);
+                                }),
+                                activeColor: Theme.of(context).primaryColor,
+                                value: switchlist[index].ischeck,
+                                onChanged: (_) {
+                                  setState(() {
+                                    switchlist[index].ischeck =
+                                        !switchlist[index].ischeck;
+                                  });
+                                }),
+                          )
                         ],
                       ),
                     ),

@@ -60,7 +60,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                           isbuyer = true;
                           whichuser.isUser(isbuyer);
                         });
-                        Navigator.pushReplacement(
+                        Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => const Beautifulneigerion())

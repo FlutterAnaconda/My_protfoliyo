@@ -117,7 +117,7 @@ class _HomeTabState extends State<HomeTab> {
                     controller: searchcontroller,
                     suggestions: searchSuggestions,
                     isexpanded: false,
-                    hinttext: 'Search Categories',
+                    hinttext: 'Search Categories', iscolorchanged: false,
                   ),
                 ),
                 const SizedBox(width: 5,),

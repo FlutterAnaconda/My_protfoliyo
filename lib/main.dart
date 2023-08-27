@@ -1,4 +1,5 @@
 import 'package:dotcoder1/Screens/GroceryShop/homeScreen.dart';
+import 'package:dotcoder1/Screens/onboarding/welcomeScreen.dart';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -13,6 +14,8 @@ import 'Screens/GroceryShop/InhomeScreens/categoreyscreen.dart';
 
 import 'Screens/GroceryShop/InhomeScreens/offerforyou.dart';
 import 'Screens/GroceryShop/InhomeScreens/topsellings.dart';
+import 'Screens/GroceryShop/Vendormodule/VendorhomeScreen.dart';
+import 'Screens/GroceryShop/Vendormodule/vendorbottomtab/vhometab.dart';
 import 'Screens/MysplashScreen.dart';
 import 'Screens/onboarding/RegisterAccount.dart';
 import 'Screens/onboarding/SigninScreen.dart';
@@ -40,8 +43,9 @@ class MyApp extends StatelessWidget {
               primaryColor: const Color(0xFF07CD6E),
               useMaterial3: true,
             ),
-            debugShowCheckedModeBanner: false,
-            home: const SplashScreen(),
+            debugShowCheckedModeBanner: true,
+            home: const WelcomeScreen(),
+            // home: const VendorhomeScreen(),
             routes: {
               MyPageView.routename: (context) => const MyPageView(),
               RegistrationScreen.routename: (context) =>

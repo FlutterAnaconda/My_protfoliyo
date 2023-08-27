@@ -12,7 +12,7 @@ class DescriptionWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: TextFormField(
-        readOnly: true,
+        // readOnly: true,
         initialValue: description,
         style: const TextStyle(
           fontSize: 16,

@@ -76,10 +76,20 @@ class _PaymentmethodcardState extends State<Paymentmethodcard> {
                                 child: Text(Paymentmethodcard.paymethod[index].text),
                               ),
                               const Spacer(),
-                              SmoothCheckBox(
-                                isSelected: selectedPaymentIndex == index,
-                                index:index,
-                                selectedindex:selectedPaymentIndex,
+                              AnimatedContainer(
+                                duration: const Duration(milliseconds: 200),
+                                width: 30,
+                                height: 30,
+                                decoration: BoxDecoration(
+                                  color:  selectedPaymentIndex == index
+                                      ? Theme.of(context).primaryColor
+                                      : Colors.transparent,
+                                  border: Border.all(color: Theme.of(context).primaryColor),
+                                  borderRadius: BorderRadius.circular(4),
+                                ),
+                                child: selectedPaymentIndex == index
+                                    ? const Icon(Icons.check, color: Colors.white)
+                                    : const SizedBox.shrink(),
                               ),
                             ],
                           ),
@@ -118,45 +128,31 @@ class _PaymentmethodcardState extends State<Paymentmethodcard> {
 }
 
 // ignore: must_be_immutable
-class SmoothCheckBox extends StatefulWidget {
-   final int selectedindex;
-   final int index;
-   bool? isSelected;
+// class SmoothCheckBox extends StatefulWidget {
+//    final int selectedindex;
+//    final int index;
+//    bool? isSelected;
+//
+//    SmoothCheckBox({super.key,  this.isSelected, required this.selectedindex, required this.index, });
+//
+//   @override
+//   // ignore: library_private_types_in_public_api
+//   _SmoothCheckBoxState createState() => _SmoothCheckBoxState();
+// }
 
-   SmoothCheckBox({super.key,  this.isSelected, required this.selectedindex, required this.index, });
-
-  @override
-  // ignore: library_private_types_in_public_api
-  _SmoothCheckBoxState createState() => _SmoothCheckBoxState();
-}
-
-class _SmoothCheckBoxState extends State<SmoothCheckBox> {
-   bool? ischecked;
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        setState(() {
-           ischecked =   widget.selectedindex ==  widget.index;
-           widget.isSelected=ischecked;
-        });
-
-      },
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 200),
-        width: 30,
-        height: 30,
-        decoration: BoxDecoration(
-          color: widget.isSelected!
-              ? Theme.of(context).primaryColor
-              : Colors.transparent,
-          border: Border.all(color: Theme.of(context).primaryColor),
-          borderRadius: BorderRadius.circular(4),
-        ),
-        child:widget.isSelected!
-            ? const Icon(Icons.check, color: Colors.white)
-            : const SizedBox.shrink(),
-      ),
-    );
-  }
-}
+// class _SmoothCheckBoxState extends State<SmoothCheckBox> {
+//    bool? ischecked;
+//   @override
+//   Widget build(BuildContext context) {
+//     return GestureDetector(
+//       onTap: () {
+//         setState(() {
+//            ischecked =   widget.selectedindex ==  widget.index;
+//            widget.isSelected=ischecked;
+//         });
+//
+//       },
+//       child:
+//     );
+//   }
+// }

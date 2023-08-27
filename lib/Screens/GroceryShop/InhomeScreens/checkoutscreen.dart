@@ -71,7 +71,7 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
                 currentindex: _currentPage,
                 firsttext: 'Delivery',
                 thridtext: 'Payment',
-                secondtext: 'Address'),
+                secondtext: 'Address', isdummyneeded: true,),
             const SizedBox(
               height: 20,
             ),
@@ -86,7 +86,15 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
                         duration: const Duration(milliseconds: 500),
                         curve: Curves.linear);
                   }),
-                  const PaymentScreen(),
+                   PaymentScreen(
+                    onPressed: () {
+                      _contentPageController.nextPage(
+                          duration:
+                          const Duration(milliseconds: 500),
+                          curve: Curves.linear);
+                    },
+
+                  ),
                 ],
               ),
             )
@@ -97,6 +105,10 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
   }
 
   bool issave = false;
+  final List<String> list=['Delivery',
+    'Item 2',
+    'Item 3',
+    'Item 4',];
 
   Widget addresswidget(Function ontap) => SingleChildScrollView(
         child: Column(
@@ -108,9 +120,9 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
                 children: [
                   SizedBox(
                       width: MediaQuery.of(context).size.width * 0.8,
-                      child: const Padding(
-                        padding: EdgeInsets.only(right: 4.0, left: 10),
-                        child: MyDropDownFormField(),
+                      child:  Padding(
+                        padding: const EdgeInsets.only(right: 4.0, left: 10),
+                          child: MyDropDownFormField(hinttext: 'Delivery',list: list, iscolorchanged: false,),
                       )),
                   GestureDetector(
                     onTap: () {

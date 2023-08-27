@@ -239,7 +239,7 @@ class _CartScreenState extends State<CartScreen> {
           ),
         ),
         bottomNavigationBar: SizedBox(
-          height: 204,
+          height: 205,
           child: Card(
             surfaceTintColor: Colors.white60,
             child: Padding(

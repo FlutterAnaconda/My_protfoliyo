@@ -6,7 +6,8 @@ class Mystepper extends StatelessWidget {
   final String firsttext;
   final String secondtext;
   final String thridtext;
-  Mystepper({super.key, this.currentindex, required this.firsttext, required this.secondtext, required this.thridtext});
+  final bool isdummyneeded;
+  Mystepper({super.key, this.currentindex, required this.firsttext, required this.secondtext, required this.thridtext, required this.isdummyneeded});
 
   @override
   Widget build(BuildContext context) {
@@ -24,18 +25,24 @@ class Mystepper extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   // _buildStepperIcon(0),
-                  _buildDummyStepper(context),
+                  isdummyneeded?_buildDummyStepper(context):_buildStepperIcon(0, context),
                   Expanded(
                     child: Divider(
-                        thickness: 3, color: Theme.of(context).primaryColor),
+                        thickness: 3, color: (isdummyneeded || currentindex! > 0)
+                        ? Theme.of(context).primaryColor
+                        : Colors.grey.withOpacity(0.3)),
                   ),
                   _buildStepperIcon(1, context),
                   Expanded(
                     child: Divider(
                       thickness: 3,
-                      color: currentindex! >= 1
+                      color:isdummyneeded
+                          ? currentindex! >= 1
                           ? Theme.of(context).primaryColor
-                          : Colors.grey.withOpacity(0.3),
+                          : Colors.grey.withOpacity(0.3)
+                          : currentindex! > 1
+                          ? Theme.of(context).primaryColor
+                          : Colors.grey.withOpacity(0.3)
                     ),
                   ),
                   _buildStepperIcon(2, context),

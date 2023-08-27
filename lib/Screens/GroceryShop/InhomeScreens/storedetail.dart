@@ -281,8 +281,8 @@ class _StoresdetailscreenState extends State<Storesdetailscreen> {
                list[index].discount!? Positioned(
                   right: 20,
                   child:Container(
-                    width: 30,
-                    height: 35,
+                    width: 35,
+                    height: 40,
                       decoration: BoxDecoration(
                         image: DecorationImage(
                           image: AssetImage(list[index].price! ==25?'images/yellow.png':'images/green.png',),

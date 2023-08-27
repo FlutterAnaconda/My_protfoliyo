@@ -41,7 +41,6 @@ class _MyPageViewState extends State<MyPageView> {
   int activeDotIndex = 0;
   @override
   Widget build(BuildContext context) {
-    final whichuser = Provider.of<Usertype>(context);
     final mediaquery = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
@@ -58,9 +57,8 @@ class _MyPageViewState extends State<MyPageView> {
                       Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => whichuser.isuser!
-                                  ? const RegistrationScreen()
-                                  : const SignInScreen())
+                              builder: (context) =>
+                                   const SignInScreen())
                           // RegistrationScreen.routename
                           );
                     },
@@ -198,8 +196,13 @@ class _MyPageViewState extends State<MyPageView> {
                                 curve: Curves.ease,
                               )
                             }
-                          : Navigator.pushReplacementNamed(
-                              context, RegistrationScreen.routename);
+                          :  Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                              const SignInScreen())
+                        // RegistrationScreen.routename
+                      );
                     },
                   ),
                 ),

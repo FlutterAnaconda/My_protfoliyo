@@ -60,7 +60,7 @@ class _TrackorderState extends State<Trackorder> {
                     currentindex: 0,
                     firsttext: 'Order Placed',
                     secondtext: 'On the way',
-                    thridtext: 'Delivered'),
+                    thridtext: 'Delivered', isdummyneeded: true,),
                 Padding(
                   padding: const EdgeInsets.symmetric(
                     horizontal: 22,

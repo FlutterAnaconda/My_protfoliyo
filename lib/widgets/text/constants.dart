@@ -36,10 +36,20 @@ final k10G400style = GoogleFonts.poppins(
   fontWeight: FontWeight.w400,
   color: const Color(0xff34A853),
 );
+final k14G600style = GoogleFonts.poppins(
+  fontSize: 14,
+  fontWeight: FontWeight.w600,
+  color: const Color(0xff34A853),
+);
 final k12_94G400style = GoogleFonts.poppins(
   fontSize: 12.94,
   fontWeight: FontWeight.w400,
   color: const Color(0xff059F55).withOpacity(0.86),
+);
+final k22B500style = GoogleFonts.poppins(
+  fontSize: 22,
+  fontWeight: FontWeight.w500,
+
 );
 
 final k12lightGrey400style = GoogleFonts.poppins(
@@ -53,6 +63,12 @@ final k16G600style = GoogleFonts.poppins(
   fontWeight: FontWeight.w600,
   color: const Color(0xff34A853),
 );
+final k24G600style = GoogleFonts.poppins(
+  fontSize: 24,
+  fontWeight: FontWeight.w600,
+  color: const Color(0xff059F55),
+);
+
 final k2w600inter = GoogleFonts.inter(
   fontSize: 2,
   fontWeight: FontWeight.w600,
@@ -111,6 +127,11 @@ final k14Grey300style = GoogleFonts.poppins(
   fontWeight: FontWeight.w300,
   color: const Color(0xff646363),
 );
+final k14darkGrey300style = GoogleFonts.poppins(
+  fontSize: 14,
+  fontWeight: FontWeight.w300,
+  color: const Color(0xff8C8E97),
+);
 final k14darkGrey500style = GoogleFonts.poppins(
   fontSize: 14,
   fontWeight: FontWeight.w500,
@@ -121,15 +142,30 @@ final k18B700style = GoogleFonts.mulish(
   fontWeight: FontWeight.w700,
   color: const Color(0xff000000),
 );
+final k18B500style = GoogleFonts.poppins(
+  fontSize: 18,
+  fontWeight: FontWeight.w500,
+  color: const Color(0xff000000),
+);
 final k12B500style = GoogleFonts.mulish(
   fontSize: 12,
   fontWeight: FontWeight.w500,
+  color: const Color(0xff000000),
+);
+final k12B400style = GoogleFonts.poppins(
+  fontSize: 12,
+  fontWeight: FontWeight.w400,
   color: const Color(0xff000000),
 );
 final k12Grey400style = GoogleFonts.poppins(
   fontSize: 12,
   fontWeight: FontWeight.w400,
   color: const Color(0xff9C9898),
+);
+final k8Grey400style = GoogleFonts.poppins(
+  fontSize: 8,
+  fontWeight: FontWeight.w400,
+  color: const Color(0xff8D9092),
 );
 final k16Grey400style = GoogleFonts.poppins(
   fontSize: 16,
@@ -155,6 +191,11 @@ final k14B400interstyle = GoogleFonts.inter(
 final k14B600style = GoogleFonts.poppins(
   fontSize: 14,
   fontWeight: FontWeight.w600,
+  color: const Color(0xff000000),
+);
+final k14B500style = GoogleFonts.poppins(
+  fontSize: 14,
+  fontWeight: FontWeight.w500,
   color: const Color(0xff000000),
 );
 
@@ -214,6 +255,38 @@ final cardcontainerdecoration = BoxDecoration(
       spreadRadius: 0, // Spread radius (controls the blur)
       blurRadius: 2, // Blur radius
       offset: const Offset(0, 2), // Offset in the x and y axes
+    ),
+  ],
+);
+final cardcontainerdecorationradius15 = BoxDecoration(
+  color: Colors.white, // Set the container background color
+  borderRadius: BorderRadius.circular(15),
+  border: Border.all(
+    width: 0.5,
+    color: Colors.black.withOpacity(0.05),
+  ), // Optional: Rounded corners
+  boxShadow: [
+    BoxShadow(
+      color: Colors.black.withOpacity(0.05), // Shadow color
+      spreadRadius: 0, // Spread radius (controls the blur)
+      blurRadius: 2, // Blur radius
+      offset: const Offset(0, 2), // Offset in the x and y axes
+    ),
+  ],
+);
+final salecardcontainerdecoration = BoxDecoration(
+  color: const Color(0xffEFF9F2), // Set the container background color
+  borderRadius: BorderRadius.circular(22),
+  border: Border.all(
+    width: 0.5,
+    color: Colors.black.withOpacity(0.05),
+  ), // Optional: Rounded corners
+  boxShadow: [
+    BoxShadow(
+      color: Colors.black.withOpacity(0.05), // Shadow color
+      spreadRadius: 0, // Spread radius (controls the blur)
+      blurRadius: 2.17834, // Blur radius
+      offset: const Offset(0, 2.17834), // Offset in the x and y axes
     ),
   ],
 );

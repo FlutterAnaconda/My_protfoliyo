@@ -1,14 +1,18 @@
+import 'package:dotcoder1/Screens/GroceryShop/Vendormodule/registration_screen.dart';
 import 'package:dotcoder1/Screens/GroceryShop/homeScreen.dart';
 import 'package:dotcoder1/Screens/onboarding/RegisterAccount.dart';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
+import '../../Providers/usertype.dart';
 import '../../widgets/text/BoldText.dart';
 import '../../widgets/text/thintext.dart';
 import '../../widgets/textfields/butons/Myfilledbutton.dart';
 import '../../widgets/textfields/butons/loginwithbutton.dart';
 import '../../widgets/textfields/textfield.dart';
+import '../GroceryShop/Vendormodule/VendorhomeScreen.dart';
 import 'forgotpasswordScreen.dart';
 
 class SignInScreen extends StatefulWidget {
@@ -38,6 +42,8 @@ class _SignInScreenState extends State<SignInScreen> {
   @override
   Widget build(BuildContext context) {
     final mediaquery = MediaQuery.of(context).size;
+    final whichuser = Provider.of<Usertype>(context);
+
     return SafeArea(
       child: Scaffold(
           // backgroundColor: const Color(0xff23AA49).withOpacity(0.12),
@@ -128,7 +134,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const HomeScreen())
+                              builder: (context) => whichuser.isuser!?const HomeScreen():const VendorhomeScreen())
                           //  HomeScreen.routename
                           );
                     },
@@ -178,8 +184,11 @@ class _SignInScreenState extends State<SignInScreen> {
                         ),
                         TextButton(
                           onPressed: () {
+                            whichuser.isuser!?
                             Navigator.pushReplacementNamed(
-                                context, RegistrationScreen.routename);
+                                context, RegistrationScreen.routename):Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
+                                 return const VendorRegistration();
+                                },));
                           },
                           child: Text(
                             ' Sign up',

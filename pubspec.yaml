@@ -26,6 +26,8 @@ dependencies:
   carousel_slider: ^4.2.1
   google_maps_flutter: ^2.4.0
   syncfusion_flutter_sliders: ^22.2.9
+  fl_chart: ^0.63.0
+  buttons_tabbar: ^1.3.7+1
   
 
 dev_dependencies:
@@ -48,6 +50,33 @@ flutter:
     - images/star1.png
     - images/star3.png
     - images/yellow.png
+    - images/sale1.png
+    - images/cube.png
+    - images/orderdone.png
+    - images/conform.png
+    - images/outdev.png
+    - images/pending.png
+    - images/progress.png
+    - images/sale2.png
+    - images/cam.png
+    - images/map.png
+    - images/up.png
+    - images/down.png
+    - images/salesdisplay.png
+    - images/commission.png
+    - images/subscribe.png
+    - images/vendor/maxorder.png
+    - images/vendor/maxprod.png
+    - images/vendor/mobile.png
+    - images/vendor/reviews.png
+    - images/vendor/scale.png
+    - images/basic.png
+    - images/inter.png
+    - images/advance.png
+    - images/fillsale.png
+    - images/sale.png
+    - images/bell.png
+    - images/add.png
     - images/green.png
     - images/message.png
     - images/arrow3.png

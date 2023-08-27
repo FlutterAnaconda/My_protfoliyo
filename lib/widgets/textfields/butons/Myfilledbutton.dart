@@ -4,17 +4,19 @@ import 'package:google_fonts/google_fonts.dart';
 class GradientElevatedButton extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
+  double? height;
 
-  const GradientElevatedButton({
+   GradientElevatedButton({
     required this.text,
     required this.onPressed,
+    this.height,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width * 0.9,
-      height: 50,
+      height: height ?? 50,
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
